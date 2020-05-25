@@ -19,7 +19,12 @@ client
   })
   .catch(console.error);
 
-
+client
+  .get("statuses/home_timeline")
+  .then(results => {
+    console.log("results", results);
+  })
+  .catch(console.error);
 
 class App extends Component {
   constructor(props) {
