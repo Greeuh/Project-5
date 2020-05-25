@@ -1,0 +1,22 @@
+{
+  "name": "app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "dotenv": "^8.2.0",
+    "next": "9.3.5",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "twitter": "^1.7.1",
+    "twitter-lite": "^0.13.0"
+  },
+  "devDependencies": {
+    "dotenv-webpack": "^1.8.0"
+  }
+}
