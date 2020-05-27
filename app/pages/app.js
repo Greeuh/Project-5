@@ -34,6 +34,7 @@ class TweetsTimeline extends Component {
       .get("statuses/home_timeline")
       .then(results => {
         this.setState({ timeline: results })
+        console.log(results[0].created_at)
       })
       .catch(console.error);
   }
