@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import Twitter from 'twitter-lite';
-import './timeline.css';
 
 class TweetsTimeline extends Component {
   constructor(props) {
