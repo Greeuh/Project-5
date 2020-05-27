@@ -7,7 +7,7 @@ class TweetsTimeline extends Component {
     super(props)
 
     this.state = {
-      timeline: []
+      tweets: []
     };
   }
 
@@ -52,7 +52,7 @@ class TweetsTimeline extends Component {
                 </div>
                 <div class="timeline-Tweet-author">
                   <div class="TweetAuthor"><a class="TweetAuthor-link" href="#channel"> </a><span class="TweetAuthor-avatar">
-                    <div class="Avatar"> </div></span><span class="TweetAuthor-name">{timeline.user.screen_name}</span><span class="Icon Icon--verified"> </span><span class="TweetAuthor-screenName">@TwitterDev</span></div>
+                    <div class="Avatar"> </div></span><span class="TweetAuthor-name">{tweet.user.screen_name}</span><span class="Icon Icon--verified"> </span><span class="TweetAuthor-screenName">@TwitterDev</span></div>
                 </div>
                 <div class="timeline-Tweet-text">We're excited for the inaugural Twitter Community Meetup<a href="#">@TwitterSeattle</a><span>tomorrow!</span><a href="#">#TapIntoTwitter</a><a href="#">meetup.com/Seattle-Twitte…</a></div>
                 <div class="timeline-Tweet-metadata"><span class="timeline-Tweet-timestamp">9h</span></div>
