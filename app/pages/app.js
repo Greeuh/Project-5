@@ -122,6 +122,6 @@ class App extends Component {
 }
 
 
-
+export default TweetsTimeline;
 export default App;
 
