@@ -23,12 +23,17 @@ class TweetsTimeline extends Component {
 
     });
 
-
+    client
+      .get("account/verify_credentials")
+      .then(results => {
+        console.log("results", results);
+      })
+      .catch(console.error);
 
     client
       .get("statuses/home_timeline")
       .then(results => {
-        this.setState({ timeline: results })
+        this.setState({ tweets: results })
         console.log(results[0].created_at)
       })
       .catch(console.error);
@@ -38,7 +43,7 @@ class TweetsTimeline extends Component {
 
     return (
       <div className="TweetsTimeline">
-        {this.state.timeline.map(tweet =>
+        {this.state.tweets.map(tweet =>
           <div class="tw-block-parent">
             <div class="timeline-TweetList-tweet">
               <div class="timeline-Tweet">
