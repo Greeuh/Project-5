@@ -23,12 +23,7 @@ class TweetsTimeline extends Component {
 
     });
 
-    client
-      .get("account/verify_credentials")
-      .then(results => {
-        console.log("results", results);
-      })
-      .catch(console.error);
+
 
     client
       .get("statuses/home_timeline")
