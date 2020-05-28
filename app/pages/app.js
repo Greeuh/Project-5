@@ -33,6 +33,7 @@ class TweetsTimeline extends Component {
     client
       .get("statuses/home_timeline")
       .then(results => {
+        console.log(results)
         this.setState({ tweets: results })
         console.log(results[0].created_at)
       })
