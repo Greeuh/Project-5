@@ -2,6 +2,16 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Twitter from 'twitter-lite';
 
+const client = new Twitter({
+  subdomain: "api", // "api" is the default (change for other subdomains)
+  version: "1.1", // version "1.1" is the default (change for other subdomains)
+  consumer_key: process.env.TWITTER_CONSUMER_KEY,
+  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
+
+});
+
 class TweetsTimeline extends Component {
   constructor(props) {
     super(props)
@@ -11,17 +21,9 @@ class TweetsTimeline extends Component {
     };
   }
 
+  
+
   componentDidMount() {
-
-    const client = new Twitter({
-      subdomain: "api", // "api" is the default (change for other subdomains)
-      version: "1.1", // version "1.1" is the default (change for other subdomains)
-      consumer_key: process.env.TWITTER_CONSUMER_KEY,
-      consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-      access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-      access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
-
-    });
 
     client
       .get("account/verify_credentials")
