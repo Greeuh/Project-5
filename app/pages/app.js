@@ -32,6 +32,7 @@ class TweetsTimeline extends Component {
 
     client
       .get("statuses/home_timeline")
+      .then(response => console.log(response))
       .then(response => {
         return response.json()
       })
