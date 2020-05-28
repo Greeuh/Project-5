@@ -32,11 +32,13 @@ class TweetsTimeline extends Component {
 
     client
       .get("statuses/home_timeline")
-      .then(response => response.json())
-      .then(results => {
-        console.log(results)
-        this.setState({ tweets: results })
-        console.log(results[0].created_at)
+      .then(response => {
+        return response.json()
+      })
+      .then(result => {
+        console.log(result)
+        this.setState({ tweets: result })
+        console.log(result[0].created_at)
       })
       .catch(console.error);
   }
