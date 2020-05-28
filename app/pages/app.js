@@ -2,22 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Twitter from 'twitter-lite';
 
-const client = new Twitter({
-  subdomain: "api", // "api" is the default (change for other subdomains)
-  version: "1.1", // version "1.1" is the default (change for other subdomains)
-  consumer_key: process.env.TWITTER_CONSUMER_KEY,
-  consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-  access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
-  access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 
-});
 
-client
-      .get("account/verify_credentials")
-      .then(results => {
-        console.log("results", results);
-      })
-      .catch(console.error);
 
 class TweetsTimeline extends Component {
   constructor(props) {
@@ -28,22 +14,47 @@ class TweetsTimeline extends Component {
     };
   }
 
-  
 
   componentDidMount() {
+    // const client = new Twitter({
+    //   subdomain: "api", // "api" is the default (change for other subdomains)
+    //   version: "1.1", // version "1.1" is the default (change for other subdomains)
+    //   consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    //   consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    //   access_token_key: process.env.TWITTER_ACCESS_TOKEN_KEY,
+    //   access_token_secret: process.env.TWITTER_ACCESS_TOKEN_SECRET
 
-    client
-      .get("statuses/home_timeline")
-      .then(response => console.log(response))
-      .then(response => {
-        return response.json()
-      })
-      .then(result => {
-        console.log(result)
-        this.setState({ tweets: result })
-        console.log(result[0].created_at)
-      })
-      .catch(console.error);
+    // });
+
+    // client
+    //   .get("account/verify_credentials")
+    //   .then(results => {
+    //     console.log("results", results);
+    //   })
+    //   .catch(console.error);
+
+    // client
+    //   .get("statuses/home_timeline")
+    //   .then(response => console.log(response))
+    //   .then(response => {
+    //     return response.json()
+    //   })
+    //   .then(result => {
+    //     console.log(result)
+    //     this.setState({ tweets: result })
+    //     console.log(result[0].created_at)
+    //   })
+    //   .catch(console.error);
+
+    const user = new Twitter({
+       consumer_key: process.env.TWITTER_CONSUMER_KEY,
+       consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    });
+     
+    const response = await user.getBearerToken();
+    const app = new Twitter({
+      bearer_token: response.access_token
+    });
   }
 
   render() {
