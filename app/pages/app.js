@@ -47,43 +47,45 @@ class TweetsTimeline extends Component {
     //   .catch(console.error);
 
     const user = new Twitter({
-       consumer_key: process.env.TWITTER_CONSUMER_KEY,
-       consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+      consumer_key: process.env.TWITTER_CONSUMER_KEY,
+      consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
     });
-     
-    const response = await user.getBearerToken();
-    const app = new Twitter({
-      bearer_token: response.access_token
-    });
-  }
 
-  render() {
+    user.getBearerToken().then(response => {
+      const app = new Twitter({
+        bearer_token: response.access_token
+      });
+    console.log(app.bearer_token)
+  })
+}
 
-    return (
-      <div className="TweetsTimeline">
-        {this.state.tweets.map(tweet =>
-          <div class="tw-block-parent">
-            <div class="timeline-TweetList-tweet">
-              <div class="timeline-Tweet">
-                <div class="timeline-Tweet-brand">
-                  <div class="Icon Icon--twitter"></div>
-                </div>
-                <div class="timeline-Tweet-author">
-                  <div class="TweetAuthor"><a class="TweetAuthor-link" href="#channel"> </a><span class="TweetAuthor-avatar">
-                    <div class="Avatar"> </div></span><span class="TweetAuthor-name">{tweet.user.screen_name}</span><span class="Icon Icon--verified"> </span><span class="TweetAuthor-screenName">@TwitterDev</span></div>
-                </div>
-                <div class="timeline-Tweet-text">We're excited for the inaugural Twitter Community Meetup<a href="#">@TwitterSeattle</a><span>tomorrow!</span><a href="#">#TapIntoTwitter</a><a href="#">meetup.com/Seattle-Twitte…</a></div>
-                <div class="timeline-Tweet-metadata"><span class="timeline-Tweet-timestamp">9h</span></div>
-                <ul class="timeline-Tweet-actions">
-                  <li class="timeline-Tweet-action"><a class="Icon Icon--heart" href="#"></a></li>
-                  <li class="timeline-Tweet-action"><a class="Icon Icon--share" href="#"></a></li>
-                </ul>
+render() {
+
+  return (
+    <div className="TweetsTimeline">
+      {this.state.tweets.map(tweet =>
+        <div class="tw-block-parent">
+          <div class="timeline-TweetList-tweet">
+            <div class="timeline-Tweet">
+              <div class="timeline-Tweet-brand">
+                <div class="Icon Icon--twitter"></div>
               </div>
+              <div class="timeline-Tweet-author">
+                <div class="TweetAuthor"><a class="TweetAuthor-link" href="#channel"> </a><span class="TweetAuthor-avatar">
+                  <div class="Avatar"> </div></span><span class="TweetAuthor-name">{tweet.user.screen_name}</span><span class="Icon Icon--verified"> </span><span class="TweetAuthor-screenName">@TwitterDev</span></div>
+              </div>
+              <div class="timeline-Tweet-text">We're excited for the inaugural Twitter Community Meetup<a href="#">@TwitterSeattle</a><span>tomorrow!</span><a href="#">#TapIntoTwitter</a><a href="#">meetup.com/Seattle-Twitte…</a></div>
+              <div class="timeline-Tweet-metadata"><span class="timeline-Tweet-timestamp">9h</span></div>
+              <ul class="timeline-Tweet-actions">
+                <li class="timeline-Tweet-action"><a class="Icon Icon--heart" href="#"></a></li>
+                <li class="timeline-Tweet-action"><a class="Icon Icon--share" href="#"></a></li>
+              </ul>
             </div>
-          </div>)}
-      </div>
-    );
-  }
+          </div>
+        </div>)}
+    </div>
+  );
+}
 
 }
 
