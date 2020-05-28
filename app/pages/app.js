@@ -12,6 +12,13 @@ const client = new Twitter({
 
 });
 
+client
+      .get("account/verify_credentials")
+      .then(results => {
+        console.log("results", results);
+      })
+      .catch(console.error);
+
 class TweetsTimeline extends Component {
   constructor(props) {
     super(props)
@@ -24,13 +31,6 @@ class TweetsTimeline extends Component {
   
 
   componentDidMount() {
-
-    client
-      .get("account/verify_credentials")
-      .then(results => {
-        console.log("results", results);
-      })
-      .catch(console.error);
 
     client
       .get("statuses/home_timeline")
