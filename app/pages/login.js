@@ -17,7 +17,7 @@ class Login extends Component {
                     reqTkn: res.oauth_token,
                     reqTknSecret: res.oauth_token_secret
                 })
-                window.location.replace("https://api.twitter.com/oauth/authorize?" + res.oauth_token);
+                // window.location.replace("https://api.twitter.com/oauth/authorize?" + res.oauth_token);
             })
             .catch(console.error);
      }
