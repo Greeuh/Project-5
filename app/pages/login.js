@@ -7,7 +7,7 @@ const client = new Twitter({
 });
 
 function GetToken() {
-    client
+    return client
         .getRequestToken("https://projet5ocr.antoineparriaud.fr:3000/authorization")
         .then(res => {
             // this.setState({ token: res.oauth_token })
