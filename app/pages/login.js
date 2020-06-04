@@ -31,6 +31,7 @@ class Login extends Component {
         };
     }
 
+    
     componentDidMount() {
         GetToken()
             .then(token =>
