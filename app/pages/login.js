@@ -25,13 +25,14 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        window.location.replace("/authorization");
+        window.location.replace("/https://projet5ocr.antoineparriaud.fr:3000/authorization");
     }
 
     render() {
+        return(
         <div>
             <h1>Vous allez être redirigé...</h1>
-        </div>
+        </div>)
     }
 }
 
