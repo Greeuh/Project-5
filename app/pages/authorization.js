@@ -27,7 +27,11 @@ class Authorization extends Component {
     }
 
     render () {
-        
+        return(
+            <div>
+                <h1>Page d'authentification</h1>
+            </div>
+        )
     }
     
 }

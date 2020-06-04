@@ -3,10 +3,6 @@ import Twitter from 'twitter-lite';
 
 class Login extends Component {
 
-    componentDidMount() {
-        window.location.replace("/authorization");
-    }
-
     componentWillMount() {
         const client = new Twitter({
             consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -24,9 +20,9 @@ class Login extends Component {
             .catch(console.error);
     }
 
-    componentDidMount() {
-        window.location.replace("/authorization");
-    }
+    // componentDidMount() {
+    //     window.location.replace("/authorization");
+    // }
 
     render() {
         return(
