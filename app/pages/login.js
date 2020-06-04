@@ -21,7 +21,7 @@ class Login extends Component {
     }
 
      componentDidMount() {
-         window.location.replace("https://api.twitter.com/oauth/authorize?" + reqTkn);
+         window.location.replace("https://api.twitter.com/oauth/authorize?" + res.oauth_token);
      }
 
     render() {
