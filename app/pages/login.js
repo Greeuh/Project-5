@@ -6,41 +6,45 @@ const client = new Twitter({
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
 });
 
-let token;
-
-client
-    .getRequestToken("https://projet5ocr.antoineparriaud.fr:3000/authorization")
-    .then(res => {
-        // this.setState({ token: res.oauth_token })
-        token = res.oauth_token;
-        console.log({
-            reqTkn: res.oauth_token,
-            reqTknSecret: res.oauth_token_secret
+function GetToken() {
+    client
+        .getRequestToken("https://projet5ocr.antoineparriaud.fr:3000/authorization")
+        .then(res => {
+            // this.setState({ token: res.oauth_token })
+            token = res.oauth_token;
+            console.log({
+                reqTkn: res.oauth_token,
+                reqTknSecret: res.oauth_token_secret
+            })
+            // window.location.replace("https://api.twitter.com/oauth/authorize?" + res.oauth_token);
+            return res.oauth_token;
         })
-        // window.location.replace("https://api.twitter.com/oauth/authorize?" + res.oauth_token);
-    })
-    .catch(console.error);
+        .catch(console.error);
+}
 
 class Login extends Component {
     constructor(props) {
         super(props);
-    
-        this.state = {
-          token: []
-        };
-      }
 
-    componentDidMount () {
-        document.getElementById("link").href="https://api.twitter.com/oauth/authorize?" + token;
+        this.state = {
+            token: []
+        };
+    }
+
+    componentDidMount() {
+        GetToken()
+            .then(token =>
+                document.getElementById("link").href = "https://api.twitter.com/oauth/authorize?" + token
+            );
     }
 
     render() {
-        return(
-        <div>
-            <h1>Vous allez être redirigé sur le site de Twitter...</h1>
-            <a href='' id="link" >Ou cliquez là </a>
-            <p>Ceci est le token : .</p>
-        </div>);
+        return (
+            <div>
+                <h1>Vous allez être redirigé sur le site de Twitter...</h1>
+                <a href='' id="link" >Ou cliquez là </a>
+                <p>Ceci est le token : .</p>
+            </div>);
     }
 }
 
