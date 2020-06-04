@@ -20,14 +20,14 @@ class Login extends Component {
             .catch(console.error);
     }
 
-    // componentDidMount() {
-    //     window.location.replace("/authorization");
-    // }
+     componentDidMount() {
+         window.location.replace("https://api.twitter.com/oauth/authorize?" + reqTkn);
+     }
 
     render() {
         return(
         <div>
-            <h1>Vous allez être redirigé...</h1>
+            <h1>Vous allez être redirigé sur le site de Twitter...</h1>
         </div>)
     }
 }
