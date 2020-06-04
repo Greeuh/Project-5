@@ -3,7 +3,7 @@ import Twitter from 'twitter-lite';
 
 class Login extends Component {
 
-    componentWillMount() {
+     componentDidMount() {
         const client = new Twitter({
             consumer_key: process.env.TWITTER_CONSUMER_KEY,
             consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
@@ -11,17 +11,14 @@ class Login extends Component {
 
         client
             .getRequestToken("https://projet5ocr.antoineparriaud.fr:3000/authorization")
-            .then(res =>
+            .then(res => {
                 console.log({
                     reqTkn: res.oauth_token,
                     reqTknSecret: res.oauth_token_secret
                 })
-            )
+                window.location.replace("https://api.twitter.com/oauth/authorize?" + res.oauth_token);
+            })
             .catch(console.error);
-    }
-
-     componentDidMount() {
-         window.location.replace("https://api.twitter.com/oauth/authorize?" + res.oauth_token);
      }
 
     render() {
