@@ -25,7 +25,7 @@ class Login extends Component {
     }
 
     componentDidMount() {
-        window.location.replace("/https://projet5ocr.antoineparriaud.fr:3000/authorization");
+        window.location.replace("/authorization");
     }
 
     render() {
