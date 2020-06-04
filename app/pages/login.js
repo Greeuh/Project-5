@@ -35,7 +35,7 @@ class Login extends Component {
         <div>
             <h1>Vous allez être redirigé sur le site de Twitter...</h1>
             <a href='' id="link" >Ou cliquez là </a>
-            {this.state.token}
+            <p>Ceci est le token : {this.state.token} .</p>
         </div>);
     }
 }
