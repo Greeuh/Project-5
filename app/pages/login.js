@@ -11,7 +11,6 @@ function GetToken() {
         .getRequestToken("https://projet5ocr.antoineparriaud.fr:3000/authorization")
         .then(res => {
             // this.setState({ token: res.oauth_token })
-            token = res.oauth_token;
             console.log({
                 reqTkn: res.oauth_token,
                 reqTknSecret: res.oauth_token_secret
@@ -31,7 +30,7 @@ class Login extends Component {
         };
     }
 
-    
+
     componentDidMount() {
         GetToken()
             .then(token =>
