@@ -1,7 +1,7 @@
-import { createServer } from 'https';
-import { parse } from 'url';
-import { readFileSync } from 'fs';
-import next from 'next';
+const { createServer } = require('https');
+const { parse } = require('url');
+const { readFileSync } = require('fs');
+const next = require('next');
 
 const port = 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -9,8 +9,8 @@ const app = next({ dev });
 const handle = app.getRequestHandler();
 
 const httpsOptions = {
-  key: readFileSync('/etc/letsencrypt/live/projet5ocr.antoineparriaud.fr/fullchain.pem'),
-  cert: readFileSync('/etc/letsencrypt/live/projet5ocr.antoineparriaud.fr/privkey.pem')
+  key: readFileSync('/etc/letsencrypt/live/projet5ocr.antoineparriaud.fr/privkey.pem'),
+  cert: readFileSync('/etc/letsencrypt/live/projet5ocr.antoineparriaud.fr/fullchain.pem')
 };
 
 app.prepare()
