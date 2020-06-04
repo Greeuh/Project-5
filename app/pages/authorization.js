@@ -25,6 +25,10 @@ class Authorization extends Component {
         )
         .catch(console.error);
     }
+
+    render () {
+        
+    }
     
 }
 

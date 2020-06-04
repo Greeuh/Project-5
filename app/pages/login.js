@@ -20,6 +20,10 @@ class Login extends Component {
             .catch(console.error);
         window.location.replace("/authorization");
     }
+
+    render () {
+        
+    }
 }
 
 export default Login;
