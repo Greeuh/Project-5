@@ -4,13 +4,13 @@ import Twitter from 'twitter-lite';
 
 function Login({ token }) {
 
-        document.getElementById("link").href = "https://api.twitter.com/oauth/authorize?" + this.state.token
+        let url = 'https://api.twitter.com/oauth/authorize?' + this.state.token
 
         return (
             <div>
                 <h1>Vous allez être redirigé sur le site de Twitter...</h1>
-                <a href='' id="link" >Ou cliquez là </a>
-                <p>Ceci est le token : .</p>
+                <a href={url} id="link" >Ou cliquez là </a>
+                <p>Ceci est le token : {this.state.token} .</p>
             </div>);
 }
 
