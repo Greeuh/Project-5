@@ -32,10 +32,7 @@ class Login extends Component {
 
 
     componentDidMount() {
-        GetToken()
-            .then(token =>
-                document.getElementById("link").href = "https://api.twitter.com/oauth/authorize?" + this.state.token
-            );
+        document.getElementById("link").href = "https://api.twitter.com/oauth/authorize?" + this.state.token
     }
 
     render() {
