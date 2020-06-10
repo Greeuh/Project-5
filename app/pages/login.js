@@ -48,4 +48,24 @@ class Login extends Component {
     }
 }
 
+export async function getServerSideProps() {
+
+    const client = new Twitter({
+        consumer_key: process.env.TWITTER_CONSUMER_KEY,
+        consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    })
+
+    await getRequestToken("https://projet5ocr.antoineparriaud.fr:3000/authorization")
+        .then(res => {
+            // this.setState({ token: res.oauth_token })
+            console.log({
+                reqTkn: res.oauth_token,
+                reqTknSecret: res.oauth_token_secret
+            })
+            const token = await res.oauth_token,
+            // window.location.replace("https://api.twitter.com/oauth/authorize?" + res.oauth_token);
+            return { props: { token } };
+        })
+}
+
 export default Login;
