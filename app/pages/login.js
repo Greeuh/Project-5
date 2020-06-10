@@ -34,7 +34,7 @@ class Login extends Component {
     componentDidMount() {
         GetToken()
             .then(token =>
-                document.getElementById("link").href = "https://api.twitter.com/oauth/authorize?" + token
+                document.getElementById("link").href = "https://api.twitter.com/oauth/authorize?" + this.state.token
             );
     }
 
@@ -55,6 +55,8 @@ export async function getServerSideProps() {
         consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
     })
 
+    let token,
+
     await getRequestToken("https://projet5ocr.antoineparriaud.fr:3000/authorization")
         .then(res => {
             // this.setState({ token: res.oauth_token })
@@ -62,10 +64,11 @@ export async function getServerSideProps() {
                 reqTkn: res.oauth_token,
                 reqTknSecret: res.oauth_token_secret
             })
-            const token = res.oauth_token,
+
+            return token = res.oauth_token;
             // window.location.replace("https://api.twitter.com/oauth/authorize?" + res.oauth_token);
-            return { props: { token } };
         })
+    return { props: { token } };
 }
 
 export default Login;
