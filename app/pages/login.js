@@ -4,7 +4,7 @@ import Twitter from 'twitter-lite';
 
 function Login({token}) {
 
-        let url = 'https://api.twitter.com/oauth/authorize?' + token
+        let url = 'https://api.twitter.com/oauth/authorize?oauth_token=' + token
 
         return (
             <div>
@@ -26,14 +26,12 @@ export async function getServerSideProps() {
     await client
         .getRequestToken("https://projet5ocr.antoineparriaud.fr:3000/authorization")
         .then(res => {
-            // this.setState({ token: res.oauth_token })
             console.log({
                 reqTkn: res.oauth_token,
                 reqTknSecret: res.oauth_token_secret
             })
 
             return token = res.oauth_token;
-            // window.location.replace("https://api.twitter.com/oauth/authorize?" + res.oauth_token);
         })
     return { props: { token } };
 }
