@@ -53,11 +53,12 @@ export async function getServerSideProps() {
     const client = new Twitter({
         consumer_key: process.env.TWITTER_CONSUMER_KEY,
         consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-    })
+    });
 
-    let token,
+    let token;
 
-    await getRequestToken("https://projet5ocr.antoineparriaud.fr:3000/authorization")
+    await client
+        .getRequestToken("https://projet5ocr.antoineparriaud.fr:3000/authorization")
         .then(res => {
             // this.setState({ token: res.oauth_token })
             console.log({
