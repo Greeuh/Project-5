@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import Twitter from 'twitter-lite';
 
 
-function Login({ token }) {
+function Login({token}) {
 
-        let url = 'https://api.twitter.com/oauth/authorize?' + this.token
+        let url = 'https://api.twitter.com/oauth/authorize?' + token
 
         return (
             <div>
                 <h1>Vous allez être redirigé sur le site de Twitter...</h1>
                 <a href={url} id="link" >Ou cliquez là </a>
-                <p>Ceci est le token : {this.token} .</p>
+                <p>Ceci est le token : {token} .</p>
             </div>);
 }
 
