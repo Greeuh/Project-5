@@ -11,7 +11,7 @@ function Authorization({ name }) {
     )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({ query }) {
 
     const client = new Twitter({
         consumer_key: process.env.TWITTER_CONSUMER_KEY,
@@ -20,11 +20,12 @@ export async function getServerSideProps() {
 
     let name;
 
-    const queryString = window.location.search;
-    const urlParams = new URLSearchParams(queryString);
-    const oauthVerifier = urlParams.get('oauth_verifier');
-    const oauthToken = urlParams.get('oauth_token');
-
+    // const queryString = window.location.search;
+    // const urlParams = new URLSearchParams(queryString);
+    // const oauthVerifier = urlParams.get('oauth_verifier');
+    // const oauthToken = urlParams.get('oauth_token');
+    const oauthVerifier = query.oauth_verifier
+    const oauthToken = query.oauth_token
 
     await client
         .getAccessToken({
