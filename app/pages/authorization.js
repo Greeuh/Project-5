@@ -46,7 +46,7 @@ export async function getServerSideProps({ query }) {
         })
         .then(res => {
             console.log(res);
-            UserInfos = res.json();
+            UserInfos = res;
             console.log(UserInfos);
             return UserInfos;
         })
