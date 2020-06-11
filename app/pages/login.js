@@ -7,7 +7,7 @@ function Login({ token }) {
     let url = 'https://api.twitter.com/oauth/authorize?oauth_token=' + token;
 
     if (typeof window !== 'undefined') {
-        window.location.href = {url};
+        window.location.href = url;
     }
 
     return (
