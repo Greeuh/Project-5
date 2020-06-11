@@ -57,11 +57,9 @@ class TweetsTimeline extends Component {
         })
         .catch(console.error);
 
-      return logged;
     } else {
       this.setState.logged = 0;
 
-      return logged;
     }
 
     //   const user = new Twitter({
