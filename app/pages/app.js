@@ -19,13 +19,18 @@ class TweetsTimeline extends Component {
     if (localStorage.getItem("UserToken") != undefined) {
       let logged = 1;
 
+      if (typeof window !== 'undefined') {
+        localStorage.getItem("UserToken") = UserToken;
+        localStorage.getItem("UserTokenSecret") = UserTokenSecret;
+      }
+
       const client = new Twitter({
         subdomain: "api", // "api" is the default (change for other subdomains)
         version: "1.1", // version "1.1" is the default (change for other subdomains)
         consumer_key: process.env.TWITTER_CONSUMER_KEY,
         consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-        access_token_key: 313004648 - cbtxGYFWKtHnM07150vKxKLmul4Fz2jRlNYoWGQs,
-        access_token_secret: OCyKFW6Br53SpnCdRi4MkgD0VxxUk14uGmQPDo5wJ6A9O
+        access_token_key: UserToken,
+        access_token_secret: UserTokenSecret
 
       });
 
