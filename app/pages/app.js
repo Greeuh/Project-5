@@ -66,7 +66,7 @@ class TweetsTimeline extends Component {
   }
 
   render() {
-    if (localStorage.getItem("UserToken")) {
+    if (localStorage.getItem("UserToken") != undefined) {
       return (
         <div className="TweetsTimeline">
           {this.state.tweets.map(tweet =>
