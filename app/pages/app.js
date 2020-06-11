@@ -101,9 +101,7 @@ class TweetsTimeline extends Component {
         <div>
           <Link href="/login">
             <h1>
-              <button style="center">
-                <a>CONNECTEZ-VOUS AVEC TWITTER</a>
-              </button>
+              CONNECTEZ-VOUS AVEC TWITTER
             </h1>
           </Link>
         </div>
