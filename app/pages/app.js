@@ -17,6 +17,8 @@ class TweetsTimeline extends Component {
 
   componentDidMount() {
     if (localStorage.getItem("UserToken") != undefined) {
+      let logged=1;
+
       const client = new Twitter({
         subdomain: "api", // "api" is the default (change for other subdomains)
         version: "1.1", // version "1.1" is the default (change for other subdomains)
@@ -49,7 +51,7 @@ class TweetsTimeline extends Component {
 
 
     } else {
-
+      let logged=0;
     }
 
     //   const user = new Twitter({
@@ -66,7 +68,7 @@ class TweetsTimeline extends Component {
   }
 
   render() {
-    if (localStorage.getItem("UserToken") != undefined) {
+    if (logged == 1) {
       return (
         <div className="TweetsTimeline">
           {this.state.tweets.map(tweet =>
