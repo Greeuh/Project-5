@@ -10,6 +10,8 @@ function Authorization({ UserInfos }) {
         localStorage.setItem("UserTokenSecret", UserInfos.oauth_token_secret);
     }
 
+    console.log(UserInfos);
+
     return (
         <div>
             <h1>Page d'authentification</h1>
