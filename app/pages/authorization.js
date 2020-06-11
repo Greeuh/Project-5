@@ -3,19 +3,19 @@ import Twitter from 'twitter-lite';
 import Link from 'next/link';
 
 
-function Authorization({ res }) {
+function Authorization({ UserInfos }) {
 
     if (typeof window !== 'undefined') {
-        localStorage.setItem("UserToken", res.oauth_token);
-        localStorage.setItem("UserTokenSecret", res.oauth_token_secret);
+        localStorage.setItem("UserToken", UserInfos.oauth_token);
+        localStorage.setItem("UserTokenSecret", UserInfos.oauth_token_secret);
     }
 
-    console.log(res);
+    console.log(UserInfos);
 
     return (
         <div>
             <h1>Page d'authentification</h1>
-            <h2>Bienvenue {res.screen_name}</h2>
+            <h2>Bienvenue {UserInfos.screen_name}</h2>
             <Link href="/app">
                 <p>Accéder à l'application</p>
             </Link>
@@ -44,11 +44,13 @@ export async function getServerSideProps({ query }) {
         })
         .then(res => {
             console.log(res);
-            return res;
+            const UserInfos = await res.json();
+            console.log(UserInfos);
+            return UserInfos;
         })
         .catch(console.error);
 
-    return { props: { res } };
+    return { props: { UserInfos } };
 }
 
 export default Authorization;
