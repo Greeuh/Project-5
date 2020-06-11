@@ -10,7 +10,7 @@ class TweetsTimeline extends Component {
     super(props)
 
     this.state = {
-      logged: 0,
+      logged: 2,
       tweets: [],
     };
   }
@@ -19,6 +19,7 @@ class TweetsTimeline extends Component {
   componentDidMount() {
     if (localStorage.getItem("UserToken") != undefined) {
       this.setState.logged = 1;
+      console.log(this.state.logged);
       let UserToken;
       let UserTokenSecret;
 
@@ -59,7 +60,7 @@ class TweetsTimeline extends Component {
 
     } else {
       this.setState.logged = 0;
-
+      console.log(this.state.logged);
     }
 
     //   const user = new Twitter({
