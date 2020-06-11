@@ -3,15 +3,15 @@ import Twitter from 'twitter-lite';
 import Link from 'next/link';
 
 
-function Authorization({ name, accTkn, accTknSecret }) {
+function Authorization({ UserInfos }) {
 
-    localStorage.setItem("UserToken",accTkn);
-    localStorage.setItem("UserTokenSecret",accTknSecret);
+    localStorage.setItem("UserToken", UserInfos.oauth_token);
+    localStorage.setItem("UserTokenSecret", UserInfos.oauth_token_secret);
 
     return (
         <div>
             <h1>Page d'authentification</h1>
-            <h2>Bienvenue {name}</h2>
+            <h2>Bienvenue {UserInfos.screen_name}</h2>
             <Link href="/app">
             <p>Accéder à l'application</p>
             </Link>
@@ -26,9 +26,7 @@ export async function getServerSideProps({ query }) {
         consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
     });
 
-    let name;
-    let accTkn;
-    let accTknSecret;
+    let UserInfos = [];
 
     // const queryString = window.location.search;
     // const urlParams = new URLSearchParams(queryString);
@@ -42,18 +40,13 @@ export async function getServerSideProps({ query }) {
             oauth_verifier: oauthVerifier,
             oauth_token: oauthToken
         })
-        .then(res => {
-            console.log({
-                accTkn: res.oauth_token,
-                accTknSecret: res.oauth_token_secret,
-                userId: res.user_id,
-                screenName: res.screen_name
-            })
-            return name = res.screen_name, accTkn = res.oauth_token, accTknSecret = res.oauth_token_secret;
+        .then(res => { 
+            UserInfos = res;
+            return UserInfos;
         })
         .catch(console.error);
 
-    return { props: { name, accTkn, accTknSecret } };
+    return { props: { UserInfos } };
 }
 
 export default Authorization;
