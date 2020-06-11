@@ -18,10 +18,12 @@ class TweetsTimeline extends Component {
   componentDidMount() {
     if (localStorage.getItem("UserToken") != undefined) {
       let logged = 1;
+      let UserToken;
+      let UserTokenSecret;
 
       if (typeof window !== 'undefined') {
-        localStorage.getItem("UserToken") = UserToken;
-        localStorage.getItem("UserTokenSecret") = UserTokenSecret;
+        UserToken = localStorage.getItem("UserToken");
+        UserTokenSecret = localStorage.getItem("UserTokenSecret");
       }
 
       const client = new Twitter({
