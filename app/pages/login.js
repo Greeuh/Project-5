@@ -5,12 +5,12 @@ import Twitter from 'twitter-lite';
 function Login({token}) {
 
         let url = 'https://api.twitter.com/oauth/authorize?oauth_token=' + token;
-        window.location.href = url;
 
         return (
             <div>
                 <h1>Vous allez être redirigé sur le site de Twitter...</h1>
                 <a href={url} id="link" >Ou cliquez là </a>
+                <script>window.location.href = {url}</script>
             </div>);
 }
 
