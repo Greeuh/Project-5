@@ -49,9 +49,11 @@ class TweetsTimeline extends Component {
         })
         .catch(console.error);
 
-
+        return logged;
     } else {
       let logged=0;
+
+      return logged;
     }
 
     //   const user = new Twitter({
@@ -67,7 +69,7 @@ class TweetsTimeline extends Component {
     // })
   }
 
-  render() {
+  render(logged) {
     if (logged == 1) {
       return (
         <div className="TweetsTimeline">
