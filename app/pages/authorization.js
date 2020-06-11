@@ -45,7 +45,7 @@ export async function getServerSideProps({ query }) {
             oauth_token: oauthToken
         })
         .then(res => {
-            UserInfos = res;
+            res = UserInfos;
             return UserInfos;
         })
         .catch(console.error);
