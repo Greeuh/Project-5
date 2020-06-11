@@ -77,7 +77,7 @@ class TweetsTimeline extends Component {
     // })
   }
 
-  render({logged}) {
+  render() {
     if (this.state.logged == 1) {
       return (
         <div className="TweetsTimeline">
