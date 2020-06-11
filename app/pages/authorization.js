@@ -5,15 +5,17 @@ import Link from 'next/link';
 
 function Authorization({ UserInfos }) {
 
-    localStorage.setItem("UserToken", UserInfos.oauth_token);
-    localStorage.setItem("UserTokenSecret", UserInfos.oauth_token_secret);
+    if (typeof window !== 'undefined') {
+        localStorage.setItem("UserToken", UserInfos.oauth_token);
+        localStorage.setItem("UserTokenSecret", UserInfos.oauth_token_secret);
+    }
 
     return (
         <div>
             <h1>Page d'authentification</h1>
             <h2>Bienvenue {UserInfos.screen_name}</h2>
             <Link href="/app">
-            <p>Accéder à l'application</p>
+                <p>Accéder à l'application</p>
             </Link>
         </div>
     )
@@ -40,7 +42,7 @@ export async function getServerSideProps({ query }) {
             oauth_verifier: oauthVerifier,
             oauth_token: oauthToken
         })
-        .then(res => { 
+        .then(res => {
             UserInfos = res;
             return UserInfos;
         })
