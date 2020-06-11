@@ -10,7 +10,7 @@ class TweetsTimeline extends Component {
     super(props)
 
     this.state = {
-      logged: 2,
+      isLog: false,
       tweets: [],
     };
   }
@@ -18,8 +18,8 @@ class TweetsTimeline extends Component {
 
   componentDidMount() {
     if (localStorage.getItem("UserToken") != undefined) {
-      this.setState.logged = 1;
-      console.log(this.state.logged);
+      this.setState.isLog = true;
+      console.log(this.state.isLog);
       let UserToken;
       let UserTokenSecret;
 
@@ -59,8 +59,8 @@ class TweetsTimeline extends Component {
         .catch(console.error);
 
     } else {
-      this.setState.logged = 0;
-      console.log(this.state.logged);
+      this.setState.isLog = false;
+      console.log(this.state.isLog);
     }
 
     //   const user = new Twitter({
@@ -77,7 +77,7 @@ class TweetsTimeline extends Component {
   }
 
   render() {
-    if (this.state.logged == 1) {
+    if (this.state.isLog = true) {
       return (
         <div className="TweetsTimeline">
           {this.state.tweets.map(tweet =>
@@ -103,7 +103,7 @@ class TweetsTimeline extends Component {
         </div>
       );
 
-    } if (this.state.logged == 0) {
+    } if (this.state.isLog = false) {
       return (
         <div>
           <Link href="/login">
