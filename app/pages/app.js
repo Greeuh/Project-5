@@ -17,7 +17,7 @@ class TweetsTimeline extends Component {
 
   componentDidMount() {
     if (localStorage.getItem("UserToken") != undefined) {
-      let logged=1;
+      let logged = 1;
 
       const client = new Twitter({
         subdomain: "api", // "api" is the default (change for other subdomains)
@@ -49,9 +49,9 @@ class TweetsTimeline extends Component {
         })
         .catch(console.error);
 
-        return logged;
+      return logged;
     } else {
-      let logged=0;
+      let logged = 0;
 
       return logged;
     }
@@ -97,15 +97,17 @@ class TweetsTimeline extends Component {
       );
 
     } else {
-      <div>
-        <Link href="/login">
-          <h1>
-            <button style="center">
-              <a>CONNECTEZ-VOUS AVEC TWITTER</a>
-            </button>
-          </h1>
-        </Link>
-      </div>
+      return (
+        <div>
+          <Link href="/login">
+            <h1>
+              <button style="center">
+                <a>CONNECTEZ-VOUS AVEC TWITTER</a>
+              </button>
+            </h1>
+          </Link>
+        </div>
+      );
     }
   }
 }
