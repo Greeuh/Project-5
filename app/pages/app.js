@@ -16,7 +16,7 @@ class TweetsTimeline extends Component {
 
 
   componentDidMount() {
-    if (localStorage.getItem("UserToken")) {
+    if (localStorage.getItem("UserToken") != undefined) {
       const client = new Twitter({
         subdomain: "api", // "api" is the default (change for other subdomains)
         version: "1.1", // version "1.1" is the default (change for other subdomains)
