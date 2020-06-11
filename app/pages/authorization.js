@@ -8,9 +8,8 @@ function Authorization({ UserInfos }) {
     if (typeof window !== 'undefined') {
         localStorage.setItem("UserToken", UserInfos.oauth_token);
         localStorage.setItem("UserTokenSecret", UserInfos.oauth_token_secret);
+        window.location.href = "https://projet5ocr.antoineparriaud.fr:3000/app";
     }
-
-    console.log(UserInfos);
 
     return (
         <div>
@@ -45,9 +44,7 @@ export async function getServerSideProps({ query }) {
             oauth_token: oauthToken
         })
         .then(res => {
-            console.log(res);
             UserInfos = res;
-            console.log(UserInfos);
             return UserInfos;
         })
         .catch(console.error);
