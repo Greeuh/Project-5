@@ -3,19 +3,19 @@ import Twitter from 'twitter-lite';
 import Link from 'next/link';
 
 
-function Authorization({ UserInfos }) {
+function Authorization({ res }) {
 
     if (typeof window !== 'undefined') {
-        localStorage.setItem("UserToken", UserInfos.oauth_token);
-        localStorage.setItem("UserTokenSecret", UserInfos.oauth_token_secret);
+        localStorage.setItem("UserToken", res.oauth_token);
+        localStorage.setItem("UserTokenSecret", res.oauth_token_secret);
     }
 
-    console.log(UserInfos);
+    console.log(res);
 
     return (
         <div>
             <h1>Page d'authentification</h1>
-            <h2>Bienvenue {UserInfos.screen_name}</h2>
+            <h2>Bienvenue {res.screen_name}</h2>
             <Link href="/app">
                 <p>Accéder à l'application</p>
             </Link>
@@ -30,8 +30,6 @@ export async function getServerSideProps({ query }) {
         consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
     });
 
-    let UserInfos = [];
-
     // const queryString = window.location.search;
     // const urlParams = new URLSearchParams(queryString);
     // const oauthVerifier = urlParams.get('oauth_verifier');
@@ -45,12 +43,12 @@ export async function getServerSideProps({ query }) {
             oauth_token: oauthToken
         })
         .then(res => {
-            res = UserInfos;
-            return UserInfos;
+            console.log(res);
+            return res;
         })
         .catch(console.error);
 
-    return { props: { UserInfos } };
+    return { props: { res } };
 }
 
 export default Authorization;
