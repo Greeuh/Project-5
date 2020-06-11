@@ -77,7 +77,7 @@ class TweetsTimeline extends Component {
   }
 
   render(logged) {
-    if (logged == 1) {
+    if (logged === 1) {
       return (
         <div className="TweetsTimeline">
           {this.state.tweets.map(tweet =>
