@@ -30,6 +30,8 @@ export async function getServerSideProps({ query }) {
         consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
     });
 
+    let UserInfos;
+
     // const queryString = window.location.search;
     // const urlParams = new URLSearchParams(queryString);
     // const oauthVerifier = urlParams.get('oauth_verifier');
@@ -44,7 +46,7 @@ export async function getServerSideProps({ query }) {
         })
         .then(res => {
             console.log(res);
-            const UserInfos = res.json();
+            UserInfos = res.json();
             console.log(UserInfos);
             return UserInfos;
         })
