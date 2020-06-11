@@ -10,7 +10,6 @@ function Login({token}) {
             <div>
                 <h1>Vous allez être redirigé sur le site de Twitter...</h1>
                 <a href={url} id="link" >Ou cliquez là </a>
-                <script>window.location.assign = "{url}";</script>
             </div>);
 }
 
