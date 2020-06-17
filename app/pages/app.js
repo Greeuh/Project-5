@@ -21,10 +21,10 @@ function Dashboard({ results }) {
                 </div>
                 <div class="timeline-Tweet-author">
                   <div class="TweetAuthor"><a class="TweetAuthor-link" href="#channel"> </a><span class="TweetAuthor-avatar">
-                    <div class="Avatar"> </div></span><span class="TweetAuthor-name">{result.user.name}</span><span class="Icon Icon--verified"> </span><span class="TweetAuthor-screenName">{result.user.screen_name}</span></div>
+                    <div class="Avatar"><img href={result.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name">{result.user.name}</span> {result.verified == true, () => <span class="Icon Icon--verified"> </span>} <span class="TweetAuthor-screenName">{result.user.screen_name}</span></div>
                 </div>
                 <div class="timeline-Tweet-text">{result.text}</div>
-                <div class="timeline-Tweet-metadata"><span class="timeline-Tweet-timestamp" href={twitterlink + result.id}>{result.created_at}</span></div>
+                <div class="timeline-Tweet-metadata"><a href={twitterlink + result.id}><span class="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
                 <ul class="timeline-Tweet-actions">
                   <li class="timeline-Tweet-action"><a class="Icon Icon--heart" href="#"></a></li>
                   <li class="timeline-Tweet-action"><a class="Icon Icon--share" href="#"></a></li>
@@ -107,25 +107,7 @@ class TweetsTimeline extends Component {
       return (
         <div className="TweetsTimeline">
           {this.state.tweets.map(tweet =>
-            <div class="tw-block-parent">
-              <div class="timeline-TweetList-tweet">
-                <div class="timeline-Tweet">
-                  <div class="timeline-Tweet-brand">
-                    <div class="Icon Icon--twitter"></div>
-                  </div>
-                  <div class="timeline-Tweet-author">
-                    <div class="TweetAuthor"><a class="TweetAuthor-link" href="#channel"> </a><span class="TweetAuthor-avatar">
-                      <div class="Avatar"> </div></span><span class="TweetAuthor-name">{tweet.user.screen_name}</span><span class="Icon Icon--verified"> </span><span class="TweetAuthor-screenName">@TwitterDev</span></div>
-                  </div>
-                  <div class="timeline-Tweet-text">We're excited for the inaugural Twitter Community Meetup<a href="#">@TwitterSeattle</a><span>tomorrow!</span><a href="#">#TapIntoTwitter</a><a href="#">meetup.com/Seattle-Twitte…</a></div>
-                  <div class="timeline-Tweet-metadata"><span class="timeline-Tweet-timestamp">9h</span></div>
-                  <ul class="timeline-Tweet-actions">
-                    <li class="timeline-Tweet-action"><a class="Icon Icon--heart" href="#"></a></li>
-                    <li class="timeline-Tweet-action"><a class="Icon Icon--share" href="#"></a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>)}
+            <div></div>)}
         </div>
       );
 
