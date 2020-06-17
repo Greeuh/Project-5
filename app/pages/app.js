@@ -12,7 +12,7 @@ function Dashboard({ results }) {
   if (cookies.UserToken !== 'undefined') {
     return (
       <div class="TweetsTimeline">
-        {this.results.map(result =>
+        {results.map(result =>
           <div class="tw-block-parent">
             <div class="timeline-TweetList-tweet">
               <div class="timeline-Tweet">
