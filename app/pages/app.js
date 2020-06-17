@@ -137,7 +137,7 @@ export async function getServerSideProps(ctx) {
     access_token_secret: cookies.UserTokenSecret
   });
 
-  const response = await user.getBearerToken();
+  const response = await client.getBearerToken();
   const app = new Twitter({
     bearer_token: response.access_token
   });
