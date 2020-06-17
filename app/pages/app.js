@@ -6,7 +6,9 @@ import { parseCookies, setCookie, destroyCookie } from 'nookies';
 
 function Dashboard({ results }) {
 
-  if (parseCookies.UserToken !== 'undefined') {
+  const cookies = parseCookies();
+
+  if (cookies.UserToken !== 'undefined') {
     return (
       <div className="TweetsTimeline">
         {this.state.results.map(result =>
