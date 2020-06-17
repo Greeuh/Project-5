@@ -7,6 +7,7 @@ import { parseCookies, setCookie, destroyCookie } from 'nookies';
 function Dashboard({ results }) {
 
   const cookies = parseCookies();
+  const twitterlink = "https://twitter.com/i/web/status/"
 
   if (cookies.UserToken !== 'undefined') {
     return (
@@ -20,10 +21,10 @@ function Dashboard({ results }) {
                 </div>
                 <div class="timeline-Tweet-author">
                   <div class="TweetAuthor"><a class="TweetAuthor-link" href="#channel"> </a><span class="TweetAuthor-avatar">
-                    <div class="Avatar"> </div></span><span class="TweetAuthor-name">{tweet.user.screen_name}</span><span class="Icon Icon--verified"> </span><span class="TweetAuthor-screenName">@TwitterDev</span></div>
+                    <div class="Avatar"> </div></span><span class="TweetAuthor-name">{result.user.name}</span><span class="Icon Icon--verified"> </span><span class="TweetAuthor-screenName">{result.user.screen_name}</span></div>
                 </div>
-                <div class="timeline-Tweet-text">We're excited for the inaugural Twitter Community Meetup<a href="#">@TwitterSeattle</a><span>tomorrow!</span><a href="#">#TapIntoTwitter</a><a href="#">meetup.com/Seattle-Twitte…</a></div>
-                <div class="timeline-Tweet-metadata"><span class="timeline-Tweet-timestamp">9h</span></div>
+                <div class="timeline-Tweet-text">{result.text}</div>
+                <div class="timeline-Tweet-metadata"><span class="timeline-Tweet-timestamp" href={twitterlink + result.id}>{result.created_at}</span></div>
                 <ul class="timeline-Tweet-actions">
                   <li class="timeline-Tweet-action"><a class="Icon Icon--heart" href="#"></a></li>
                   <li class="timeline-Tweet-action"><a class="Icon Icon--share" href="#"></a></li>
