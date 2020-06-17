@@ -143,9 +143,10 @@ class TweetsTimeline extends Component {
 export async function getServerSideProps(ctx) {
 
   console.log(parseCookies(ctx.UserToken));
+  console.log(parseCookies(ctx.UserTokenSecret));
   // console.log(parseCookies(ctx.req.headers.cookie));
   // console.log(parseCookies(ctx.req.headers.cookie.UserTokenSecret));
-  
+
 
   const client = new Twitter({
     subdomain: "api", // "api" is the default (change for other subdomains)
@@ -157,7 +158,7 @@ export async function getServerSideProps(ctx) {
   });
 
   let results;
-  
+
 
   await client
     .get("account/verify_credentials")
