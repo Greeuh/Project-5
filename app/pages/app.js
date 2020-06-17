@@ -142,18 +142,6 @@ export async function getServerSideProps(ctx) {
     bearer_token: response.access_token
   });
 
-  const client = new Twitter({
-    subdomain: "api", // "api" is the default (change for other subdomains)
-    version: "1.1", // version "1.1" is the default (change for other subdomains)
-    consumer_key: process.env.TWITTER_CONSUMER_KEY,
-    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-    access_token_key: cookies.UserToken,
-    access_token_secret: cookies.UserTokenSecret,
-    headers: {
-      Authorization: `Bearer ${bearer_token}`
-    }
-  });
-
   let results;
 
   await client
