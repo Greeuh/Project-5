@@ -104,7 +104,7 @@ class TweetsTimeline extends Component {
 
 export async function getServerSideProps({ ctx }) {
 
-  parseCookies(ctx);
+  console.log(parseCookies(ctx));
 
   const client = new Twitter({
     subdomain: "api", // "api" is the default (change for other subdomains)
