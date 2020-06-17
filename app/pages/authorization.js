@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 import Twitter from 'twitter-lite';
 import Link from 'next/link';
+import { parseCookies, setCookie, destroyCookie } from 'nookies';
 
 
 function Authorization({ UserInfos }) {
 
     if (typeof window !== 'undefined') {
-        localStorage.setItem("UserToken", UserInfos.oauth_token);
-        localStorage.setItem("UserTokenSecret", UserInfos.oauth_token_secret);
+        setCookie(null, 'UserToken', UserInfos.oauth_token, {
+            maxAge: 30 * 24 * 60 * 60,
+            path: '/',
+        });
+        setCookie(null, 'UserTokenSecret', UserInfos.oauth_token_secret, {
+            maxAge: 30 * 24 * 60 * 60,
+            path: '/',
+        });
         window.location.href = "https://projet5ocr.antoineparriaud.fr:3000/app";
     }
 
@@ -31,10 +38,6 @@ export async function getServerSideProps({ query }) {
 
     let UserInfos;
 
-    // const queryString = window.location.search;
-    // const urlParams = new URLSearchParams(queryString);
-    // const oauthVerifier = urlParams.get('oauth_verifier');
-    // const oauthToken = urlParams.get('oauth_token');
     const oauthVerifier = query.oauth_verifier
     const oauthToken = query.oauth_token
 

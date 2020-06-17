@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import Twitter from 'twitter-lite';
 import Link from 'next/link';
+import { parseCookies, setCookie, destroyCookie } from 'nookies';
 
 
 
@@ -18,7 +19,7 @@ class TweetsTimeline extends Component {
 
   componentDidMount() {
     if (localStorage.getItem("UserToken") != undefined) {
-      this.setState.isLog = true;
+      this.setState({isLog : true}, () => console.log(this.state.isLog));
       console.log(this.state.isLog);
       let UserToken;
       let UserTokenSecret;
@@ -47,10 +48,6 @@ class TweetsTimeline extends Component {
 
       client
         .get("statuses/home_timeline")
-        .then(response => console.log(response))
-        .then(response => {
-          return response.json()
-        })
         .then(result => {
           console.log(result)
           this.setState({ tweets: result })
@@ -59,25 +56,13 @@ class TweetsTimeline extends Component {
         .catch(console.error);
 
     } else {
-      this.setState.isLog = false;
-      console.log(this.state.isLog);
+      this.setState({isLog : false}, () => console.log(this.state.isLog));
     }
 
-    //   const user = new Twitter({
-    //     consumer_key: process.env.TWITTER_CONSUMER_KEY,
-    //     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-    //   });
-
-    //   user.getBearerToken().then(response => {
-    //     const app = new Twitter({
-    //       bearer_token: response.access_token
-    //     });
-    //   console.log(app.bearer_token)
-    // })
   }
 
   render() {
-    if (this.state.isLog = true) {
+    if (this.state.isLog) {
       return (
         <div className="TweetsTimeline">
           {this.state.tweets.map(tweet =>
@@ -103,7 +88,7 @@ class TweetsTimeline extends Component {
         </div>
       );
 
-    } if (this.state.isLog = false) {
+    } else {
       return (
         <div>
           <Link href="/login">
@@ -116,6 +101,34 @@ class TweetsTimeline extends Component {
     }
   }
 }
+
+export async function getServerSideProps({ ctx }) {
+
+  parseCookies(ctx);
+
+  const client = new Twitter({
+    subdomain: "api", // "api" is the default (change for other subdomains)
+    version: "1.1", // version "1.1" is the default (change for other subdomains)
+    consumer_key: process.env.TWITTER_CONSUMER_KEY,
+    consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+    access_token_key: parseCookies(ctx.UserToken),
+    access_token_secret: parseCookies(ctx, 'UserTokenSecret')
+
+  });
+
+  let results;
+
+  await client
+    .get("statuses/home_timeline")
+    .then(res => {
+      results = res;
+      return results;
+    })
+
+    return { props: { results } };
+}
+
+
 
 class App extends Component {
   constructor(props) {
