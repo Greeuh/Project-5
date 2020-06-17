@@ -143,7 +143,7 @@ class TweetsTimeline extends Component {
 export async function getServerSideProps({ ctx }) {
 
   parseCookies(ctx);
-  console.log(parseCookies(UserToken));
+  console.log(ctx.req.headers.cookie);
   console.log(parseCookies(UserTokenSecret));
   
 
