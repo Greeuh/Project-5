@@ -112,7 +112,7 @@ export async function getServerSideProps({ ctx }) {
     consumer_key: process.env.TWITTER_CONSUMER_KEY,
     consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
     access_token_key: parseCookies.UserToken,
-    access_token_secret: cookie.UserTokenSecret
+    access_token_secret: parseCookies.UserTokenSecret
 
   });
 
