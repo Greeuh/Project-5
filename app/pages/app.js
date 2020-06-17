@@ -7,7 +7,7 @@ import { parseCookies, setCookie, destroyCookie } from 'nookies';
 function Dashboard({ results }) {
 
   const cookies = parseCookies();
-  const twitterlink = "https://twitter.com/{result.name}/status/"
+  const twitterlink = "https://twitter.com/"+'{result.name}'+"/status/"
 
   if (cookies.UserToken !== 'undefined') {
     return (
@@ -21,7 +21,7 @@ function Dashboard({ results }) {
                 </div>
                 <div class="timeline-Tweet-author">
                   <div class="TweetAuthor"><a class="TweetAuthor-link" href="#channel"> </a><span class="TweetAuthor-avatar">
-                    <div class="Avatar"><img src={result.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name">{result.user.name}</span>  <span class="Icon Icon--verified"> </span> <span class="TweetAuthor-screenName">{result.user.screen_name}</span></div>
+                    <div class="Avatar"><img src={result.user.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name">{result.user.name}</span>  <span class="Icon Icon--verified"> </span> <span class="TweetAuthor-screenName">{result.user.screen_name}</span></div>
                 </div>
                 <div class="timeline-Tweet-text">{result.text}</div>
                 <div class="timeline-Tweet-metadata"><a href={twitterlink + result.id}><span class="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
@@ -88,7 +88,7 @@ class TweetsTimeline extends Component {
       //   .catch(console.error);
 
       client
-        .get("statuses/home_timeline")
+        .get("statuses/home_timeline", 50)
         .then(result => {
           console.log(result)
           this.setState({ tweets: result })
