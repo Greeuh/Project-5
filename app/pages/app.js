@@ -10,8 +10,8 @@ function Dashboard({ results }) {
 
   if (cookies.UserToken !== 'undefined') {
     return (
-      <div className="TweetsTimeline">
-        {this.state.results.map(result =>
+      <div class="TweetsTimeline">
+        {this.results.map(result =>
           <div class="tw-block-parent">
             <div class="timeline-TweetList-tweet">
               <div class="timeline-Tweet">
