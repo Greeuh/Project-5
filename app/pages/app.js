@@ -157,14 +157,6 @@ export async function getServerSideProps(ctx) {
 
   let results;
 
-
-  await client
-    .get("account/verify_credentials")
-    .then(results => {
-      console.log("results", results);
-    })
-    .catch(console.error);
-
   await client
     .get("statuses/home_timeline")
     .then(res => {
