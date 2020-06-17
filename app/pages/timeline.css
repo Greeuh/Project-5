@@ -25,7 +25,9 @@
 }
 
 .Avatar img {
-	size: 32px;
+	width: 32px;
+	height: 32px;
+	width: 100%;
 }
 
 .timeline-TweetList-tweet {
