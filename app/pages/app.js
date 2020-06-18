@@ -94,7 +94,7 @@ export async function getServerSideProps(ctx) {
   let results;
   let userOwnTweets;
 
-  await client
+  client
     .get("statuses/home_timeline", {
       count: 50,
     })
@@ -103,7 +103,17 @@ export async function getServerSideProps(ctx) {
       return results;
     });
 
-  return { props: { results } };
+  client
+    .get("statuses/user_timeline", {
+      user_id: 1240656557815275520,
+      count: 50,
+    })
+    .then(res => {
+      userOwnTweets = res;
+      return userOwnTweets;
+    });
+
+  return { props: { results, userOwnTweets } };
 }
 
 
