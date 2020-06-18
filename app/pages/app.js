@@ -4,10 +4,11 @@ import Twitter from 'twitter-lite';
 import Link from 'next/link';
 import { parseCookies, setCookie, destroyCookie } from 'nookies';
 import dynamic from 'next/dynamic';
+import loadable from '@loadable/component'
 
-const queryUser = dynamic(
+const queryUser = loadable(
   () => import('../components/queryUser'),
-  { ID: query.ID }
+  { ID: document.querySelector('#user') }
 )
 
 function Dashboard({ results }) {
@@ -25,7 +26,7 @@ function Dashboard({ results }) {
                   <div class="Icon Icon--twitter"></div>
                 </div>
                 <div class="timeline-Tweet-author">
-                  <div class="TweetAuthor"><a class="TweetAuthor-link" href={"?ID=" + result.user_id}> </a><span class="TweetAuthor-avatar">
+                  <div class="TweetAuthor"><a class="TweetAuthor-link" href={"#user=" + result.user_id}> </a><span class="TweetAuthor-avatar">
                     <div class="Avatar"><img src={result.user.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name">{result.user.name}</span>  <span class="Icon Icon--verified"> </span> <span class="TweetAuthor-screenName">@{result.user.screen_name}</span></div>
                 </div>
                 <div class="timeline-Tweet-text">{result.text}</div>
