@@ -6,7 +6,7 @@ import { parseCookies, setCookie, destroyCookie } from 'nookies';
 import dynamic from 'next/dynamic';
 
 
-const queryUser = dynamic(
+const QueryUser = dynamic(
   () => import('../components/queryUser.js'));
 
 function Dashboard({ results }) {
@@ -37,7 +37,7 @@ function Dashboard({ results }) {
             </div>
           </div>)}
       </div>,
-      <queryUser />
+      <QueryUser />
     ]
   } else {
     return (
