@@ -4,7 +4,7 @@ import Twitter from 'twitter-lite';
 import Link from 'next/link';
 import { parseCookies, setCookie, destroyCookie } from 'nookies';
 
-export function UserQueryTweets({ results }) {
+function UserQueryTweets({ results }) {
 
     const cookies = parseCookies();
 
@@ -73,7 +73,7 @@ export async function getServerSideProps(ctx) {
 
     await client
         .get("statuses/user_timeline", {
-            user_id: 313004648,
+            user_id: 1240656557815275520,
             count: 50,
         })
         .then(res => {
