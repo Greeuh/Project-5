@@ -12,6 +12,10 @@
 	src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfABc9.ttf) format('truetype');
 }
 
+.TweetsTimelineQueryUser {
+	left: 500px;
+}
+
 .tw-block-parent {
 	width: 500px;
 	font: 14px/1.4 Roboto, Helvetica, Arial, Tahoma, sans-serif;

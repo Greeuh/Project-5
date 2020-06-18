@@ -3,6 +3,12 @@ import axios from 'axios';
 import Twitter from 'twitter-lite';
 import Link from 'next/link';
 import { parseCookies, setCookie, destroyCookie } from 'nookies';
+import dynamic from 'next/dynamic';
+
+const queryUser = dynamic(
+  () => import('../components/queryUser'),
+  { ID: getElementById }
+)
 
 function Dashboard({ results }) {
 
@@ -19,7 +25,7 @@ function Dashboard({ results }) {
                   <div class="Icon Icon--twitter"></div>
                 </div>
                 <div class="timeline-Tweet-author">
-                  <div class="TweetAuthor"><a class="TweetAuthor-link" href="#channel"> </a><span class="TweetAuthor-avatar">
+                  <div class="TweetAuthor"><a class="TweetAuthor-link" href={"#" + result.user_id}> </a><span class="TweetAuthor-avatar">
                     <div class="Avatar"><img src={result.user.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name">{result.user.name}</span>  <span class="Icon Icon--verified"> </span> <span class="TweetAuthor-screenName">@{result.user.screen_name}</span></div>
                 </div>
                 <div class="timeline-Tweet-text">{result.text}</div>
@@ -32,6 +38,7 @@ function Dashboard({ results }) {
             </div>
           </div>)}
       </div>
+      <queryUser />
     )
   } else {
     return (
@@ -43,84 +50,6 @@ function Dashboard({ results }) {
         </Link>
       </div>
     );
-  }
-}
-
-class TweetsTimeline extends Component {
-  constructor(props) {
-    super(props)
-
-    this.state = {
-      isLog: false,
-      tweets: [],
-    };
-  }
-
-
-  componentDidMount() {
-    if (localStorage.getItem("UserToken") != undefined) {
-      this.setState({ isLog: true }, () => console.log(this.state.isLog));
-      console.log(this.state.isLog);
-      let UserToken;
-      let UserTokenSecret;
-
-      if (typeof window !== 'undefined') {
-        UserToken = localStorage.getItem("UserToken");
-        UserTokenSecret = localStorage.getItem("UserTokenSecret");
-      }
-
-      const client = new Twitter({
-        subdomain: "api", // "api" is the default (change for other subdomains)
-        version: "1.1", // version "1.1" is the default (change for other subdomains)
-        consumer_key: process.env.TWITTER_CONSUMER_KEY,
-        consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
-        access_token_key: UserToken,
-        access_token_secret: UserTokenSecret
-
-      });
-
-      // client
-      //   .get("account/verify_credentials")
-      //   .then(results => {
-      //     console.log("results", results);
-      //   })
-      //   .catch(console.error);
-
-      client
-        .get("statuses/home_timeline")
-        .then(result => {
-          console.log(result)
-          this.setState({ tweets: result })
-          console.log(result[0].created_at)
-        })
-        .catch(console.error);
-
-    } else {
-      this.setState({ isLog: false }, () => console.log(this.state.isLog));
-    }
-
-  }
-
-  render() {
-    if (this.state.isLog) {
-      return (
-        <div className="TweetsTimeline">
-          {this.state.tweets.map(tweet =>
-            <div></div>)}
-        </div>
-      );
-
-    } else {
-      return (
-        <div>
-          <Link href="/login">
-            <a>
-              CONNECTEZ-VOUS AVEC TWITTER
-            </a>
-          </Link>
-        </div>
-      );
-    }
   }
 }
 
