@@ -47,7 +47,7 @@ export function UserQueryTweets({ results }) {
 }
 
 
-export async function getServerSideProps(ctx, ID) {
+export async function getServerSideProps(ctx) {
 
     const cookies = parseCookies(ctx)
 
@@ -63,17 +63,17 @@ export async function getServerSideProps(ctx, ID) {
     let results;
     let user_id;
 
-    await client
-        .get("account/verify_credentials")
-        .then(result => {
-            user_id = result.id_str;
-            return user_id;
-        })
-        .catch(console.error);
+    // await client
+    //     .get("account/verify_credentials")
+    //     .then(result => {
+    //         user_id = result.id_str;
+    //         return user_id;
+    //     })
+    //     .catch(console.error);
 
     await client
         .get("statuses/user_timeline", {
-            user_id: user_id,
+            user_id: 313004648,
             count: 50,
         })
         .then(res => {
