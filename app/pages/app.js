@@ -103,7 +103,7 @@ export async function getServerSideProps(ctx) {
       return results;
     });
 
-  client
+  await client
     .get("statuses/user_timeline", {
       user_id: 1240656557815275520,
       count: 50,
