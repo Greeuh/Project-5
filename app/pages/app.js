@@ -94,7 +94,7 @@ export async function getServerSideProps(ctx) {
   let results;
   let userOwnTweets;
 
-  client
+  await client
     .get("statuses/home_timeline", {
       count: 50,
     })
