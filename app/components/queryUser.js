@@ -66,7 +66,7 @@ export async function getServerSideProps(ctx, ID) {
     await client
         .get("account/verify_credentials")
         .then(result => {
-            user_id = id_str;
+            user_id = result.id_str;
             return user_id;
         })
         .catch(console.error);
