@@ -37,7 +37,7 @@ function Dashboard({ results }) {
             </div>
           </div>)}
       </div>,
-      <QueryUser />
+      <QueryUser.getServerSideProps />
     ]
   } else {
     return (
