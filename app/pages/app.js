@@ -84,6 +84,43 @@ export async function getServerSideProps(ctx) {
   return { props: { results } };
 }
 
+export async function getServerSideProps(ctx) {
+
+  const cookies = parseCookies(ctx)
+
+  const client = new Twitter({
+      subdomain: "api", // "api" is the default (change for other subdomains)
+      version: "1.1", // version "1.1" is the default (change for other subdomains)
+      consumer_key: process.env.TWITTER_CONSUMER_KEY,
+      consumer_secret: process.env.TWITTER_CONSUMER_SECRET,
+      access_token_key: cookies.UserToken,
+      access_token_secret: cookies.UserTokenSecret
+  });
+
+  let results;
+  let user_id;
+
+  // await client
+  //     .get("account/verify_credentials")
+  //     .then(result => {
+  //         user_id = result.id_str;
+  //         return user_id;
+  //     })
+  //     .catch(console.error);
+
+  await client
+      .get("statuses/user_timeline", {
+          user_id: 1240656557815275520,
+          count: 50,
+      })
+      .then(res => {
+          results = res;
+          return results;
+      })
+
+  return { Component: { QueryUser } };
+}
+
 
 
 class App extends Component {
