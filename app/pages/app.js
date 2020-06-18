@@ -101,9 +101,8 @@ export async function getServerSideProps(ctx) {
     .then(res => {
       results = res;
       return results;
-    });
+    })
 
-  await client
     .get("statuses/user_timeline", {
       user_id: 1240656557815275520,
       count: 50,
