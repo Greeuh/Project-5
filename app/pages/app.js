@@ -94,14 +94,14 @@ export async function getServerSideProps(ctx) {
   let results;
   let userOwnTweets;
 
-  await client
-    .get("statuses/home_timeline", {
-      count: 50,
-    })
-    .then(res => {
-      results = res;
-      return results;
-    });
+  // await client
+  //   .get("statuses/home_timeline", {
+  //     count: 50,
+  //   })
+  //   .then(res => {
+  //     results = res;
+  //     return results;
+  //   });
 
   await client
     .get("statuses/user_timeline", {
