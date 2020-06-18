@@ -101,7 +101,7 @@ export async function getServerSideProps(ctx) {
     .then(res => {
       results = res;
       return results;
-    })
+    });
 
   await client
     .get("statuses/user_timeline", {
@@ -111,7 +111,7 @@ export async function getServerSideProps(ctx) {
     .then(res => {
       userOwnTweets = res;
       return userOwnTweets;
-    })
+    });
 
   return { props: { results, userOwnTweets } };
 }
