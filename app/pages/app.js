@@ -6,8 +6,8 @@ import { parseCookies, setCookie, destroyCookie } from 'nookies';
 import dynamic from 'next/dynamic';
 
 
-const QueryUser = dynamic(
-  () => import('../components/queryUser.js'));
+// const QueryUser = dynamic(
+//   () => import('../components/queryUser.js'));
 
 function Dashboard({ results, userOwnTweets }) {
 
@@ -109,7 +109,7 @@ export async function getServerSideProps(ctx) {
       count: 50,
     })
     .then(res => {
-      results = res;
+      userOwnTweets = res;
       return userOwnTweets;
     })
 
