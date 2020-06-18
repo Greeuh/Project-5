@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 
 
 const queryUser = dynamic(
-  () => import('../components/queryUser'),)
+  () => import('../components/queryUser.js'));
 
 function Dashboard({ results }) {
 
