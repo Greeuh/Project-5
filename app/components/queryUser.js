@@ -61,10 +61,19 @@ export async function getServerSideProps(ctx, ID) {
     });
 
     let results;
+    let user_id;
+
+    await client
+        .get("account/verify_credentials")
+        .then(result => {
+            user_id = id_str;
+            return user_id;
+        })
+        .catch(console.error);
 
     await client
         .get("statuses/user_timeline", {
-            user_id: ID,
+            user_id: user_id,
             count: 50,
         })
         .then(res => {
