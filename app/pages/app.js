@@ -102,16 +102,6 @@ export async function getServerSideProps(ctx) {
       results = res;
       return { props: { results } };
     });
-
-  await client
-    .get("statuses/user_timeline", {
-      user_id: 1240656557815275520,
-      count: 50,
-    })
-    .then(res => {
-      userOwnTweets = res;
-      return { props: { userOwnTweets } };
-    });
 }
 
 
