@@ -7,7 +7,7 @@ import dynamic from 'next/dynamic';
 
 const queryUser = dynamic(
   () => import('../components/queryUser'),
-  { ID: getElementById }
+  { ID: query.ID }
 )
 
 function Dashboard({ results }) {
@@ -15,7 +15,7 @@ function Dashboard({ results }) {
   const cookies = parseCookies();
 
   if (cookies.UserToken !== 'null') {
-    return (
+    return [
       <div class="TweetsTimeline">
         {results.map(result =>
           <div class="tw-block-parent">
@@ -25,7 +25,7 @@ function Dashboard({ results }) {
                   <div class="Icon Icon--twitter"></div>
                 </div>
                 <div class="timeline-Tweet-author">
-                  <div class="TweetAuthor"><a class="TweetAuthor-link" href={"#" + result.user_id}> </a><span class="TweetAuthor-avatar">
+                  <div class="TweetAuthor"><a class="TweetAuthor-link" href={"?ID=" + result.user_id}> </a><span class="TweetAuthor-avatar">
                     <div class="Avatar"><img src={result.user.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name">{result.user.name}</span>  <span class="Icon Icon--verified"> </span> <span class="TweetAuthor-screenName">@{result.user.screen_name}</span></div>
                 </div>
                 <div class="timeline-Tweet-text">{result.text}</div>
@@ -37,9 +37,9 @@ function Dashboard({ results }) {
               </div>
             </div>
           </div>)}
-      </div>
+      </div>,
       <queryUser />
-    )
+    ]
   } else {
     return (
       <div>
