@@ -81,7 +81,7 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 
 			Session::put('access_token', $token);
 
-			return Redirect::to('/')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
+			return Redirect::to('https://projet5ocr.antoineparriaud.fr:3000/app')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
 		}
 
 		return Redirect::route('twitter.error')->with('flash_error', 'Crab! Something went wrong while signing you up!');
