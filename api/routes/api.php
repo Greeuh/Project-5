@@ -20,5 +20,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/homeTimeline', function()
 {
-	return Twitter::getHomeTimeline(['count' => 20, 'format' => 'json']);
+	return Twitter::getHomeTimeline(['count' => 50, 'format' => 'json']);
 });
