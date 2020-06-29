@@ -12,7 +12,7 @@ class App extends Component {
 
   componentDidMount() {
 
-    axios.get('/homeTimeline',)
+    axios.get('/api/homeTimeline',)
       .then(res => {
         this.setState({ timeline: res })
         console.log(res[0].id)
