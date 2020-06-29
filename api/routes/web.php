@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Symfony\Component\Console\Input\Input;
+use Request;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,9 +55,9 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 
 		$oauth_verifier = false;
 
-		if (Input::has('oauth_verifier'))
+		if (Request::has('oauth_verifier'))
 		{
-			$oauth_verifier = Input::get('oauth_verifier');
+			$oauth_verifier = Request::get('oauth_verifier');
 			// getAccessToken() will reset the token for you
 			$token = Twitter::getAccessToken($oauth_verifier);
 		}
@@ -77,7 +77,9 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 			// if you want to be able to call the API on behalf of your users.
 
 			// This is also the moment to log in your users if you're using Laravel's Auth class
-			// Auth::login($user) should do the trick.
+            // Auth::login($user) should do the trick.
+            
+            
 
 			Session::put('access_token', $token);
 
