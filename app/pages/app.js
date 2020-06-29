@@ -12,7 +12,7 @@ class App extends Component {
 
   componentDidMount() {
 
-    axios.get('/api/homeTimeline',)
+    axios.get('https://projet5ocr.antoineparriaud.fr/api/homeTimeline',)
       .then(res => {
         this.setState({ timeline: res })
         console.log(res[0].id)
