@@ -20,5 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/homeTimeline', function()
 {
+    $token = session('access_token');
+
 	return Twitter::getHomeTimeline(['count' => 50, 'format' => 'json']);
 });
