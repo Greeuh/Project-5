@@ -20,15 +20,17 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/homeTimeline', function()
 {
-    $token = Session::get('access_token');
+    $token = $request->cookie('user_id');
 
     echo '<script>';
-    echo 'console.log('. json_encode($token, JSON_HEX_TAG) .')';
+    echo 'console.log('.$token.')';
     echo '</script>';
 
+    Auth::loginUsingId($token['user_id']);
+
+    Twitter::reconfig(['token' => $user->oauth_token, 'secret' => $user->oauth_token_secret]);
+
 	return Twitter::getHomeTimeline([
-        'access_token' => $token['oauth_token'],
-        'token_secret' => $token['oauth_token_secret'],
         'count' => 50,
         'format' => 'json']);
 });
