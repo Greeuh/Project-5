@@ -24,7 +24,7 @@ class App extends Component {
     };
     axios.defaults.withCredentials = true;
 
-    axios.get('https://projet5ocr.antoineparriaud.fr/api/homeTimeline', )
+    axios.get('https://projet5ocr.antoineparriaud.fr/api/homeTimeline')
       .then(res => {
         this.setState({ timeline: res })
       })

@@ -33,5 +33,5 @@ Route::get('/homeTimeline', function(Request $request)
 
 	return Twitter::getHomeTimeline([
         'count' => 50,
-        'format' => 'array']);
+        'format' => 'json']);
 });
