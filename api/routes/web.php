@@ -85,7 +85,9 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 			if (User::where('id', '=', $token['user_id'])->count() > 0) {
 
 				Auth::loginUsingId($token['user_id']);
+				$cookie = cookie('user_id', $token['user_id'], 10800);
 
+				return $cookie;
 			} else {
 				$user = new User();
 				$user->id = $token['user_id'];
@@ -94,10 +96,14 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 				$user->oauth_token_secret = $token['oauth_token_secret'];
 				$user->save();
 
+				$cookie = cookie('user_id', $token['user_id'], 10800);
+
 				Auth::login($user, true);
+
+				return $cookie;
 			}
 
-			return Redirect::to('https://projet5ocr.antoineparriaud.fr:3000/app')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
+			return Redirect::to('https://projet5ocr.antoineparriaud.fr:3000/app')->cookie($cookie);;
 		}
 
 		return Redirect::route('twitter.error')->with('flash_error', 'Crab! Something went wrong while signing you up!');
