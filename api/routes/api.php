@@ -29,8 +29,10 @@ Route::get('/homeTimeline', function()
     echo '</script>';
 
     Auth::loginUsingId($token);
+    $oauth_token = Auth::oauth_token();
+    $oauth_token_secret = Auth::oauth_token_secret();
 
-    Twitter::reconfig(['token' => $user->oauth_token, 'secret' => $user->oauth_token_secret]);
+    Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
 	return Twitter::getHomeTimeline([
         'count' => 50,
