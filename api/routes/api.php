@@ -23,9 +23,11 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/homeTimeline', function()
 {
     $token = Cookie::get('user_id');
+    $value = $request->cookie('user_id');
 
     echo '<script>';
-    echo 'console.log('.Cookie::get('user_id').')';
+    echo 'console.log('.$token.')';
+    echo 'console.log('.$value.')';
     echo '</script>';
 
     Auth::loginUsingId($token);
