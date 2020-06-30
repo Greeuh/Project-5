@@ -12,11 +12,12 @@ class App extends Component {
 
   componentDidMount() {
 
-    axios.get('https://projet5ocr.antoineparriaud.fr/api/homeTimeline',{
+    axios.get('https://projet5ocr.antoineparriaud.fr/api/homeTimeline', {
+      withCredentials: true,
       headers: {
-          Cookie: "user_id"
-      }
-  })
+        Cookie: "user_id"
+      },
+    })
       .then(res => {
         this.setState({ timeline: res })
         console.log(res[0].id)
