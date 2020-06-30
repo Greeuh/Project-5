@@ -26,7 +26,7 @@ class App extends Component {
 
     axios.get('https://projet5ocr.antoineparriaud.fr/api/homeTimeline')
       .then(res => {
-        this.setState({ timeline: res })
+        this.setState({ timeline: res.data })
       })
   }
 
