@@ -23,19 +23,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/homeTimeline', function(Request $request)
 {
     $token = Cookie::get('user_id');
-    $value = $request->cookie('user_id');
-
-    echo '<script>';
-    echo 'console.log('.$token.')';
-    echo 'console.log('.$value.')';
-    echo '</script> ';
 
     $user = Auth::loginUsingId($token);
-
-    echo '<script>';
-    echo 'console.log('.$user.')';
-    echo 'console.log('.print_r($user).')';
-    echo '</script> ';
 
     $oauth_token = $user->oauth_token;
     $oauth_token_secret = $user->oauth_token_secret;
@@ -44,5 +33,5 @@ Route::get('/homeTimeline', function(Request $request)
 
 	return Twitter::getHomeTimeline([
         'count' => 50,
-        'format' => 'json']);
+        'format' => 'array']);
 });

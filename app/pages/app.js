@@ -23,14 +23,6 @@ class App extends Component {
       credentials: "same-origin"
     };
     axios.defaults.withCredentials = true;
-    axios.get('/url',
-      axiosConfig)
-      .then((res) => {
-        // Some result here
-      })
-      .catch((err) => {
-        console.log(':(');
-      });
 
     axios.get('https://projet5ocr.antoineparriaud.fr/api/homeTimeline', {
       headers: {
