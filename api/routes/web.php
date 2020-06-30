@@ -81,6 +81,7 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
         
 
 			Session::put('access_token', $token);
+			echo $token;
 
 			return Redirect::to('https://projet5ocr.antoineparriaud.fr:3000/app')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
 		}

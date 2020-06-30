@@ -22,6 +22,8 @@ Route::get('/homeTimeline', function()
 {
     $token = Session::get('access_token');
 
+    echo $token;
+
 	return Twitter::getHomeTimeline([
         'access_token' => $token['oauth_token'],
         'token_secret' => $token['oauth_token_secret'],
