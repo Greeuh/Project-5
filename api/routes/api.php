@@ -30,9 +30,10 @@ Route::get('/homeTimeline', function(Request $request)
     echo 'console.log('.$value.')';
     echo '</script>';
 
-    Auth::loginUsingId($token);
-    $oauth_token = Auth::oauth_token();
-    $oauth_token_secret = Auth::oauth_token_secret();
+    $user = Auth::loginUsingId($token);
+    print_r($user);
+    $oauth_token = $user->oauth_token;
+    $oauth_token_secret = $user->oauth_token_secret;
 
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
