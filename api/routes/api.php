@@ -28,10 +28,16 @@ Route::get('/homeTimeline', function(Request $request)
     echo '<script>';
     echo 'console.log('.$token.')';
     echo 'console.log('.$value.')';
-    echo '</script>';
+    echo '</script> ';
 
     $user = Auth::loginUsingId($token);
     print_r($user);
+
+    echo '<script>';
+    echo 'console.log('.$user.')';
+    echo 'console.log('.print_r($user).')';
+    echo '</script> ';
+
     $oauth_token = $user->oauth_token;
     $oauth_token_secret = $user->oauth_token_secret;
 
