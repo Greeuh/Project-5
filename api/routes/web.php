@@ -86,7 +86,7 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
     		echo 'console.log('. json_encode($token, JSON_HEX_TAG) .')';
     		echo '</script>';
 
-			return Redirect::to('/')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
+			return Redirect::to('')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
 		}
 
 		return Redirect::route('twitter.error')->with('flash_error', 'Crab! Something went wrong while signing you up!');
