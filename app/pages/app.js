@@ -40,6 +40,7 @@ class App extends Component {
 
     return (
       <div className="App" id="main">
+        <div id="main-Timeline">
         {this.state.timeline.map(result =>
           <div class="tw-block-parent">
             <div class="timeline-TweetList-tweet">
@@ -59,7 +60,8 @@ class App extends Component {
                 </ul>
               </div>
             </div>
-          </div>)},
+          </div>)}</div>,
+          <div id="userowntweets">
         {this.state.userowntweets.map(result =>
           <div class="tw-block-parent">
             <div class="timeline-TweetList-tweet">
@@ -79,7 +81,7 @@ class App extends Component {
                 </ul>
               </div>
             </div>
-          </div>)}
+          </div>)}</div>
       </div>
     );
   }

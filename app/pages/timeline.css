@@ -17,9 +17,17 @@
     flex-direction: row;
 }
 
-.tw-block-parent {
+#main-Timeline {
 	display: flex;
-	flex-direction: column !important;
+    flex-direction: column;
+}
+
+#userowntweets {
+	display: flex;
+    flex-direction: column;
+}
+
+.tw-block-parent {
 	width: 500px;
 	font: 14px/1.4 Roboto, Helvetica, Arial, Tahoma, sans-serif;
 	font-weight: 300;
