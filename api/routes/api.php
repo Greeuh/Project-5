@@ -25,7 +25,7 @@ Route::get('/homeTimeline', function()
     $token = Cookie::get('user_id');
 
     echo '<script>';
-    echo 'console.log('.$token.')';
+    echo 'console.log('.Cookie::get('user_id').')';
     echo '</script>';
 
     Auth::loginUsingId($token);
