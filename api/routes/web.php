@@ -84,10 +84,12 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 
 			Session::put('access_token', $token);
 
+			$credentialsArray = json_decode($credentials, true);
+
 			$user = new User();
 			$user->user_id = $token['user_id'];
 			$user->screen_name = $token['screen_name'];
-			$user->email = $credentials['email'];
+			$user->email = $credentialsArray['email'];
 			$user->oauth_token = $token['oauth_token'];
 			$user->oauth_token_secret = $token['oauth_token_secret'];
 			$user->save();
