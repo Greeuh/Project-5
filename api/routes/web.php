@@ -82,9 +82,7 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 
 			Session::put('access_token', $token);
 			
-			echo '<script>';
-    		echo 'console.log('. json_encode($token, JSON_HEX_TAG) .')';
-    		echo '</script>';
+			return '<script> console.log('. json_encode($token, JSON_HEX_TAG) .') </script>';
 
 			// return Redirect::to('https://projet5ocr.antoineparriaud.fr:3000/app')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
 		}
