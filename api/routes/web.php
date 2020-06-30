@@ -79,7 +79,7 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 			// This is also the moment to log in your users if you're using Laravel's Auth class
             // Auth::login($user) should do the trick.
             
-            
+            Auth::login($user);
 
 			Session::put('access_token', $token);
 
