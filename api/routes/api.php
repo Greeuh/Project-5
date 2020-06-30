@@ -35,3 +35,21 @@ Route::get('/homeTimeline', function(Request $request)
         'count' => 50,
         'format' => 'json']);
 });
+
+Route::get('/userTimeline', function(Request $request)
+{
+    $token = Cookie::get('user_id');
+
+    $user = Auth::loginUsingId($token);
+
+    $oauth_token = $user->oauth_token;
+    $oauth_token_secret = $user->oauth_token_secret;
+    $username = $user->screen_name;
+
+    Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
+
+	return Twitter::getUserTimeline([
+        'screen_name' => $username,
+        'count' => 50,
+        'format' => 'json']);
+});
