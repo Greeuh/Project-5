@@ -19,7 +19,7 @@
 
 .tw-block-parent {
 	display: flex;
-	flex-direction: column;
+	flex-direction: column !important;
 	width: 500px;
 	font: 14px/1.4 Roboto, Helvetica, Arial, Tahoma, sans-serif;
 	font-weight: 300;
