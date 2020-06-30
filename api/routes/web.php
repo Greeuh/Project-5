@@ -87,8 +87,8 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 				Auth::loginUsingId($token['user_id']);
 
 				$cookie = cookie('user_id', $token['user_id'], 10800);
-				cookie($cookie);
-
+				
+				return cookie($cookie);
 			} else {
 				$user = new User();
 				$user->id = $token['user_id'];
@@ -98,9 +98,10 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 				$user->save();
 
 				$cookie = cookie('user_id', $token['user_id'], 10800);
-				cookie($cookie);
 
 				Auth::login($user, true);
+
+				return cookie($cookie);
 			}
 
 			return Redirect::to('https://projet5ocr.antoineparriaud.fr:3000/app')->with('flash_notice', 'Congrats! You\'ve successfully signed in!');
