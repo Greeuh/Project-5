@@ -84,8 +84,7 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 
 			if (User::where('user_id', '=', $token['user_id'])->count() > 0) {
 
-				LoginRequest::where('user_id', $token['user_id']);
-				Auth::loginUsingId($loginRequest->user_id);
+				Auth::loginUsingId($token['user_id']->user_id);
 
 			} else {
 				$user = new User();
