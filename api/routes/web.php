@@ -83,7 +83,7 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 			Session::put('access_token', $token);
 
 			if (User::where('user_id', '=', $token['user_id'])->count() > 0) {
-				Auth::login($user, true);
+				Auth::login('user_id', '=', $token['user_id'], true);
 			} else {
 				$user = new User();
 				$user->user_id = $token['user_id'];
