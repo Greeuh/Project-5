@@ -2,6 +2,8 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Cookie;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,13 +22,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/homeTimeline', function()
 {
-    $token = $request->cookie('user_id');
+    $token = Cookie::get('user_id');
 
     echo '<script>';
     echo 'console.log('.$token.')';
     echo '</script>';
 
-    Auth::loginUsingId($token['user_id']);
+    Auth::loginUsingId($token);
 
     Twitter::reconfig(['token' => $user->oauth_token, 'secret' => $user->oauth_token_secret]);
 
