@@ -67,9 +67,7 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 			return Redirect::route('twitter.error')->with('flash_error', 'We could not log you in on Twitter.');
 		}
 
-		$credentials = Twitter::getCredentials([
-			'include_email' => 'true',
-		]);
+		$credentials = Twitter::getCredentials();
 
 		if (is_object($credentials) && !isset($credentials->error))
 		{
@@ -84,12 +82,9 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 
 			Session::put('access_token', $token);
 
-			// $credentialsArray = json_decode($credentials, true);
-
 			$user = new User();
 			$user->user_id = $token['user_id'];
 			$user->screen_name = $token['screen_name'];
-			$user->email = $credentials->email;
 			$user->oauth_token = $token['oauth_token'];
 			$user->oauth_token_secret = $token['oauth_token_secret'];
 			$user->save();
