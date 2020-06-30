@@ -104,7 +104,7 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 				cookie($cookie);
 			}
 
-			return cookie($cookie)->Redirect::to('https://projet5ocr.antoineparriaud.fr:3000/app');
+			return cookie($cookie) -> Redirect::to('https://projet5ocr.antoineparriaud.fr:3000/app');
 		}
 
 		return Redirect::route('twitter.error')->with('flash_error', 'Crab! Something went wrong while signing you up!');
