@@ -20,7 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/homeTimeline', function()
+Route::get('/homeTimeline', function(Request $request)
 {
     $token = Cookie::get('user_id');
     $value = $request->cookie('user_id');
