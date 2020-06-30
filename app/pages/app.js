@@ -13,7 +13,6 @@ class App extends Component {
   componentDidMount() {
 
     axios.get('https://projet5ocr.antoineparriaud.fr/api/homeTimeline', {
-      withCredentials: true,
       headers: {
         Cookie: "user_id"
       },

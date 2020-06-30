@@ -31,7 +31,6 @@ Route::get('/homeTimeline', function(Request $request)
     echo '</script> ';
 
     $user = Auth::loginUsingId($token);
-    print_r($user);
 
     echo '<script>';
     echo 'console.log('.$user.')';
