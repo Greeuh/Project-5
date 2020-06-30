@@ -39,7 +39,6 @@ class App extends Component {
     })
       .then(res => {
         this.setState({ timeline: res })
-        console.log(res[0].id)
       })
   }
 
