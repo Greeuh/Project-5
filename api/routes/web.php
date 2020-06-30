@@ -82,13 +82,13 @@ Route::get('twitter/callback', ['as' => 'twitter.callback', function() {
 
 			Session::put('access_token', $token);
 
-			if (User::where('user_id', '=', $token['user_id'])->count() > 0) {
+			if (User::where('id', '=', $token['user_id'])->count() > 0) {
 
 				Auth::loginUsingId($token['user_id']);
 
 			} else {
 				$user = new User();
-				$user->user_id = $token['user_id'];
+				$user->id = $token['user_id'];
 				$user->screen_name = $token['screen_name'];
 				$user->oauth_token = $token['oauth_token'];
 				$user->oauth_token_secret = $token['oauth_token_secret'];
