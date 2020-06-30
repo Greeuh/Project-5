@@ -20,7 +20,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/homeTimeline', function()
 {
-    $token = Session::get('access_token');
+    try
+    {
+	    $response = Twitter::getUserTimeline(['count' => 20, 'format' => 'json']);
+    }
+    catch (Exception $e)
+    {
+	    // dd(Twitter::error());
+	    dd(Twitter::logs());
+    }
 
-	return Twitter::getHomeTimeline(['count' => 50, 'format' => 'json']);
+        return dd($response);
 });
