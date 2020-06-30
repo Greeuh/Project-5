@@ -39,7 +39,7 @@ class App extends Component {
   render() {
 
     return (
-      <div className="App" class="main">
+      <div className="App" id="main">
         {this.state.timeline.map(result =>
           <div class="tw-block-parent">
             <div class="timeline-TweetList-tweet">
