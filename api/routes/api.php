@@ -43,6 +43,7 @@ Route::get('/homeTimeline', function (Request $request) {
         $tweetRes[] = $tweetLinkified;
     }
 
+    $tweetRes = mb_convert_encoding($tweetRes, 'UTF-8', 'UTF-8');
     return $tweetRes;
 });
 
