@@ -20,8 +20,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/homeTimeline', function(Request $request)
-{
+Route::get('/homeTimeline', function (Request $request) {
     $token = Cookie::get('user_id');
 
     $user = Auth::loginUsingId($token);
@@ -31,14 +30,23 @@ Route::get('/homeTimeline', function(Request $request)
 
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
-	return Twitter::getHomeTimeline([
+    $tweets = Twitter::getHomeTimeline([
         'tweet_mode' => 'extended',
         'count' => 200,
-        'format' => 'object']);
+        'format' => 'array'
+    ]);
+
+    $tweetRes = array();
+
+    foreach ($tweets as $tweet) {
+        $tweetLinkified = Twitter::linkify($tweet);
+        $tweetRes[] = $tweetLinkified;
+    }
+
+    return $tweetRes;
 });
 
-Route::get('/userTimeline', function(Request $request)
-{
+Route::get('/userTimeline', function (Request $request) {
     $token = Cookie::get('user_id');
 
     $user = Auth::loginUsingId($token);
@@ -49,8 +57,9 @@ Route::get('/userTimeline', function(Request $request)
 
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
-	return Twitter::getUserTimeline([
+    return Twitter::getUserTimeline([
         'screen_name' => $username,
         'count' => 50,
-        'format' => 'json']);
+        'format' => 'json'
+    ]);
 });
