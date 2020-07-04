@@ -33,8 +33,8 @@ Route::get('/homeTimeline', function(Request $request)
 
 	return Twitter::getHomeTimeline([
         'tweet_mode' => 'extended',
-        'count' => 50,
-        'format' => 'json']);
+        'count' => 200,
+        'format' => 'object']);
 });
 
 Route::get('/userTimeline', function(Request $request)
