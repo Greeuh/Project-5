@@ -38,8 +38,8 @@ Route::get('/homeTimeline', function (Request $request) {
 
     $tweetRes = array();
 
-    foreach ($tweets as $tweet) {
-        $tweetLinkified = Twitter::linkify($tweet=>full_text);
+    foreach ($tweets as $tweet => $full_text) {
+        $tweetLinkified = Twitter::linkify($full_text);
         $tweetRes[] = $tweetLinkified;
     }
 
