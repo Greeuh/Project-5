@@ -40,11 +40,11 @@ Route::get('/homeTimeline', function (Request $request) {
 
     foreach ($tweets as $tweet => $full_text) {
         $tweetLinkified = Twitter::linkify($full_text);
-        $tweetRes[] = $tweetLinkified;
+        $tweets = $tweetLinkified;
     }
 
-    $tweetRes = mb_convert_encoding($tweetRes, 'UTF-8', 'UTF-8');
-    return $tweetRes;
+    // $tweetRes = mb_convert_encoding($tweetRes, 'UTF-8', 'UTF-8');
+    return $tweets;
 });
 
 Route::get('/userTimeline', function (Request $request) {
