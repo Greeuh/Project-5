@@ -38,9 +38,9 @@ Route::get('/homeTimeline', function (Request $request) {
 
     $tweetRes = array();
 
-    foreach ($tweets as $tweet => $full_text) {
+    foreach ($tweets as &$full_text) {
         $tweetLinkified = Twitter::linkify($full_text);
-        $tweets = $tweetLinkified;
+        // $tweetRes = $tweetLinkified;
     }
 
     // $tweetRes = mb_convert_encoding($tweetRes, 'UTF-8', 'UTF-8');
