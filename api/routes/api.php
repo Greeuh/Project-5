@@ -40,7 +40,7 @@ Route::get('/homeTimeline', function (Request $request) {
 
     foreach ($tweets as $tweet) {
         // $tweet[full_text] = Twitter::linkify($tweet[full_text]);
-        Arr::set($tweet, 'full_text', Twitter::linkify(full_text));
+        Arr::set($tweet, 'full_text', Twitter::linkify($tweet[full_text]));
         // $tweetRes = $tweetLinkified;
     }
 
