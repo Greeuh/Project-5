@@ -38,13 +38,14 @@ Route::get('/homeTimeline', function (Request $request) {
 
     $tweetRes = array();
 
-    foreach ($tweets as $tweet) {
+    foreach ($tweets as &$tweet) {
         // $tweet[full_text] = Twitter::linkify($tweet[full_text]);
         // Arr::set($tweet, 'full_text', Twitter::linkify($tweet[full_text]));
-        $toLinkify = Arr::get($tweet, 'tweet.full_text');
-        $isLinkified = Twitter::linkify($toLinkify);
-        Arr::set($tweet, 'tweet.full_text', $isLinkified);
+        //$toLinkify = Arr::get($tweet, 'tweet.full_text');
+        //$isLinkified = Twitter::linkify($toLinkify);
+        //Arr::set($tweet, 'tweet.full_text', $isLinkified);
         // $tweetRes = $tweetLinkified;
+        $tweet['full_text'] = Twitter::linkify($tweet['full_text']);
     }
 
     // $tweetRes = mb_convert_encoding($tweetRes, 'UTF-8', 'UTF-8');
