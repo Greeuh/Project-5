@@ -46,6 +46,7 @@ Route::get('/homeTimeline', function (Request $request) {
         //Arr::set($tweet, 'tweet.full_text', $isLinkified);
         // $tweetRes = $tweetLinkified;
         $tweet['full_text'] = Twitter::linkify($tweet['full_text']);
+        $tweet['created_at'] = Twitter::ago($tweet['created_at']);
     }
 
     // $tweetRes = mb_convert_encoding($tweetRes, 'UTF-8', 'UTF-8');
