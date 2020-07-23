@@ -32,7 +32,15 @@ export default class PostTweet extends React.Component {
         return (
             <form onSubmit={this.handleSubmit}>
 
-                <textarea name="tweetarea" rows={6} col={30} maxLength={280} placeholder="Tweet something here !" onChange={(event) => this.handleChange(event)}>
+                <textarea 
+                name="tweetarea" 
+                rows={6} 
+                col={30} 
+                maxLength={280} 
+                placeholder="Tweet something here !" 
+                onChange={(event) => this.handleChange(event)}
+                >
+                    
                 </textarea>
                 <br></br>
                 <text>
