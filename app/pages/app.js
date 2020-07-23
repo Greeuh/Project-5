@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import PostTweet from './components/PostTweet';
+import PostTweet from '/components/PostTweet';
 
 class App extends Component {
   constructor(props) {
