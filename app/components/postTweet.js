@@ -41,7 +41,7 @@ export default class PostTweet extends React.Component {
                 maxLength="280"
                 placeholder="Tweet something here !" 
                 value={this.state.value}
-                onChange={(event) => this.handleChange(event)}
+                onChange={this.handleChange}
                 >
 
                 </textarea>
