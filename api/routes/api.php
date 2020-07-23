@@ -56,6 +56,7 @@ Route::get('/userTimeline', function (Request $request) {
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
     return Twitter::getUserTimeline([
+        'tweet_mode' => 'extended',
         'screen_name' => $username,
         'count' => 50,
         'format' => 'json'
