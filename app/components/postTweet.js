@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet, Text, View, TextInput } from 'react-native';
 
 export default class postTweet extends React.Component {
     constructor(props) {
@@ -11,11 +10,6 @@ export default class postTweet extends React.Component {
     }
 
     handleSubmit(event) {
-        axios.post('https://projet5ocr.antoineparriaud.fr/api/postTweet')
-            .then(res => {
-                this.setState({ timeline: res.data })
-            })
-
         axios.post('https://projet5ocr.antoineparriaud.fr/api/postTweet', {
             status: this.state.value
         })
@@ -32,25 +26,15 @@ export default class postTweet extends React.Component {
 
     render() {
         return (
-            <View>
                 <form onSubmit={this.handleSubmit}>
-                    <TextInput
-                        multiline={true}
-                        numberOfLines={6}
-                        maxLength={280}
-                        placeholder='Tweet something here !'
-                        value={this.state.value}
-                        onChangeText={(value) => this.setState({ value })}
-                        onSubmitEditing={this.onSubmitEdit}
-
-                    />
+                    <textarea name="tweetarea" rows="6" maxlength="280" placeholder="Tweet something here !" onChange={(value) => this.setState({ value })} value={this.state.value}>
+                    </textarea>
 
 
-                    <Text>
+                    <text>
                         Characters Left: {this.state.value.length}/280
-                    </Text>
+                    </text>
                 </form>
-            </View>
         )
     }
 } 
