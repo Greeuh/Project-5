@@ -9,7 +9,8 @@ export default class PostTweet extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(event) {
+    handleChange = (event) => {
+        console.log("du texte");
         console.log(event.target.value);
         this.setState({ value: event.target.value });
     }
