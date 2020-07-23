@@ -10,12 +10,11 @@ export default class PostTweet extends React.Component {
     }
 
     handleChange = (event) => {
-        console.log("du texte");
-        console.log(event.target.value);
         this.setState({ value: event.target.value });
     }
 
     handleSubmit(event) {
+        event.preventDefault();
         axios.post('https://projet5ocr.antoineparriaud.fr/api/postTweet', {
             status: this.state.value
         })
@@ -27,7 +26,6 @@ export default class PostTweet extends React.Component {
             });
 
         alert('Your tweet has been sent!');
-        event.preventDefault();
     }
 
     render() {
