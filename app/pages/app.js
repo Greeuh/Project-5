@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import postTweet from '../components/postTweet';
+import PostTweet from '../components/PostTweet';
 
 class App extends Component {
   constructor(props) {
@@ -90,7 +90,7 @@ class App extends Component {
         </div>
 
         <div id="postTweet">
-          <postTweet />
+          <PostTweet />
         </div>
 
       </div>

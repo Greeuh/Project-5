@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class postTweet extends React.Component {
+export default class PostTweet extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
