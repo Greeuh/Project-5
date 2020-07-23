@@ -65,7 +65,7 @@ Route::get('/userTimeline', function (Request $request) {
 
 Route::post('/postTweet', function (Request $request) {
     $body = $request->All();
-    $status = json_decode($body);
+    $status = json_encode($body);
 
     $token = Cookie::get('user_id');
     $user = Auth::loginUsingId($token);
