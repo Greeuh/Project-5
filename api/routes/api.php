@@ -36,20 +36,11 @@ Route::get('/homeTimeline', function (Request $request) {
         'format' => 'array'
     ]);
 
-    $tweetRes = array();
-
     foreach ($tweets as &$tweet) {
-        // $tweet[full_text] = Twitter::linkify($tweet[full_text]);
-        // Arr::set($tweet, 'full_text', Twitter::linkify($tweet[full_text]));
-        //$toLinkify = Arr::get($tweet, 'tweet.full_text');
-        //$isLinkified = Twitter::linkify($toLinkify);
-        //Arr::set($tweet, 'tweet.full_text', $isLinkified);
-        // $tweetRes = $tweetLinkified;
         $tweet['full_text'] = Twitter::linkify($tweet['full_text']);
         $tweet['created_at'] = Twitter::ago($tweet['created_at']);
     }
 
-    // $tweetRes = mb_convert_encoding($tweetRes, 'UTF-8', 'UTF-8');
     return $tweets;
 });
 
@@ -69,4 +60,16 @@ Route::get('/userTimeline', function (Request $request) {
         'count' => 50,
         'format' => 'json'
     ]);
+});
+
+Route::post('/postTweet', function (Request $request) {
+    $status = $request->all();
+
+    $token = Cookie::get('user_id');
+    $user = Auth::loginUsingId($token);
+    $oauth_token = $user->oauth_token;
+    $oauth_token_secret = $user->oauth_token_secret;
+    Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
+
+	return Twitter::postTweet(['status' => $status, 'format' => 'json']);
 });
