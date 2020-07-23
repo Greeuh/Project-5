@@ -65,6 +65,7 @@ Route::get('/userTimeline', function (Request $request) {
 
 Route::post('/postTweet', function (Request $request) {
     $body = $request->getContent();
+    echo $body;
 
     $token = Cookie::get('user_id');
     $user = Auth::loginUsingId($token);
@@ -72,5 +73,6 @@ Route::post('/postTweet', function (Request $request) {
     $oauth_token_secret = $user->oauth_token_secret;
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
-	return Twitter::postTweet(['status' => $status, 'format' => 'json']);
+    // return Twitter::postTweet(['status' => $status, 'format' => 'json']);
+    return $body;
 });
