@@ -10,6 +10,7 @@ export default class PostTweet extends React.Component {
     }
 
     handleChange(event) {
+        console.log(event.target.value);
         this.setState({ value: event.target.value });
     }
 
@@ -38,6 +39,7 @@ export default class PostTweet extends React.Component {
                 cols="30" 
                 maxLength="280"
                 placeholder="Tweet something here !" 
+                value={this.state.value}
                 onChange={(event) => this.handleChange(event)}
                 >
 
