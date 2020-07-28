@@ -7,14 +7,13 @@ export default class PostTweet extends React.Component {
         this.state = {
             value: ''
         };
-        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange = (event) => {
         this.setState({ value: event.target.value });
     }
 
-    handleSubmit(event) {
+    handleSubmit = (event) => {
         axios.post('https://projet5ocr.antoineparriaud.fr/api/postTweet', {
             status: this.state.value
         })
@@ -22,7 +21,7 @@ export default class PostTweet extends React.Component {
                 if (response === 413) {
                     alert('Your tweet is too long!');
                 }
-                if (response.status === 200) {
+                if (response === 200) {
                     alert('Your tweet has been sent!');
                 }
             })
