@@ -78,6 +78,6 @@ Route::post('/postTweet', function (Request $request) {
         //Twitter::postTweet(['status' => $body['status'], 'format' => 'json']);
         //return 200;
         http_response_code(200);
-        return response(Twitter::postTweet(['status' => $body['status'], 'format' => 'json']), 200);
+        return Twitter::postTweet(['status' => $body['status'], 'format' => 'json']);
     }
 });

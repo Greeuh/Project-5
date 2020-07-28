@@ -19,10 +19,10 @@ export default class PostTweet extends React.Component {
             status: this.state.value
         })
             .then(function (response) {
-                if (response == 413) {
+                if (response === 413) {
                     alert('Your tweet is too long!');
                 }
-                if (response.status == 200) {
+                if (response.status === 200) {
                     alert('Your tweet has been sent!');
                 }
             })
