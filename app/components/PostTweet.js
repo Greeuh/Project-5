@@ -22,7 +22,7 @@ export default class PostTweet extends React.Component {
                 if (response == 413) {
                     alert('Your tweet is too long!');
                 }
-                if (response == 200) {
+                if (response.status == 200) {
                     alert('Your tweet has been sent!');
                 }
             })

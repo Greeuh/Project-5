@@ -75,7 +75,9 @@ Route::post('/postTweet', function (Request $request) {
     if (Str::length($body['status']) > 280){
         return 413;
     }else{
-        Twitter::postTweet(['status' => $body['status'], 'format' => 'json']);
-        return 200;
+        //Twitter::postTweet(['status' => $body['status'], 'format' => 'json']);
+        //return 200;
+        http_response_code(200);
+        return response(Twitter::postTweet(['status' => $body['status'], 'format' => 'json']), 200);
     }
 });
