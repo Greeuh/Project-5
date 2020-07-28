@@ -19,13 +19,16 @@ export default class PostTweet extends React.Component {
             status: this.state.value
         })
             .then(function (response) {
-                console.log(response);
+                if (response == 413) {
+                    alert('Your tweet is too long!');
+                }
+                if (response == 200) {
+                    alert('Your tweet has been sent!');
+                }
             })
             .catch(function (error) {
                 console.log(error);
             });
-
-        alert('Your tweet has been sent!');
     }
 
     render() {
@@ -33,17 +36,17 @@ export default class PostTweet extends React.Component {
             <form onSubmit={this.handleSubmit}>
 
                 <input
-                type="text" 
-                name="tweetarea" 
-                rows="6"
-                cols="30" 
-                maxLength="280"
-                placeholder="Tweet something here !" 
-                value={this.state.value}
-                onChange={this.handleChange}
+                    type="text"
+                    name="tweetarea"
+                    rows="6"
+                    cols="30"
+                    maxLength="280"
+                    placeholder="Tweet something here !"
+                    value={this.state.value}
+                    onChange={this.handleChange}
                 />
 
-                
+
                 <br></br>
                 <text>
                     Characters Left: {this.state.value.length}/280

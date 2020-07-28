@@ -73,8 +73,9 @@ Route::post('/postTweet', function (Request $request) {
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
     if (Str::length($body['status']) > 280){
-        return 500;
+        return 413;
     }else{
-        return Twitter::postTweet(['status' => $body['status'], 'format' => 'json']);
+        Twitter::postTweet(['status' => $body['status'], 'format' => 'json']);
+        return 200;
     }
 });
