@@ -32,13 +32,11 @@ class App extends Component {
       <div className="App" id="main">
 
         <div id="main-Timeline">
-          
-            <HomeTimeline />
+          <HomeTimeline />
         </div>
 
         <div id="userowntweets">
-        
-              <UserTimeline />
+          <UserTimeline />
         </div>
 
         <div id="postTweet">
