@@ -15,11 +15,12 @@ export default class PostTweet extends React.Component {
     }
 
     handleSubmit(event) {
-        e.preventDefault();
+        event.preventDefault();
         axios.post('https://projet5ocr.antoineparriaud.fr/api/postTweet', {
             status: this.state.value
         })
             .then(function (response) {
+                console.log(response);
                 if (response === 413) {
                     alert('Your tweet is too long!');
                 }
