@@ -7,14 +7,15 @@ export default class PostTweet extends React.Component {
         this.state = {
             value: ''
         };
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     handleChange = (event) => {
         this.setState({ value: event.target.value });
     }
 
-    handleSubmit = (event) => {
-        e.preventDefault(event);
+    handleSubmit(event) {
+        e.preventDefault();
         axios.post('https://projet5ocr.antoineparriaud.fr/api/postTweet', {
             status: this.state.value
         })
