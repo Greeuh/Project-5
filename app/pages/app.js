@@ -52,8 +52,8 @@ class App extends Component {
   }
 
   refreshTimeline() {
-    this.getUserTimeline();
-    this.getHomeTimeline();
+    this.getUserTimeline;
+    this.getHomeTimeline;
   }
 
   render() {
