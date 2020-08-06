@@ -7,9 +7,9 @@ export default class TimelineColumn extends React.Component {
     }
 
     render() {
-        return (<div>
+        return <div>
             {
-                this.props.data.map(result =>
+                this.props.data.map(result => {
                     <div class="tw-block-parent">
                         <div class="timeline-TweetList-tweet">
                             <div class="timeline-Tweet">
@@ -28,7 +28,7 @@ export default class TimelineColumn extends React.Component {
                                 </ul>
                             </div>
                         </div>
-                    </div>)
-            }</div>)
+                </div>})
+            }</div>
     }
 }

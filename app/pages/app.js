@@ -15,7 +15,6 @@ class App extends Component {
     };
   }
 
-
   componentDidMount() {
     const axiosConfig = {
       headers: {
