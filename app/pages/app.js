@@ -54,6 +54,7 @@ class App extends Component {
   refreshTimeline() {
     this.getUserTimeline;
     this.getHomeTimeline;
+    console.log("C'est refresh!");
   }
 
   render() {
