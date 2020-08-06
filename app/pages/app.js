@@ -45,6 +45,11 @@ class App extends Component {
       })
   }
 
+  refreshTimeline() {
+    this.getUserTimeline();
+    this.getHomeTimeline();
+  }
+
   render() {
 
     return (
@@ -59,7 +64,7 @@ class App extends Component {
         </div>
 
         <div id="postTweet">
-          <PostTweet />
+          <PostTweet refreshT={this.refreshTimeline} />
         </div>
 
       </div>
