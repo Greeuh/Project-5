@@ -30,7 +30,7 @@ class App extends Component {
     this.getUserTimeline();
     this.getHomeTimeline();
 
-    this.timer = setInterval(this.refreshTimeline, 10000);
+    this.timer = setInterval(this.refreshTimeline(), 10000);
   }
 
   componentWillUnmount() {
@@ -52,8 +52,8 @@ class App extends Component {
   }
 
   refreshTimeline() {
-    this.getUserTimeline;
-    this.getHomeTimeline;
+    this.getUserTimeline();
+    this.getHomeTimeline();
     console.log("C'est refresh!");
   }
 
@@ -71,7 +71,7 @@ class App extends Component {
         </div>
 
         <div id="postTweet">
-          <PostTweet refreshT={this.refreshTimeline} />
+          <PostTweet refreshT={this.refreshTimeline()} />
         </div>
 
       </div>
