@@ -15,8 +15,7 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-
+  componentWillMount() {
     const axiosConfig = {
       headers: {
         'content-Type': 'application/json',
@@ -27,6 +26,9 @@ class App extends Component {
       credentials: "same-origin"
     };
     axios.defaults.withCredentials = true;
+
+    this.getUserTimeline();
+    this.getHomeTimeline();
   }
 
   getUserTimeline() {
