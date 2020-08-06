@@ -29,6 +29,12 @@ class App extends Component {
 
     this.getUserTimeline();
     this.getHomeTimeline();
+
+    this.timer = setInterval(() => { this.refreshTimeline }, 10000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.timer);
   }
 
   getUserTimeline() {
