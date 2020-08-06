@@ -39,7 +39,7 @@ class App extends Component {
     clearInterval(this.timer);
   }
 
-  getUserTimeline() {
+  getUserTimeline = () => {
     axios.get('https://projet5ocr.antoineparriaud.fr/api/userTimeline')
       .then(res => {
         this.setState({ userT: res.data })
@@ -49,14 +49,14 @@ class App extends Component {
       })
   }
 
-  getHomeTimeline() {
+  getHomeTimeline = () => {
     axios.get('https://projet5ocr.antoineparriaud.fr/api/homeTimeline')
       .then(res => {
         this.setState({ homeT: res.data })
       })
   }
 
-  refreshTimeline() {
+  refreshTimeline = () => {
     this.getUserTimeline();
     this.getHomeTimeline();
     console.log("C'est refresh!");
