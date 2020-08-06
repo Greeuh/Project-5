@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 
-class TimelineColumn extends Component {
+export default class TimelineColumn extends React.Component {
     constructor(props) {
         super(props);
     }
@@ -32,5 +32,3 @@ class TimelineColumn extends Component {
             }</div>)
     }
 }
-
-export default TimelineColumn;
