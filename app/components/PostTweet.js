@@ -20,8 +20,8 @@ export default class PostTweet extends React.Component {
             status: this.state.value
         })
             .then(function (response) {
-                console.log(response),
-                this.props.refreshT();
+                console.log(response);
+                
                 if (response === 413) {
                     alert('Your tweet is too long!');
                 }
