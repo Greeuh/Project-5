@@ -44,6 +44,9 @@ class App extends Component {
       .then(res => {
         this.setState({ userT: res.data })
       })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   getHomeTimeline() {
@@ -54,6 +57,7 @@ class App extends Component {
   }
 
   refreshTimeline() {
+    this.getUserTimeline();
     console.log("C'est refresh!");
   }
 
