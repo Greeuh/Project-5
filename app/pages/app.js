@@ -15,7 +15,8 @@ class App extends Component {
     };
   }
 
-  componentWillMount() {
+
+  componentDidMount() {
     const axiosConfig = {
       headers: {
         'content-Type': 'application/json',
