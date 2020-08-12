@@ -63,6 +63,24 @@ Route::get('/userTimeline', function (Request $request) {
     ]);
 });
 
+Route::get('/mentionsTimeline', function (Request $request) {
+    $token = Cookie::get('user_id');
+
+    $user = Auth::loginUsingId($token);
+
+    $oauth_token = $user->oauth_token;
+    $oauth_token_secret = $user->oauth_token_secret;
+    $username = $user->screen_name;
+
+    Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
+
+    return Twitter::getMentionsTimeline([
+        'tweet_mode' => 'extended',
+        'count' => 50,
+        'format' => 'json'
+    ]);
+});
+
 Route::post('/postTweet', function (Request $request) {
     $body = $request->All();
 

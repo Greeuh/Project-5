@@ -12,6 +12,7 @@ class App extends Component {
     this.state = {
       homeT: undefined,
       userT: undefined,
+      mentionsT: undefined,
     };
   }
 
@@ -29,6 +30,7 @@ class App extends Component {
 
     this.getUserTimeline();
     this.getHomeTimeline();
+    this.getMentionsTimeline();
 
     this.timer = setInterval(() => {
       this.refreshTimeline();
@@ -56,6 +58,13 @@ class App extends Component {
       })
   }
 
+  getMentionsTimeline = () => {
+    axios.get('https://projet5ocr.antoineparriaud.fr/api/mentionsTimeline')
+      .then(res => {
+        this.setState({ mentionsT: res.data })
+      })
+  }
+
   refreshTimeline = () => {
     this.getUserTimeline();
     this.getHomeTimeline();
@@ -73,6 +82,10 @@ class App extends Component {
 
         <div id="userowntweets">
           <TimelineColumn data={this.state.userT} />
+        </div>
+
+        <div id="mentions-Timeline">
+          <TimelineColumn data={this.state.mentionsT} />
         </div>
 
         <div id="postTweet">
