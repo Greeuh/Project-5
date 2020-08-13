@@ -96,9 +96,10 @@ class App extends Component {
           <TimelineColumn data={this.state.mentionsT} />
         </div>
 
-        <div id="dm-Timeline">
+        {/* <div id="dm-Timeline">
           <TimelineColumn data={this.state.directMessage} />
-        </div>
+        </div> 
+        CREATE SPECIAL COLUMN FOR DM (see PostMan)*/}
 
         <div id="postTweet">
           <PostTweet refreshT={this.refreshTimeline} />
