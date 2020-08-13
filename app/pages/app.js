@@ -13,6 +13,7 @@ class App extends Component {
       homeT: undefined,
       userT: undefined,
       mentionsT: undefined,
+      directMessage: undefined,
     };
   }
 
@@ -31,6 +32,7 @@ class App extends Component {
     this.getUserTimeline();
     this.getHomeTimeline();
     this.getMentionsTimeline();
+    this.getDM();
 
     this.timer = setInterval(() => {
       this.refreshTimeline();
@@ -65,10 +67,16 @@ class App extends Component {
       })
   }
 
+  getDM = () => {
+    axios.get('https://projet5ocr.antoineparriaud.fr/api/directMessage')
+      .then(res => {
+        this.setState({ directMessage: res.data })
+      })
+  }
+
   refreshTimeline = () => {
     this.getUserTimeline();
     this.getHomeTimeline();
-    console.log("C'est refresh!");
   }
 
   render() {
@@ -86,6 +94,10 @@ class App extends Component {
 
         <div id="mentions-Timeline">
           <TimelineColumn data={this.state.mentionsT} />
+        </div>
+
+        <div id="dm-Timeline">
+          <TimelineColumn data={this.state.directMessage} />
         </div>
 
         <div id="postTweet">
