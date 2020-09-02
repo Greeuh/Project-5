@@ -92,9 +92,15 @@ Route::get('/directMessage', function (Request $request) {
 
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
-    return Twitter::getDms([
+    $dms = Twitter::getDms([
         'format' => 'array'
     ]);
+
+    foreach ($dms as &$dm) {
+        $dm['events.message_create.sender_id'] = Twitter::getUsers(['user_id' => $dm['events.message_create.sender_id']]);
+    }
+
+    return $dms;
 });
 
 Route::post('/postTweet', function (Request $request) {
