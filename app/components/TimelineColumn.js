@@ -4,8 +4,37 @@ import axios from 'axios';
 export default class TimelineColumn extends React.Component {
     constructor(props) {
         super(props);
+        this.handlePostFav = this.handlePostFav.bind(this);
+        this.handleDestroyFav = this.handleDestroyFav.bind(this);
     }
 
+    handlePostFav() {
+        event.preventDefault();
+        axios.post('https://projet5ocr.antoineparriaud.fr/api/postFavorite', {
+            id: result.id,
+        })
+            .then(response => {
+                console.log(response);
+                this.props.refreshT();
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
+
+    handleDestroyFav() {
+        event.preventDefault();
+        axios.post('https://projet5ocr.antoineparriaud.fr/api/destroyFavorite', {
+            id: result.id,
+        })
+            .then(response => {
+                console.log(response);
+                this.props.refreshT();
+            })
+            .catch(error => {
+                console.log(error);
+            });
+    }
 
     render() {
         if (this.props.data) {
@@ -26,8 +55,8 @@ export default class TimelineColumn extends React.Component {
                                     <div class="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span class="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
                                     <ul class="timeline-Tweet-actions">
                                         <li class="timeline-Tweet-action"> {result.favorited 
-                                        ? <a class="Icon Icon--heart:hover" href="#"></a> 
-                                        : <a class="Icon Icon--heart" href="#"></a>
+                                        ? <a class="Icon Icon--heart:hover" href={this.handleDestroyFav + result.id}></a>
+                                        : <a class="Icon Icon--heart" href={this.handlePostFav + result.id}></a>
                                         }</li>
                                         <li class="timeline-Tweet-action"> {result.retweeted 
                                         ? <a class="Icon Icon--share:hover" href="#"></a> 
