@@ -96,12 +96,12 @@ Route::get('/directMessage', function (Request $request) {
         'format' => 'array'
     ]);
 
-    foreach ($dms as &$dm) {
-        $dm['events.created_timestamp'] = Twitter::ago($dm['events.created_timestamp']);
-        $dm['events.message_create.sender_id'] = Twitter::getUsers(['user_id' => $dm['events.message_create.sender_id']]);
-    }
+    // foreach ($dms as &$dm) {
+    //     $dm['events.created_timestamp'] = Twitter::ago($dm['events.created_timestamp']);
+    //     $dm['events.message_create.sender_id'] = Twitter::getUsers(['user_id' => $dm['events.message_create.sender_id']]);
+    // }
 
-    return $dms;
+    // return $dms;
 });
 
 Route::post('/postTweet', function (Request $request) {
