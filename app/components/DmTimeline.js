@@ -7,7 +7,7 @@ export default class DmTimeline extends React.Component {
     }
 
     render() {
-        if (this.props.events) {
+        if (this.props.data) {
             return <div>
                 {
                     this.props.events.map(result =>
