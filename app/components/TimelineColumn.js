@@ -21,7 +21,7 @@ export default class TimelineColumn extends React.Component {
             });
     }
 
-    handleDestroyFav = param => event =>  {
+    handleDestroyFav = param => event => {
         event.preventDefault();
         console.log(param);
         axios.post('https://projet5ocr.antoineparriaud.fr/api/destroyFavorite', {
@@ -69,20 +69,20 @@ export default class TimelineColumn extends React.Component {
                                     <div class="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.full_text }} />
                                     <div class="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span class="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
                                     <ul class="timeline-Tweet-actions">
-                                        <li class="timeline-Tweet-action"> {result.favorited 
-                                        ? <a class="Icon Icon--hearted" onClick={this.handleDestroyFav(result.id_str)}></a>
-                                        : <a class="Icon Icon--heart" onClick={this.handlePostFav(result.id_str)}></a>
+                                        <li class="timeline-Tweet-action"> {result.favorited
+                                            ? <a class="Icon Icon--hearted" onClick={this.handleDestroyFav(result.id_str)}></a>
+                                            : <a class="Icon Icon--heart" onClick={this.handlePostFav(result.id_str)}></a>
                                         }</li>
-                                        <li class="timeline-Tweet-action"> {result.retweeted 
-                                        ? <a class="Icon Icon--shared" href="#"></a> 
-                                        : <a class="Icon Icon--share" onClick={this.handlePostRetweet(result.id_str)}></a>
+                                        <li class="timeline-Tweet-action"> {result.retweeted
+                                            ? <a class="Icon Icon--shared" href="#"></a>
+                                            : <a class="Icon Icon--share" onClick={this.handlePostRetweet(result.id_str)}></a>
                                         }</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>)
                 }</div>;
-        }else{
+        } else {
             return <p>to be load</p>
         }
     }
