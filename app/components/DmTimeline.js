@@ -7,10 +7,10 @@ export default class DmTimeline extends React.Component {
     }
 
     render() {
-        if (this.props.events) {
+        if (this.props.data) {
             return <div>
                 {
-                    this.props.events.map(result =>
+                    this.props.data.map(result =>
                         <div class="tw-block-parent">
                             <div class="timeline-TweetList-tweet">
                                 <div class="timeline-Tweet">

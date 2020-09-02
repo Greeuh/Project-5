@@ -71,7 +71,7 @@ class App extends Component {
   getDM = () => {
     axios.get('https://projet5ocr.antoineparriaud.fr/api/directMessage')
       .then(res => {
-        this.setState({ directMessage: res.events })
+        this.setState({ directMessage: res.data.events })
       })
   }
 
@@ -99,7 +99,7 @@ class App extends Component {
         </div>
 
         <div id="dm-Timeline">
-          <DmTimeline events={this.state.directMessage} />
+          <DmTimeline data={this.state.directMessage} />
         </div>
 
         <div id="postTweet">
