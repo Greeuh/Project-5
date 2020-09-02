@@ -71,7 +71,7 @@ class App extends Component {
   getDM = () => {
     axios.get('https://projet5ocr.antoineparriaud.fr/api/directMessage')
       .then(res => {
-        this.setState({ directMessage: res.data })
+        this.setState({ directMessage: res.events })
       })
   }
 
