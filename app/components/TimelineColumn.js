@@ -64,7 +64,11 @@ export default class TimelineColumn extends React.Component {
                                     </div>
                                     <div class="timeline-Tweet-author">
                                         <div class="TweetAuthor"><a class="TweetAuthor-link" href={"?ID=" + result.user.id_str}> </a><span class="TweetAuthor-avatar">
-                                            <div class="Avatar"><img src={result.user.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name">{result.user.name}</span>  <span class="Icon Icon--verified"> </span> <span class="TweetAuthor-screenName">@{result.user.screen_name}</span></div>
+                                            <div class="Avatar"><img src={result.user.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name">{result.user.name}</span>  
+                                            {result.user.verified 
+                                            ? <span class="Icon Icon--verified"> </span>
+                                            : '' }
+                                            <span class="TweetAuthor-screenName">@{result.user.screen_name}</span></div>
                                     </div>
                                     <div class="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.full_text }} />
                                     <div class="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span class="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
