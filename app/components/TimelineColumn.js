@@ -8,6 +8,7 @@ export default class TimelineColumn extends React.Component {
 
     handlePostFav = param => event => {
         event.preventDefault();
+        console.log(param);
         axios.post('https://projet5ocr.antoineparriaud.fr/api/postFavorite', {
             id: param,
         })
@@ -22,6 +23,7 @@ export default class TimelineColumn extends React.Component {
 
     handleDestroyFav = param => event =>  {
         event.preventDefault();
+        console.log(param);
         axios.post('https://projet5ocr.antoineparriaud.fr/api/destroyFavorite', {
             id: param,
         })
