@@ -97,7 +97,7 @@ Route::get('/directMessage', function (Request $request) {
     ]);
 
     foreach ($dms as &$dm) {
-        $dm['events.created_timestamp'] = Twitter::ago($tweet['created_at']);
+        $dm['events.created_timestamp'] = Twitter::ago($dm['events.created_timestamp']);
         $dm['events.message_create.sender_id'] = Twitter::getUsers(['user_id' => $dm['events.message_create.sender_id']]);
     }
 
