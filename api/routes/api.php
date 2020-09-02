@@ -147,3 +147,18 @@ Route::post('/destroyFavorite', function (Request $request) {
         'id' => $body['id'], 
         'format' => 'json']);
 });
+
+Route::post('/postRetweet', function (Request $request) {
+    $body = $request->All();
+
+    $token = Cookie::get('user_id');
+    $user = Auth::loginUsingId($token);
+    $oauth_token = $user->oauth_token;
+    $oauth_token_secret = $user->oauth_token_secret;
+    $username = $user->screen_name;
+    Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
+
+    return Twitter::postRt([
+        'id' => $body['id'], 
+        'format' => 'json']);
+});
