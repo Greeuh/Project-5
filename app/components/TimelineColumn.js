@@ -55,8 +55,8 @@ export default class TimelineColumn extends React.Component {
                                     <div class="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span class="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
                                     <ul class="timeline-Tweet-actions">
                                         <li class="timeline-Tweet-action"> {result.favorited 
-                                        ? <a class="Icon Icon--heart:hover" href={this.handleDestroyFav + result.id}></a>
-                                        : <a class="Icon Icon--heart" href={this.handlePostFav + result.id}></a>
+                                        ? <a class="Icon Icon--heart:hover" onClick={this.handleDestroyFav}></a>
+                                        : <a class="Icon Icon--heart" onClick={this.handlePostFav}></a>
                                         }</li>
                                         <li class="timeline-Tweet-action"> {result.retweeted 
                                         ? <a class="Icon Icon--share:hover" href="#"></a> 
