@@ -118,7 +118,7 @@ Route::post('/postTweet', function (Request $request) {
     }
 });
 
-Route::get('/postFavorite', function (Request $request) {
+Route::post('/postFavorite', function (Request $request) {
     $body = $request->All();
 
     $token = Cookie::get('user_id');
@@ -133,7 +133,7 @@ Route::get('/postFavorite', function (Request $request) {
         'format' => 'json']);
 });
 
-Route::get('/destroyFavorite', function (Request $request) {
+Route::post('/destroyFavorite', function (Request $request) {
     $body = $request->All();
 
     $token = Cookie::get('user_id');
