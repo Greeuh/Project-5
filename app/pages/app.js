@@ -4,6 +4,7 @@ import PostTweet from '../components/PostTweet';
 import HomeTimeline from '../components/HomeTimeline';
 import UserTimeline from '../components/UserTimeline';
 import TimelineColumn from '../components/TimelineColumn';
+import DmTimeline from '../components/DmTimeline';
 
 class App extends Component {
   constructor(props) {
@@ -77,6 +78,7 @@ class App extends Component {
   refreshTimeline = () => {
     this.getUserTimeline();
     this.getHomeTimeline();
+    this.getMentionsTimeline();
   }
 
   render() {
@@ -85,21 +87,20 @@ class App extends Component {
       <div className="App" id="main">
 
         <div id="main-Timeline">
-          <TimelineColumn data={this.state.homeT} />
+          <TimelineColumn data={this.state.homeT} refreshT={this.refreshTimeline} />
         </div>
 
         <div id="userowntweets">
-          <TimelineColumn data={this.state.userT} />
+          <TimelineColumn data={this.state.userT} refreshT={this.refreshTimeline} />
         </div>
 
         <div id="mentions-Timeline">
-          <TimelineColumn data={this.state.mentionsT} />
+          <TimelineColumn data={this.state.mentionsT} refreshT={this.refreshTimeline} />
         </div>
 
-        {/* <div id="dm-Timeline">
-          <TimelineColumn data={this.state.directMessage} />
-        </div> 
-        CREATE SPECIAL COLUMN FOR DM (see PostMan)*/}
+        <div id="dm-Timeline">
+          <DmTimeline data={this.state.directMessage} />
+        </div>
 
         <div id="postTweet">
           <PostTweet refreshT={this.refreshTimeline} />
