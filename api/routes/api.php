@@ -158,9 +158,7 @@ Route::post('/postRetweet', function (Request $request) {
     $username = $user->screen_name;
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
-    $int = (int)$body['id'];
-
     return Twitter::postRt([
-        'id' => $int, 
+        'id' => intval($body['id']), 
         'format' => 'json']);
 });
