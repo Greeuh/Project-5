@@ -99,7 +99,7 @@ class App extends Component {
         </div>
 
         <div id="dm-Timeline">
-          <DmTimeline data={this.state.directMessage} />
+          <DmTimeline events={this.state.directMessage} />
         </div>
 
         <div id="postTweet">
