@@ -57,7 +57,7 @@ Route::get('/userLogTimeline', function (Request $request) {
     ]);
 });
 
-Route::get('/queryUserTimeline', function (Request $request) {
+Route::post('/queryUserTimeline', function (Request $request) {
     $body = $request->All();
 
     $token = Cookie::get('user_id');
