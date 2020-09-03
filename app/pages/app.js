@@ -36,7 +36,7 @@ class App extends Component {
 
     this.timer = setInterval(() => {
       this.refreshTimeline();
-    }, 50000);
+    }, 75000);
   }
 
   componentWillUnmount() {
