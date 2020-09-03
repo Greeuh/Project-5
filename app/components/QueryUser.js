@@ -48,7 +48,7 @@ export default class QueryUser extends React.Component {
         })
             .then(response => {
                 console.log(response);
-                this.props.refreshT();
+                this.refreshThisTimeline();
             })
             .catch(error => {
                 console.log(error);
@@ -63,7 +63,7 @@ export default class QueryUser extends React.Component {
         })
             .then(response => {
                 console.log(response);
-                this.props.refreshT();
+                this.refreshThisTimeline();
             })
             .catch(error => {
                 console.log(error);
@@ -78,7 +78,7 @@ export default class QueryUser extends React.Component {
         })
             .then(response => {
                 console.log(response);
-                this.props.refreshT();
+                this.refreshThisTimeline();
             })
             .catch(error => {
                 console.log(error);
