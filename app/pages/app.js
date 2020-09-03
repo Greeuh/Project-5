@@ -14,7 +14,6 @@ class App extends Component {
       userLogT: undefined,
       mentionsT: undefined,
       directMessage: undefined,
-      query: '',
     };
   }
 
@@ -87,15 +86,15 @@ class App extends Component {
       <div className="App" id="main">
 
         <div id="main-Timeline">
-          <TimelineColumn data={this.state.homeT} refreshT={this.refreshTimeline} query={this.state.query} />
+          <TimelineColumn data={this.state.homeT} refreshT={this.refreshTimeline} />
         </div>
 
         <div id="userowntweets">
-          <TimelineColumn data={this.state.userLogT} refreshT={this.refreshTimeline} query={this.state.query} />
+          <TimelineColumn data={this.state.userLogT} refreshT={this.refreshTimeline} />
         </div>
 
         <div id="mentions-Timeline">
-          <TimelineColumn data={this.state.mentionsT} refreshT={this.refreshTimeline} query={this.state.query} />
+          <TimelineColumn data={this.state.mentionsT} refreshT={this.refreshTimeline} />
         </div>
 
         <div id="dm-Timeline">

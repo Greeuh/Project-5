@@ -63,8 +63,8 @@ export default class TimelineColumn extends React.Component {
                                         <div class="Icon Icon--twitter"></div>
                                     </div>
                                     <div class="timeline-Tweet-author">
-                                        <div class="TweetAuthor"><span class="TweetAuthor-avatar">
-                                            <div class="Avatar"><img src={result.user.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name"><a class="TweetAuthor-link" href={this.setState(this.props.query = result.user.screen_name)}>{result.user.name}</a></span>  
+                                        <div class="TweetAuthor"><a class="TweetAuthor-link" href={"?ID=" + result.user.id_str}> </a><span class="TweetAuthor-avatar">
+                                            <div class="Avatar"><img src={result.user.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name">{result.user.name}</span>  
                                             {result.user.verified 
                                             ? <span class="Icon Icon--verified"> </span>
                                             : '' }
