@@ -94,9 +94,9 @@ export default class QueryUser extends React.Component {
                         type="text"
                         name="usersearch"
                         rows="6"
-                        cols="30"
+                        cols="80"
                         maxLength="140"
-                        placeholder="Search user"
+                        placeholder="Search user without the @"
                         value={this.state.value}
                         onChange={this.handleChange}
                     />

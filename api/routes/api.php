@@ -29,7 +29,7 @@ Route::get('/homeTimeline', function (Request $request) {
 
     $tweets = Twitter::getHomeTimeline([
         'tweet_mode' => 'extended',
-        'count' => 200,
+        'count' => 50,
         'format' => 'array'
     ]);
 
@@ -49,12 +49,19 @@ Route::get('/userLogTimeline', function (Request $request) {
     $username = $user->screen_name;
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
-    return Twitter::getUserTimeline([
+    $tweets = Twitter::getUserTimeline([
         'tweet_mode' => 'extended',
         'screen_name' => $username,
         'count' => 50,
-        'format' => 'json'
+        'format' => 'array'
     ]);
+
+    foreach ($tweets as &$tweet) {
+        $tweet['full_text'] = Twitter::linkify($tweet['full_text']);
+        $tweet['created_at'] = Twitter::ago($tweet['created_at']);
+    }
+
+    return $tweets;
 });
 
 Route::post('/queryUserTimeline', function (Request $request) {
@@ -66,12 +73,19 @@ Route::post('/queryUserTimeline', function (Request $request) {
     $oauth_token_secret = $user->oauth_token_secret;
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
-    return Twitter::getUserTimeline([
+    $tweets = Twitter::getUserTimeline([
         'tweet_mode' => 'extended',
         'screen_name' => $body['screen_name'],
         'count' => 50,
-        'format' => 'json'
+        'format' => 'array'
     ]);
+
+    foreach ($tweets as &$tweet) {
+        $tweet['full_text'] = Twitter::linkify($tweet['full_text']);
+        $tweet['created_at'] = Twitter::ago($tweet['created_at']);
+    }
+
+    return $tweets;
 });
 
 Route::get('/mentionsTimeline', function (Request $request) {
@@ -82,11 +96,18 @@ Route::get('/mentionsTimeline', function (Request $request) {
 
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
-    return Twitter::getMentionsTimeline([
+    $tweets = Twitter::getMentionsTimeline([
         'tweet_mode' => 'extended',
         'count' => 50,
-        'format' => 'json'
+        'format' => 'array'
     ]);
+
+    foreach ($tweets as &$tweet) {
+        $tweet['full_text'] = Twitter::linkify($tweet['full_text']);
+        $tweet['created_at'] = Twitter::ago($tweet['created_at']);
+    }
+
+    return $tweets;
 });
 
 Route::get('/directMessage', function (Request $request) {
