@@ -22,12 +22,9 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/homeTimeline', function (Request $request) {
     $token = Cookie::get('user_id');
-
     $user = Auth::loginUsingId($token);
-
     $oauth_token = $user->oauth_token;
     $oauth_token_secret = $user->oauth_token_secret;
-
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
     $tweets = Twitter::getHomeTimeline([
@@ -44,15 +41,12 @@ Route::get('/homeTimeline', function (Request $request) {
     return $tweets;
 });
 
-Route::get('/userTimeline', function (Request $request) {
+Route::get('/userLogTimeline', function (Request $request) {
     $token = Cookie::get('user_id');
-
     $user = Auth::loginUsingId($token);
-
     $oauth_token = $user->oauth_token;
     $oauth_token_secret = $user->oauth_token_secret;
     $username = $user->screen_name;
-
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
     return Twitter::getUserTimeline([
@@ -63,14 +57,28 @@ Route::get('/userTimeline', function (Request $request) {
     ]);
 });
 
-Route::get('/mentionsTimeline', function (Request $request) {
+Route::get('/queryUserTimeline', function (Request $request) {
+    $body = $request->All();
+
     $token = Cookie::get('user_id');
-
     $user = Auth::loginUsingId($token);
-
     $oauth_token = $user->oauth_token;
     $oauth_token_secret = $user->oauth_token_secret;
-    $username = $user->screen_name;
+    Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
+
+    return Twitter::getUserTimeline([
+        'tweet_mode' => 'extended',
+        'screen_name' => $body['screen_name'],
+        'count' => 50,
+        'format' => 'json'
+    ]);
+});
+
+Route::get('/mentionsTimeline', function (Request $request) {
+    $token = Cookie::get('user_id');
+    $user = Auth::loginUsingId($token);
+    $oauth_token = $user->oauth_token;
+    $oauth_token_secret = $user->oauth_token_secret;
 
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
@@ -83,12 +91,9 @@ Route::get('/mentionsTimeline', function (Request $request) {
 
 Route::get('/directMessage', function (Request $request) {
     $token = Cookie::get('user_id');
-
     $user = Auth::loginUsingId($token);
-
     $oauth_token = $user->oauth_token;
     $oauth_token_secret = $user->oauth_token_secret;
-    $username = $user->screen_name;
 
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 

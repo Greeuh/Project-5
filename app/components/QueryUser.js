@@ -4,6 +4,40 @@ import axios from 'axios';
 export default class QueryUser extends React.Component {
     constructor(props) {
         super(props);
+        this.state = {
+            value: '',
+            queryUserT: undefined,
+        };
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
+
+    refreshThisTimeline = () => {
+        axios.post('https://projet5ocr.antoineparriaud.fr/api/queryUserTimeline', {
+            screen_name: this.state.value
+        })
+            .then(res => {
+                this.setState({ queryUserT: res.data })
+            })
+            .catch(error => {
+                console.log(error);
+            })
+    }
+
+    handleChange = (event) => {
+        this.setState({ value: event.target.value });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        axios.post('https://projet5ocr.antoineparriaud.fr/api/queryUserTimeline', {
+            screen_name: this.state.value
+        })
+            .then(res => {
+                this.setState({ queryUserT: res.data })
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     handlePostFav = param => event => {
@@ -52,7 +86,23 @@ export default class QueryUser extends React.Component {
     }
 
     render() {
-        if (this.props.data) {
+
+        <form onSubmit={this.handleSubmit}>
+
+            <input
+                type="text"
+                name="usersearch"
+                rows="6"
+                cols="30"
+                maxLength="140"
+                placeholder="Search user"
+                value={this.state.value}
+                onChange={this.handleChange}
+            />
+
+        </form>
+
+        if (this.state.queryUserT) {
             return <div>
                 {
                     this.props.data.map(result =>
@@ -64,10 +114,10 @@ export default class QueryUser extends React.Component {
                                     </div>
                                     <div class="timeline-Tweet-author">
                                         <div class="TweetAuthor"><a class="TweetAuthor-link" href={"?ID=" + result.user.id_str}> </a><span class="TweetAuthor-avatar">
-                                            <div class="Avatar"><img src={result.user.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name">{result.user.name}</span>  
-                                            {result.user.verified 
-                                            ? <span class="Icon Icon--verified"> </span>
-                                            : '' }
+                                            <div class="Avatar"><img src={result.user.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name">{result.user.name}</span>
+                                            {result.user.verified
+                                                ? <span class="Icon Icon--verified"> </span>
+                                                : ''}
                                             <span class="TweetAuthor-screenName">@{result.user.screen_name}</span></div>
                                     </div>
                                     <div class="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.full_text }} />
@@ -87,7 +137,7 @@ export default class QueryUser extends React.Component {
                         </div>)
                 }</div>;
         } else {
-            return <p>to be load</p>
+            return <p>Enter the @ from an user and submit.</p>
         }
     }
 }

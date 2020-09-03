@@ -1,10 +1,9 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import PostTweet from '../components/PostTweet';
-import HomeTimeline from '../components/HomeTimeline';
-import UserTimeline from '../components/UserTimeline';
 import TimelineColumn from '../components/TimelineColumn';
 import DmTimeline from '../components/DmTimeline';
+import QueryUser from '../components/QueryUser';
 
 class App extends Component {
   constructor(props) {
@@ -12,7 +11,7 @@ class App extends Component {
 
     this.state = {
       homeT: undefined,
-      userT: undefined,
+      userLogT: undefined,
       mentionsT: undefined,
       directMessage: undefined,
     };
@@ -45,9 +44,9 @@ class App extends Component {
   }
 
   getUserTimeline = () => {
-    axios.get('https://projet5ocr.antoineparriaud.fr/api/userTimeline')
+    axios.get('https://projet5ocr.antoineparriaud.fr/api/userLogTimeline')
       .then(res => {
-        this.setState({ userT: res.data })
+        this.setState({ userLogT: res.data })
       })
       .catch(error => {
         console.log(error);
@@ -91,7 +90,7 @@ class App extends Component {
         </div>
 
         <div id="userowntweets">
-          <TimelineColumn data={this.state.userT} refreshT={this.refreshTimeline} />
+          <TimelineColumn data={this.state.userLogT} refreshT={this.refreshTimeline} />
         </div>
 
         <div id="mentions-Timeline">
@@ -100,6 +99,10 @@ class App extends Component {
 
         <div id="dm-Timeline">
           <DmTimeline data={this.state.directMessage} />
+        </div>
+
+        <div id="queryuser-Timeline">
+          <QueryUser />
         </div>
 
         <div id="postTweet">
