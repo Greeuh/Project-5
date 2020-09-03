@@ -106,7 +106,7 @@ export default class QueryUser extends React.Component {
                 {this.state.queryUserT ?
                     <div>
                         {
-                            this.props.data.map(result =>
+                            this.state.queryUserT.map(result =>
                                 <div class="tw-block-parent">
                                     <div class="timeline-TweetList-tweet">
                                         <div class="timeline-Tweet">
