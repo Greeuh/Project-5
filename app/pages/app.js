@@ -21,11 +21,8 @@ class App extends Component {
 
   componentDidMount() {
     const cookies = parseCookies();
-    const router = useRouter()
-
-    if (!cookies.user_id) {
-      Router.push("/login");
-    };
+    
+    this.isUserLog();
 
     const axiosConfig = {
       headers: {
@@ -50,6 +47,13 @@ class App extends Component {
 
   componentWillUnmount() {
     clearInterval(this.timer);
+  }
+
+  isUserLog = () => {
+    const router = useRouter();
+    if (!cookies.user_id) {
+      Router.push("/login");
+    };
   }
 
   disconnectUser = () => {
