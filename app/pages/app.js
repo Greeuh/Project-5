@@ -24,27 +24,28 @@ class App extends Component {
 
     if (!cookies.user_id) {
       return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
-    };
+    } else {
 
-    const axiosConfig = {
-      headers: {
-        'content-Type': 'application/json',
-        "Accept": "/",
-        "Cache-Control": "no-cache",
-        "Cookie": document.cookie
-      },
-      credentials: "same-origin"
-    };
-    axios.defaults.withCredentials = true;
+      const axiosConfig = {
+        headers: {
+          'content-Type': 'application/json',
+          "Accept": "/",
+          "Cache-Control": "no-cache",
+          "Cookie": document.cookie
+        },
+        credentials: "same-origin"
+      };
+      axios.defaults.withCredentials = true;
 
-    this.getUserTimeline();
-    this.getHomeTimeline();
-    this.getMentionsTimeline();
-    this.getDM();
+      this.getUserTimeline();
+      this.getHomeTimeline();
+      this.getMentionsTimeline();
+      this.getDM();
 
-    this.timer = setInterval(() => {
-      this.refreshTimeline();
-    }, 75000);
+      this.timer = setInterval(() => {
+        this.refreshTimeline();
+      }, 75000);
+    }
   }
 
   componentWillUnmount() {
