@@ -48,6 +48,22 @@ export default class TimelineColumn extends React.Component {
             })
             .catch(error => {
                 console.log(error);
+                this.props.refreshT();
+            });
+    }
+
+    handleDestroyTweet = param => event => {
+        event.preventDefault();
+        console.log(param);
+        axios.post('https://projet5ocr.antoineparriaud.fr/api/destroyTweet', {
+            id: param,
+        })
+            .then(response => {
+                console.log(response);
+                this.props.refreshT();
+            })
+            .catch(error => {
+                console.log(error);
             });
     }
 
