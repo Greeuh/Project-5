@@ -4,6 +4,7 @@ import PostTweet from '../components/PostTweet';
 import TimelineColumn from '../components/TimelineColumn';
 import DmTimeline from '../components/DmTimeline';
 import QueryUser from '../components/QueryUser';
+import { parseCookies, setCookie, destroyCookie } from 'nookies';
 
 class App extends Component {
   constructor(props) {
@@ -18,6 +19,12 @@ class App extends Component {
   }
 
   componentDidMount() {
+    const cookies = parseCookies();
+
+    if (cookies.user_id === 'null') {
+      Router.push("/login");
+    };
+
     const axiosConfig = {
       headers: {
         'content-Type': 'application/json',
