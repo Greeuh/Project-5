@@ -20,6 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
+    isUserLog();
     // console.log(Cookies.get());
     // console.log(Cookies.get(user_id));
 
@@ -27,25 +28,25 @@ class App extends Component {
     //   return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
     // } else {
 
-      const axiosConfig = {
-        headers: {
-          'content-Type': 'application/json',
-          "Accept": "/",
-          "Cache-Control": "no-cache",
-          "Cookie": document.cookie
-        },
-        credentials: "same-origin"
-      };
-      axios.defaults.withCredentials = true;
+    const axiosConfig = {
+      headers: {
+        'content-Type': 'application/json',
+        "Accept": "/",
+        "Cache-Control": "no-cache",
+        "Cookie": document.cookie
+      },
+      credentials: "same-origin"
+    };
+    axios.defaults.withCredentials = true;
 
-      this.getUserTimeline();
-      this.getHomeTimeline();
-      this.getMentionsTimeline();
-      this.getDM();
+    this.getUserTimeline();
+    this.getHomeTimeline();
+    this.getMentionsTimeline();
+    this.getDM();
 
-      this.timer = setInterval(() => {
-        this.refreshTimeline();
-      }, 75000);
+    this.timer = setInterval(() => {
+      this.refreshTimeline();
+    }, 75000);
     // }
   }
 
@@ -55,6 +56,19 @@ class App extends Component {
 
   disconnectUser = () => {
 
+  }
+
+  isUserLog = () => {
+    axios.get('https://projet5ocr.antoineparriaud.fr/api/isUserLog')
+      .then(res => {
+        if (res) {
+          console.log(res);
+          this.setState({ UserIsLog: 1 })
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   getUserTimeline = () => {
@@ -96,35 +110,39 @@ class App extends Component {
 
   render() {
 
-    return (
-      <div className="App" id="main">
+    if (this.state.isUserLog) {
+      return (
+        <div className="App" id="main">
 
-        <div id="main-Timeline">
-          <TimelineColumn data={this.state.homeT} refreshT={this.refreshTimeline} />
+          <div id="main-Timeline">
+            <TimelineColumn data={this.state.homeT} refreshT={this.refreshTimeline} />
+          </div>
+
+          <div id="userowntweets">
+            <TimelineColumn data={this.state.userLogT} refreshT={this.refreshTimeline} />
+          </div>
+
+          <div id="mentions-Timeline">
+            <TimelineColumn data={this.state.mentionsT} refreshT={this.refreshTimeline} />
+          </div>
+
+          <div id="dm-Timeline">
+            <DmTimeline data={this.state.directMessage} />
+          </div>
+
+          <div id="queryuser-Timeline">
+            <QueryUser />
+          </div>
+
+          <div id="postTweet">
+            <PostTweet refreshT={this.refreshTimeline} />
+          </div>
+
         </div>
-
-        <div id="userowntweets">
-          <TimelineColumn data={this.state.userLogT} refreshT={this.refreshTimeline} />
-        </div>
-
-        <div id="mentions-Timeline">
-          <TimelineColumn data={this.state.mentionsT} refreshT={this.refreshTimeline} />
-        </div>
-
-        <div id="dm-Timeline">
-          <DmTimeline data={this.state.directMessage} />
-        </div>
-
-        <div id="queryuser-Timeline">
-          <QueryUser />
-        </div>
-
-        <div id="postTweet">
-          <PostTweet refreshT={this.refreshTimeline} />
-        </div>
-
-      </div>
-    );
+      );
+    } else {
+      <p>Vérification si l'utilisateur est authentifié...</p>
+    }
   }
 }
 

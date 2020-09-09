@@ -20,6 +20,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::get('/isUserLog', function (Request $request) {
+    $token = Cookie::get('user_id');
+
+    if (!$token) {
+        return Redirect::to('https://projet5ocr.antoineparriaud.fr:3000/app'); 
+    }else{
+        return true;
+    }
+});
+
 Route::get('/homeTimeline', function (Request $request) {
     $token = Cookie::get('user_id');
     $user = Auth::loginUsingId($token);
