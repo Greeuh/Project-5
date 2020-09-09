@@ -24,7 +24,7 @@ Route::get('/isUserLog', function (Request $request) {
     $token = Cookie::get('user_id');
 
     if (!$token) {
-        return Redirect::to('https://projet5ocr.antoineparriaud.fr:3000/app'); 
+        return Redirect::to('https://projet5ocr.antoineparriaud.fr:3000/login'); 
     }else{
         return true;
     }

@@ -21,7 +21,6 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.isUserLog();
     // console.log(Cookies.get());
     // console.log(Cookies.get(user_id));
 
@@ -39,6 +38,8 @@ class App extends Component {
       credentials: "same-origin"
     };
     axios.defaults.withCredentials = true;
+
+    this.isUserLog();
 
     this.getUserTimeline();
     this.getHomeTimeline();
@@ -62,10 +63,7 @@ class App extends Component {
   isUserLog = () => {
     axios.get('https://projet5ocr.antoineparriaud.fr/api/isUserLog')
       .then(res => {
-        if (res) {
-          console.log(res);
-          this.setState({ UserIsLog: true })
-        }
+        this.setState({ UserIsLog: true })
       })
       .catch(error => {
         console.log(error);
