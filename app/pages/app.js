@@ -66,6 +66,8 @@ class App extends Component {
         if (res.status === 302) {
           window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
         } else {
+          console.log(res.status);
+          console.log(res);
           this.setState({ userIsLog: true })
         }
       })
