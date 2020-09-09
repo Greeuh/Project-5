@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    isUserLog();
+    this.isUserLog();
     // console.log(Cookies.get());
     // console.log(Cookies.get(user_id));
 
