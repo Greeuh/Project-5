@@ -22,7 +22,7 @@ class App extends Component {
   componentDidMount() {
     const cookies = parseCookies();
 
-    if (!cookies.user_id) {
+    if (cookies.user_id === 'null') {
       return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
     } else {
 
