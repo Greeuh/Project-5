@@ -19,12 +19,13 @@ class App extends Component {
     };
   }
 
-  componentDidMount(ctx) {
-    const cookies = parseCookies(ctx);
+  componentDidMount() {
+    const cookies = parseCookies();
+    console.log({ cookies });
 
-    if (!cookies.user_id) {
-      return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
-    } else {
+    // if (!cookies.user_id) {
+    //   return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
+    // } else {
 
       const axiosConfig = {
         headers: {
@@ -45,7 +46,7 @@ class App extends Component {
       this.timer = setInterval(() => {
         this.refreshTimeline();
       }, 75000);
-    }
+    // }
   }
 
   componentWillUnmount() {
