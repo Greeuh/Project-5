@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import { useRouter } from 'next/router';
 import PostTweet from '../components/PostTweet';
 import TimelineColumn from '../components/TimelineColumn';
 import DmTimeline from '../components/DmTimeline';
