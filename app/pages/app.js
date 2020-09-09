@@ -4,7 +4,6 @@ import PostTweet from '../components/PostTweet';
 import TimelineColumn from '../components/TimelineColumn';
 import DmTimeline from '../components/DmTimeline';
 import QueryUser from '../components/QueryUser';
-import { parseCookies, setCookie, destroyCookie } from 'nookies';
 import IsUserLog from '../components/IsUserLog';
 
 class App extends Component {
@@ -20,7 +19,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    <IsUserLog></IsUserLog>
+    IsUserLog();
 
     const axiosConfig = {
       headers: {
