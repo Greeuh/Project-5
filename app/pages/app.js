@@ -63,7 +63,7 @@ class App extends Component {
   isUserLog = () => {
     axios.get('https://projet5ocr.antoineparriaud.fr/api/isUserLog')
       .then(res => {
-        this.setState({ UserIsLog: true })
+        this.setState({ userIsLog: true })
       })
       .catch(error => {
         console.log(error);
@@ -109,7 +109,7 @@ class App extends Component {
 
   render() {
 
-    if (this.state.isUserLog) {
+    if (this.state.userIsLog) {
       return (
         <div className="App" id="main">
 
