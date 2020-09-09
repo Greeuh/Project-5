@@ -21,7 +21,7 @@ class App extends Component {
   componentDidMount() {
     const cookies = parseCookies();
 
-    if (cookies.user_id === 'null') {
+    if (cookies.user_id === 'undefined') {
       Router.push("/login");
     };
 
@@ -48,6 +48,10 @@ class App extends Component {
 
   componentWillUnmount() {
     clearInterval(this.timer);
+  }
+
+  disconnectUser = () => {
+
   }
 
   getUserTimeline = () => {
