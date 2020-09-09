@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const cookies = parseCookies();
+    const cookies = parseCookies(ctx);
 
     if (!cookies.user_id) {
       return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
