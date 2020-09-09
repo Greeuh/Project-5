@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { useRouter } from 'next/router';
 import PostTweet from '../components/PostTweet';
 import TimelineColumn from '../components/TimelineColumn';
 import DmTimeline from '../components/DmTimeline';
 import QueryUser from '../components/QueryUser';
 import { parseCookies, setCookie, destroyCookie } from 'nookies';
+import IsUserLog from '../components/IsUserLog';
 
 class App extends Component {
   constructor(props) {
@@ -20,9 +20,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const cookies = parseCookies();
-    
-    this.isUserLog();
+    <IsUserLog></IsUserLog>
 
     const axiosConfig = {
       headers: {
@@ -47,13 +45,6 @@ class App extends Component {
 
   componentWillUnmount() {
     clearInterval(this.timer);
-  }
-
-  isUserLog = () => {
-    const router = useRouter();
-    if (!cookies.user_id) {
-      Router.push("/login");
-    };
   }
 
   disconnectUser = () => {
