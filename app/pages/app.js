@@ -5,7 +5,7 @@ import TimelineColumn from '../components/TimelineColumn';
 import DmTimeline from '../components/DmTimeline';
 import QueryUser from '../components/QueryUser';
 import IsUserLog from '../components/IsUserLog';
-import { parseCookies, setCookie, destroyCookie } from 'nookies';
+import Cookies from 'js-cookie';
 
 class App extends Component {
   constructor(props) {
@@ -20,12 +20,10 @@ class App extends Component {
   }
 
   componentDidMount() {
-    const cookies = parseCookies();
-    console.log({ cookies });
 
-    // if (!cookies.user_id) {
-    //   return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
-    // } else {
+    if (!cookies.get('user_id')) {
+      return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
+    } else {
 
       const axiosConfig = {
         headers: {
@@ -46,7 +44,7 @@ class App extends Component {
       this.timer = setInterval(() => {
         this.refreshTimeline();
       }, 75000);
-    // }
+    }
   }
 
   componentWillUnmount() {
