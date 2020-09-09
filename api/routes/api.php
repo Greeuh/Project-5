@@ -24,6 +24,7 @@ Route::get('/isUserLog', function (Request $request) {
     $token = Cookie::get('user_id');
 
     if (!$token) {
+        header("Access-Control-Allow-Origin: true");
         return redirect()->away('https://projet5ocr.antoineparriaud.fr:3000/login');
     }else{
         return true;
