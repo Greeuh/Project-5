@@ -64,6 +64,7 @@ export default class TimelineColumn extends React.Component {
             })
             .catch(error => {
                 console.log(error);
+                this.props.refreshT();
             });
     }
 
