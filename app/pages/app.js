@@ -19,7 +19,7 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
+  componentDidMount(ctx) {
     const cookies = parseCookies(ctx);
 
     if (!cookies.user_id) {
