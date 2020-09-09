@@ -24,7 +24,7 @@ Route::get('/isUserLog', function (Request $request) {
     $token = Cookie::get('user_id');
 
     if (!$token) {
-        return response('Cookie isn\'t set', 404)
+        return response('User is not logged', 202)
         ->header('Content-Type', 'text/plain'); 
     }else{
         return true;

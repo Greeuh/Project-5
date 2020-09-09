@@ -63,8 +63,8 @@ class App extends Component {
   isUserLog = () => {
     axios.get('https://projet5ocr.antoineparriaud.fr/api/isUserLog')
       .then(res => {
-        if (res.status === 404) {
-          console.log('404')
+        if (res.status === 202) {
+          console.log('202')
           console.log(res.status);
           console.log(res);
           return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
@@ -77,8 +77,6 @@ class App extends Component {
       })
       .catch(error => {
         console.log('error')
-        console.log(res.status);
-        console.log(res);
         console.log(error);
       })
   }
