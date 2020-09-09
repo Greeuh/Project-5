@@ -16,6 +16,7 @@ class App extends Component {
       userLogT: undefined,
       mentionsT: undefined,
       directMessage: undefined,
+      userIsLog: false,
     };
   }
 
@@ -63,7 +64,7 @@ class App extends Component {
       .then(res => {
         if (res) {
           console.log(res);
-          this.setState({ UserIsLog: 1 })
+          this.setState({ UserIsLog: true })
         }
       })
       .catch(error => {
