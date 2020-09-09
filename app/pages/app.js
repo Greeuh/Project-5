@@ -21,7 +21,7 @@ class App extends Component {
   componentDidMount() {
     const cookies = parseCookies();
 
-    if (cookies.user_id === 'undefined') {
+    if (!cookies.user_id) {
       Router.push("/login");
     };
 
