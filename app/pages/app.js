@@ -64,14 +64,21 @@ class App extends Component {
     axios.get('https://projet5ocr.antoineparriaud.fr/api/isUserLog')
       .then(res => {
         if (res.status === 404) {
+          console.log('404')
+          console.log(res.status);
+          console.log(res);
           return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
         } else {
+          console.log('else')
           console.log(res.status);
           console.log(res);
           this.setState({ userIsLog: true })
         }
       })
       .catch(error => {
+        console.log('error')
+        console.log(res.status);
+        console.log(res);
         console.log(error);
       })
   }
