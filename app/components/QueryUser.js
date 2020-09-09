@@ -104,7 +104,7 @@ export default class QueryUser extends React.Component {
                 </form>
 
                 {this.state.queryUserT ?
-                    <div>
+                    <div class="timeline">
                         {
                             this.state.queryUserT.map(result =>
                                 <div class="tw-block-parent">

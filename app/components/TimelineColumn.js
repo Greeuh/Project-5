@@ -53,7 +53,7 @@ export default class TimelineColumn extends React.Component {
 
     render() {
         if (this.props.data) {
-            return <div>
+            return <div class="timeline">
                 {
                     this.props.data.map(result =>
                         <div class="tw-block-parent">
