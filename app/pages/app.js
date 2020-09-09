@@ -5,6 +5,7 @@ import TimelineColumn from '../components/TimelineColumn';
 import DmTimeline from '../components/DmTimeline';
 import QueryUser from '../components/QueryUser';
 import IsUserLog from '../components/IsUserLog';
+import { parseCookies, setCookie, destroyCookie } from 'nookies';
 
 class App extends Component {
   constructor(props) {
@@ -19,7 +20,11 @@ class App extends Component {
   }
 
   componentDidMount() {
-    IsUserLog();
+    const cookies = parseCookies();
+
+    if (!cookies.user_id) {
+      return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
+    };
 
     const axiosConfig = {
       headers: {
