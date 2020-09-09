@@ -94,7 +94,7 @@ export default class TimelineColumn extends React.Component {
                                             : <a class="Icon Icon--heart" onClick={this.handlePostFav(result.id_str)}></a>
                                         }</li>
                                         <li class="timeline-Tweet-action"> {result.retweeted
-                                            ? <a class="Icon Icon--shared" href="#"></a>
+                                            ? <a class="Icon Icon--shared" onClick={this.handleDestroyTweet(result.id_str)}></a>
                                             : <a class="Icon Icon--share" onClick={this.handlePostRetweet(result.id_str)}></a>
                                         }</li>
                                     </ul>
