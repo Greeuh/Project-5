@@ -8,10 +8,10 @@ export default class QueryUser extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: '',
+            value: this.props.user,
             queryUserT: undefined,
         };
-        this.setState({ value: this.props.user});
+
         this.refreshThisTimeline();
 
         this.timerQueryUser = setInterval(() => {
@@ -30,7 +30,7 @@ export default class QueryUser extends React.Component {
 
     refreshThisTimeline = () => {
         axios.post('https://projet5ocr.antoineparriaud.fr/api/queryUserTimeline', {
-            screen_name: this.state.value
+            screen_name: this.props.user
         })
             .then(res => {
                 this.setState({ queryUserT: res.data })
@@ -103,7 +103,7 @@ export default class QueryUser extends React.Component {
     }
 
     handleDeleteCol = () => {
-        this.props.deleteCol(this.state.value);
+        this.props.deleteCol(this.props.user);
     }
 
     render() {
