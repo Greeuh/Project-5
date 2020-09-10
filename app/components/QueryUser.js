@@ -103,9 +103,18 @@ export default class QueryUser extends React.Component {
         return (
             <React.Fragment>
 
-                <DropdownButton id="dropdown-basic-button" title="Option">
+                <DropdownType
+                    alignRight
+                    as={ButtonGroup}
+                    key='left'
+                    id={`dropdown-button-drop-left`}
+                    drop="left"
+                    size="sm"
+                    variant="secondary"
+                    title="Option"
+                >
                     <Dropdown.Item onClick={this.handleDeleteCol}>Delete</Dropdown.Item>
-                </DropdownButton>
+                </DropdownType>
 
                 {this.state.queryUserT ?
                     <div class="timeline">
