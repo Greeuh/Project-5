@@ -116,6 +116,10 @@ class App extends Component {
     this.setState(prevState => ({
       queriedUser: [...prevState.queriedUser, param]
     }));
+    this.updateUserQuery();
+  }
+
+  updateUserQuery = () => {
     axios.post('https://projet5ocr.antoineparriaud.fr/api/updateQueryUser', {
       users_queried: this.state.queriedUser
     })
