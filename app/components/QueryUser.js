@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import DropdownButton from 'react-bootstrap/DropdownButton';
 import Dropdown from 'react-bootstrap/Dropdown';
+import ButtonGroup from 'react-bootstrap/ButtonGroup';
 
 export default class QueryUser extends React.Component {
     constructor(props) {
