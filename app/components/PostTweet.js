@@ -49,7 +49,7 @@ export default class PostTweet extends React.Component {
             })
             .catch(error => {
                 console.log(error);
-                this.setState({ visible: true})
+                this.setState({ visible: true })
             });
     }
 
@@ -59,6 +59,7 @@ export default class PostTweet extends React.Component {
                 <form onSubmit={this.handleSubmit}>
 
                     <input
+                        width="200px"
                         type="text"
                         name="tweetarea"
                         rows="6"
@@ -82,6 +83,7 @@ export default class PostTweet extends React.Component {
                 <form onSubmit={this.handleSubmitUser}>
 
                     <input
+                        width="200px"
                         type="text"
                         name="usersearch"
                         rows="6"
@@ -93,8 +95,8 @@ export default class PostTweet extends React.Component {
                     />
 
                 </form>
-                <Alert variant='danger' show={this.state.visible} onClose={() => this.setState({ visible: false})} dismissible>
-                    This is not an existing screen name.
+                <Alert variant='danger' show={this.state.visible} onClose={() => this.setState({ visible: false })} dismissible>
+                    User not found.
                 </Alert>
             </>
         )
