@@ -24,6 +24,7 @@ export default class QueryUser extends React.Component {
 
     componentWillUnmount() {
         clearInterval(this.timerQueryUser);
+        this.props.updateUserQuery();
     }
 
     refreshThisTimeline = () => {
