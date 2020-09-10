@@ -93,7 +93,7 @@ export default class PostTweet extends React.Component {
                     />
 
                 </form>
-                <Alert variant='danger' IsOpen={this.state.visible} onClose={() => this.setState({ visible: false})} dismissible>
+                <Alert variant='danger' show={this.state.visible} onClose={() => this.setState({ visible: false})} dismissible>
                     This is not an existing screen name.
                 </Alert>
             </>
