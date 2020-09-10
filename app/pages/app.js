@@ -119,7 +119,7 @@ class App extends Component {
   }
 
   delUserQuery = (param) => {
-    let queriedUserUpdated = state.queriedUser.filter(item => item !== param);
+    let queriedUserUpdated = this.state.queriedUser.filter(item => item !== param);
     this.setState({ queriedUser: queriedUserUpdated });
   }
 
