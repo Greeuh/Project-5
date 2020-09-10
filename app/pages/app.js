@@ -137,7 +137,6 @@ class App extends Component {
 
   delUserQuery = (param) => {
     let queriedUserUpdated = this.state.queriedUser.filter(item => item !== param);
-    console.log(queriedUserUpdated);
     this.setState({ queriedUser: queriedUserUpdated });
   }
 
@@ -170,7 +169,6 @@ class App extends Component {
 
           {this.state.queriedUser.map(result =>
             <div id="queryuser-Timeline">
-              <h1>{result}</h1>
               <QueryUser user={result} key={result} deleteCol={() => this.delUserQuery(result)} updateUserQuery={this.updateUserQuery} />
             </div>)
           }
