@@ -104,21 +104,22 @@ export default class QueryUser extends React.Component {
         return (
             <React.Fragment>
 
-                <DropdownButton
-                    alignRight
-                    as={ButtonGroup}
-                    key='left'
-                    id={`dropdown-button-drop-left`}
-                    drop="left"
-                    size="sm"
-                    variant="secondary"
-                    title="Option"
-                >
-                    <Dropdown.Item onClick={this.handleDeleteCol}>Delete</Dropdown.Item>
-                </DropdownButton>
-
                 {this.state.queryUserT ?
                     <div class="timeline">
+
+                        <DropdownButton
+                            alignRight
+                            as={ButtonGroup}
+                            key='left'
+                            id={`dropdown-button-drop-left`}
+                            drop="left"
+                            size="sm"
+                            variant="secondary"
+                            title="Option"
+                        >
+                            <Dropdown.Item onClick={this.handleDeleteCol}>Delete</Dropdown.Item>
+                        </DropdownButton>
+
                         {
                             this.state.queryUserT.map(result =>
                                 <div class="tw-block-parent">
