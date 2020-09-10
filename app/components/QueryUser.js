@@ -8,9 +8,10 @@ export default class QueryUser extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: this.props.user,
+            value: undefined,
             queryUserT: undefined,
         };
+        this.setState({ value: this.props.user});
         this.refreshThisTimeline();
 
         this.timerQueryUser = setInterval(() => {
