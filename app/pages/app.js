@@ -118,6 +118,12 @@ class App extends Component {
     }))
   }
 
+  delUserQuery = (param) => {
+    let queriedUserUpdated = state.queriedUser.filter(item => item !== param);
+    this.setState({ queriedUser: queriedUserUpdated });
+  }
+
+
   render() {
 
     if (this.state.userIsLog) {
@@ -141,7 +147,7 @@ class App extends Component {
           </div>
 
           <div id="postTweet">
-            <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery}/>
+            <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery} deleteCol={this.delUserQuery} />
           </div>
 
           {this.state.queriedUser.map(result =>

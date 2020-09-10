@@ -1,5 +1,7 @@
 import React from 'react';
 import axios from 'axios';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown';
 
 export default class QueryUser extends React.Component {
     constructor(props) {
@@ -9,6 +11,14 @@ export default class QueryUser extends React.Component {
             queryUserT: undefined,
         };
         this.refreshThisTimeline();
+
+        this.timerQueryUser = setInterval(() => {
+            this.refreshThisTimeline();
+        }, 30000);
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timerQueryUser);
     }
 
     refreshThisTimeline = () => {
@@ -88,6 +98,11 @@ export default class QueryUser extends React.Component {
     render() {
         return (
             <React.Fragment>
+
+                <DropdownButton id="dropdown-basic-button" title="Option">
+                    <Dropdown.Item onClick={this.props.deleteCol(this.state.value)}>Delete</Dropdown.Item>
+                </DropdownButton>
+
                 {this.state.queryUserT ?
                     <div class="timeline">
                         {
@@ -121,7 +136,7 @@ export default class QueryUser extends React.Component {
                                     </div>
                                 </div>)
                         }</div>
-                    : <p>Enter the @ from an user and submit.</p>}
+                    : <p>Loading...</p>}
 
             </React.Fragment>)
     }
