@@ -67,8 +67,10 @@ class App extends Component {
         if (res.status === 202) {
           return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
         } else {
-          this.setState({ queriedUser: res})
           this.setState({ userIsLog: true })
+          if (res !== null) {
+            this.setState({ queriedUser: res })
+          }
         }
       })
       .catch(error => {
@@ -165,7 +167,7 @@ class App extends Component {
 
           {this.state.queriedUser.map(result =>
             <div id="queryuser-Timeline">
-              <QueryUser user={result} deleteCol={this.delUserQuery} updateUserQuery={this.updateUserQuery}/>
+              <QueryUser user={result} deleteCol={this.delUserQuery} updateUserQuery={this.updateUserQuery} />
             </div>)
           }
 
