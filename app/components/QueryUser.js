@@ -18,6 +18,10 @@ export default class QueryUser extends React.Component {
         }, 30000);
     }
 
+    componentDidMount() {
+        this.props.updateUserQuery();
+    }
+
     componentWillUnmount() {
         clearInterval(this.timerQueryUser);
     }
