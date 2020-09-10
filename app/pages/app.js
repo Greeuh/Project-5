@@ -69,8 +69,7 @@ class App extends Component {
         } else {
           this.setState({ userIsLog: true })
           if (res !== null) {
-            let debug = res;
-            console.log(debug);
+            this.setState({ queriedUser: res.data })
           }
         }
       })
