@@ -36,7 +36,7 @@ export default class PostTweet extends React.Component {
 
     handleSubmitUser(event) {
         event.preventDefault();
-        this.props.newUserQuery(this.state.valueUser);
+        this.props.addUser(this.state.valueUser);
         this.setState({ valueUser: '' });
     }
 
