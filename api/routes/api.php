@@ -27,9 +27,8 @@ Route::get('/isUserLog', function (Request $request) {
         return response('User is not logged', 202)
         ->header('Content-Type', 'text/plain'); 
     }else{
-        return true;
-        // $user = Auth::loginUsingId($token);
-        // return $user->users_queried;
+        $user = Auth::loginUsingId($token);
+        return $user->users_queried;
     }
 });
 
