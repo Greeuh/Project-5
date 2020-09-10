@@ -59,7 +59,7 @@ export default class PostTweet extends React.Component {
                 <form onSubmit={this.handleSubmit}>
 
                     <input
-                        width="200px"
+                        style="width:200px"
                         type="text"
                         name="tweetarea"
                         rows="6"
@@ -83,7 +83,7 @@ export default class PostTweet extends React.Component {
                 <form onSubmit={this.handleSubmitUser}>
 
                     <input
-                        width="200px"
+                        style="width:200px"
                         type="text"
                         name="usersearch"
                         rows="6"
