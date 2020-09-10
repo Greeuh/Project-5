@@ -40,6 +40,9 @@ Route::get('/updateQueryUser', function (Request $request) {
     $user = Auth::loginUsingId($token);
 
     $user->users_queried = $body['users_queried'];
+
+    return response('users_queried updated', 200)
+        ->header('Content-Type', 'text/plain');
 });
 
 Route::get('/homeTimeline', function (Request $request) {
