@@ -28,7 +28,11 @@ Route::get('/isUserLog', function (Request $request) {
         ->header('Content-Type', 'text/plain'); 
     }else{
         $user = Auth::loginUsingId($token);
-        return $user->users_queried;
+        if (!$user->users_queried) {
+            return;
+        }else{
+            return $user->users_queried;
+        }
     }
 });
 
