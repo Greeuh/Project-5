@@ -108,7 +108,7 @@ export default class QueryUser extends React.Component {
                     <div class="timeline">
 
                         <DropdownButton
-                            className="ml-3"
+                            className="ml-2"
                             as={ButtonGroup}
                             key='right'
                             id={`dropdown-button-drop-right`}

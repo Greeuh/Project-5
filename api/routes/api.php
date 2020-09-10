@@ -28,7 +28,18 @@ Route::get('/isUserLog', function (Request $request) {
         ->header('Content-Type', 'text/plain'); 
     }else{
         return true;
+        // $user = Auth::loginUsingId($token);
+        // return $user->users_queried;
     }
+});
+
+Route::get('/updateQueryUser', function (Request $request) {
+    $body = $request->All();
+
+    $token = Cookie::get('user_id');
+    $user = Auth::loginUsingId($token);
+
+    $user->users_queried = $body['users_queried'];
 });
 
 Route::get('/homeTimeline', function (Request $request) {
