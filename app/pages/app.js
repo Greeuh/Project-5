@@ -17,7 +17,7 @@ class App extends Component {
       mentionsT: undefined,
       directMessage: undefined,
       userIsLog: false,
-      queriedUser: ['laravelphp'],
+      queriedUser: ['laravelphp','google','AFP'],
     };
   }
 
