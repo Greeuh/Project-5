@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import Alert from 'react-bootstrap/Alert';
 
 export default class PostTweet extends React.Component {
     constructor(props) {
@@ -7,6 +8,7 @@ export default class PostTweet extends React.Component {
         this.state = {
             value: '',
             valueUser: '',
+            visible: false,
         };
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleSubmitUser = this.handleSubmitUser.bind(this);
@@ -36,18 +38,19 @@ export default class PostTweet extends React.Component {
 
     handleSubmitUser(event) {
         event.preventDefault();
+
         axios.post('https://projet5ocr.antoineparriaud.fr/api/checkIfUserExist', {
             screen_name: this.state.valueUser
         })
             .then(response => {
                 console.log(response);
+                this.props.addUser(this.state.valueUser);
+                this.setState({ valueUser: '' });
             })
             .catch(error => {
                 console.log(error);
+                this.setState({ visible: true})
             });
-
-        // this.props.addUser(this.state.valueUser);
-        // this.setState({ valueUser: '' });
     }
 
     render() {
@@ -90,6 +93,9 @@ export default class PostTweet extends React.Component {
                     />
 
                 </form>
+                <Alert variant='danger' IsOpen={this.state.visible} onClose={() => this.setState({ visible: false})} dismissible>
+                    This is not an existing screen name.
+                </Alert>
             </>
         )
     }
