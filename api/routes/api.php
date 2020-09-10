@@ -28,7 +28,7 @@ Route::get('/isUserLog', function (Request $request) {
         ->header('Content-Type', 'text/plain'); 
     }else{
         $user = Auth::loginUsingId($token);
-        return $user->users_queried;
+        return json_decode($user->users_queried);
     }
 });
 
@@ -38,7 +38,7 @@ Route::post('/updateQueryUser', function (Request $request) {
     $token = Cookie::get('user_id');
     $user = Auth::loginUsingId($token);
 
-    $user->users_queried = $body['users_queried'];
+    $user->users_queried = json_encode($body['users_queried']);
 
     return response('users_queried updated', 200)
         ->header('Content-Type', 'text/plain');
