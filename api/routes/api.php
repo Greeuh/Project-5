@@ -38,7 +38,11 @@ Route::post('/updateQueryUser', function (Request $request) {
     $token = Cookie::get('user_id');
     $user = Auth::loginUsingId($token);
 
-    $user->users_queried = $body['users_queried'];
+    $data = $body['users_queried'];
+    
+    DB::table('users')
+        ->where('user_id', $token)
+        ->update(['users_queried' => $data]);
 
     return response('users_queried updated', 200)
         ->header('Content-Type', 'text/plain');
