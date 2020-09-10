@@ -147,12 +147,12 @@ class App extends Component {
           </div>
 
           <div id="postTweet">
-            <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery} deleteCol={this.delUserQuery} />
+            <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery} />
           </div>
 
           {this.state.queriedUser.map(result =>
             <div id="queryuser-Timeline">
-              <QueryUser user={result} />
+              <QueryUser user={result} deleteCol={this.delUserQuery} />
             </div>)
           }
 
