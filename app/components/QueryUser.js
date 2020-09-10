@@ -8,7 +8,7 @@ export default class QueryUser extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: undefined,
+            value: '',
             queryUserT: undefined,
         };
         this.setState({ value: this.props.user});
