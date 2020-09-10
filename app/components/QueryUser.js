@@ -103,7 +103,7 @@ export default class QueryUser extends React.Component {
         return (
             <React.Fragment>
 
-                <DropdownType
+                <DropdownButton
                     alignRight
                     as={ButtonGroup}
                     key='left'
@@ -114,7 +114,7 @@ export default class QueryUser extends React.Component {
                     title="Option"
                 >
                     <Dropdown.Item onClick={this.handleDeleteCol}>Delete</Dropdown.Item>
-                </DropdownType>
+                </DropdownButton>
 
                 {this.state.queryUserT ?
                     <div class="timeline">
