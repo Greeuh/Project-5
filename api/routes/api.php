@@ -33,7 +33,7 @@ Route::get('/isUserLog', function (Request $request) {
     }
 });
 
-Route::get('/updateQueryUser', function (Request $request) {
+Route::post('/updateQueryUser', function (Request $request) {
     $body = $request->All();
 
     $token = Cookie::get('user_id');
