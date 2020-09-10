@@ -103,8 +103,7 @@ export default class QueryUser extends React.Component {
     }
 
     handleDeleteCol = () => {
-        console.log(this.props.user);
-        this.props.deleteCol(this.props.user);
+        this.props.deleteCol();
     }
 
     render() {

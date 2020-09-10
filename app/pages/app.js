@@ -170,7 +170,7 @@ class App extends Component {
 
           {this.state.queriedUser.map(result =>
             <div id="queryuser-Timeline">
-              <QueryUser user={result} deleteCol={this.delUserQuery} updateUserQuery={this.updateUserQuery} />
+              <QueryUser user={result} deleteCol={() => this.delUserQuery(result)} updateUserQuery={this.updateUserQuery} />
             </div>)
           }
 
