@@ -17,7 +17,7 @@ class App extends Component {
       mentionsT: undefined,
       directMessage: undefined,
       userIsLog: false,
-      queriedUser: ['laravelphp','google','AFP'],
+      queriedUser: [],
     };
   }
 
@@ -112,6 +112,12 @@ class App extends Component {
     this.getMentionsTimeline();
   }
 
+  newUserQuery = (param) => {
+    this.setState(prevState => ({
+      queriedUser: [...prevState.queriedUser, param]
+    }))
+  }
+
   render() {
 
     if (this.state.userIsLog) {
@@ -135,7 +141,7 @@ class App extends Component {
           </div>
 
           <div id="postTweet">
-            <PostTweet refreshT={this.refreshTimeline} />
+            <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery}/>
           </div>
 
           {this.state.queriedUser.map(result =>
