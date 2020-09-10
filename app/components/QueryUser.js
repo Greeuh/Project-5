@@ -13,8 +13,6 @@ export default class QueryUser extends React.Component {
     }
 
     componentDidMount() {
-        this.props.updateUserQuery();
-
         this.refreshThisTimeline();
 
         this.timerQueryUser = setInterval(() => {

@@ -120,7 +120,9 @@ class App extends Component {
   newUserQuery = (param) => {
     this.setState(prevState => ({
       queriedUser: [...prevState.queriedUser, param]
-    }));
+    }), () => {
+      this.updateUserQuery();
+    });
   }
 
   updateUserQuery = () => {
