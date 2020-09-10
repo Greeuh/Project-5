@@ -29,7 +29,8 @@ Route::get('/isUserLog', function (Request $request) {
     }else{
         $user = Auth::loginUsingId($token);
         if (!$user->users_queried) {
-            return;
+            return response('User is log but users_queried is empty', 201)
+            ->header('Content-Type', 'text/plain');;
         }else{
             return $user->users_queried;
         }
