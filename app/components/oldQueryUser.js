@@ -5,10 +5,10 @@ export default class QueryUser extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            value: this.props.user,
+            value: '',
             queryUserT: undefined,
         };
-        this.refreshThisTimeline();
+        this.handleSubmit = this.handleSubmit.bind(this);
     }
 
     refreshThisTimeline = () => {
@@ -21,6 +21,23 @@ export default class QueryUser extends React.Component {
             .catch(error => {
                 console.log(error);
             })
+    }
+
+    handleChange = (event) => {
+        this.setState({ value: event.target.value });
+    }
+
+    handleSubmit(event) {
+        event.preventDefault();
+        axios.post('https://projet5ocr.antoineparriaud.fr/api/queryUserTimeline', {
+            screen_name: this.state.value
+        })
+            .then(res => {
+                this.setState({ queryUserT: res.data })
+            })
+            .catch(error => {
+                console.log(error);
+            });
     }
 
     handlePostFav = param => event => {
@@ -88,6 +105,21 @@ export default class QueryUser extends React.Component {
     render() {
         return (
             <React.Fragment>
+                <form onSubmit={this.handleSubmit}>
+
+                    <input
+                        type="text"
+                        name="usersearch"
+                        rows="6"
+                        cols="80"
+                        maxLength="140"
+                        placeholder="Search user without the @"
+                        value={this.state.value}
+                        onChange={this.handleChange}
+                    />
+
+                </form>
+
                 {this.state.queryUserT ?
                     <div class="timeline">
                         {

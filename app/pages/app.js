@@ -17,6 +17,7 @@ class App extends Component {
       mentionsT: undefined,
       directMessage: undefined,
       userIsLog: false,
+      queriedUser: [laravelphp],
     };
   }
 
@@ -64,19 +65,12 @@ class App extends Component {
     axios.get('https://projet5ocr.antoineparriaud.fr/api/isUserLog')
       .then(res => {
         if (res.status === 202) {
-          console.log('202')
-          console.log(res.status);
-          console.log(res);
           return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
         } else {
-          console.log('else')
-          console.log(res.status);
-          console.log(res);
           this.setState({ userIsLog: true })
         }
       })
       .catch(error => {
-        console.log('error')
         console.log(error);
       })
   }
@@ -140,13 +134,16 @@ class App extends Component {
             <DmTimeline data={this.state.directMessage} />
           </div>
 
-          <div id="queryuser-Timeline">
-            <QueryUser />
-          </div>
-
           <div id="postTweet">
             <PostTweet refreshT={this.refreshTimeline} />
           </div>
+
+          {this.state.queriedUser.map(result =>
+            <div id="queryuser-Timeline">
+              <QueryUser user={result} />
+            </div>)
+          }
+
 
         </div>
       );
