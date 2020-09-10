@@ -36,7 +36,7 @@ export default class PostTweet extends React.Component {
 
     handleSubmitUser(event) {
         event.preventDefault();
-        axios.post('https://api.twitter.com/1.1/users/show.json', {
+        axios.post('https://projet5ocr.antoineparriaud.fr/api/checkIfUserExist', {
             screen_name: this.state.valueUser
         })
             .then(response => {
