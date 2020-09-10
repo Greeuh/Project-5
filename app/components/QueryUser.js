@@ -95,12 +95,16 @@ export default class QueryUser extends React.Component {
             });
     }
 
+    handleDeleteCol = () => {
+        this.props.deleteCol(this.state.value);
+    }
+
     render() {
         return (
             <React.Fragment>
 
                 <DropdownButton id="dropdown-basic-button" title="Option">
-                    <Dropdown.Item onClick={this.props.deleteCol(this.state.value)}>Delete</Dropdown.Item>
+                    <Dropdown.Item onClick={this.handleDeleteCol}>Delete</Dropdown.Item>
                 </DropdownButton>
 
                 {this.state.queryUserT ?
