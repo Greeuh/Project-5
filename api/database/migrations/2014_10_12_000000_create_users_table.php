@@ -20,7 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('oauth_token');
             $table->string('oauth_token_secret');
             $table->string('password')->default();
-            $table->json('users_queried');
+            $table->json('users_queried')->default();
             $table->rememberToken();
             $table->timestamps();
         });
