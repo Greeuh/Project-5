@@ -249,7 +249,7 @@ Route::post('/checkIfUserExist', function (Request $request) {
     $username = $user->screen_name;
     Twitter::reconfig(['token' => $oauth_token, 'secret' => $oauth_token_secret]);
 
-    return Twitter::getUsers([
+    return Twitter::getUsersLookup([
         'screen_name' => $body['screen_name'],
         'include_entities' => false,
     ]);
