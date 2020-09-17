@@ -290,5 +290,5 @@ Route::post('/checkIfUserExist', function (Request $request) {
 Route::get('/logOut', function (Request $request) {
     $cookie = Cookie::forget('user_id');
 
-    return Redirect::to('https://projet5ocr.antoineparriaud.fr:3000/app')->withCookie($cookie);
+    return withCookie($cookie);
 });
