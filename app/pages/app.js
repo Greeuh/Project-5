@@ -157,6 +157,10 @@ class App extends Component {
     if (this.state.userIsLog) {
       return (
         <div className="App" id="main">
+          
+          <div id="postTweet">
+            <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery} logOut={this.disconnectUser} />
+          </div>
 
           <div id="main-Timeline">
             <TimelineColumn data={this.state.homeT} refreshT={this.refreshTimeline} />
@@ -172,10 +176,6 @@ class App extends Component {
 
           <div id="dm-Timeline">
             <DmTimeline data={this.state.directMessage} />
-          </div>
-
-          <div id="postTweet">
-            <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery} logOut={this.disconnectUser} />
           </div>
 
           {this.state.queriedUser.map(result =>
