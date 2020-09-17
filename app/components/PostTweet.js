@@ -66,7 +66,7 @@ export default class PostTweet extends React.Component {
             <>
                 <Form
                     onSubmit={this.handleSubmit}
-                    style={width="242px"}
+                    style={{width:242}}
                 >
                     <Form.Control
                         id="basic-url"
@@ -80,7 +80,7 @@ export default class PostTweet extends React.Component {
                     id="tweet-something" 
                     muted
                     >
-                        Characters Left: {this.state.value.length}/280
+                    Characters Left: {this.state.value.length}/280
                     </Form.Text>
                 </Form>
 
@@ -88,6 +88,7 @@ export default class PostTweet extends React.Component {
 
                 <Form
                     onSubmit={this.handleSubmitUser}
+                    style={{width:242}}
                 >
                     <InputGroup>
                         <InputGroup.Prepend>
@@ -104,7 +105,7 @@ export default class PostTweet extends React.Component {
                 </Form>
 
                 <Alert variant='danger' show={this.state.visible} onClose={() => this.setState({ visible: false })} dismissible>
-                    User not found.
+                User not found.
                 </Alert>
 
                 <br></br><br></br><br></br>
@@ -115,7 +116,7 @@ export default class PostTweet extends React.Component {
                     onClick={this.handleClickLogOut}
                     block
                 >
-                    Disconnect
+                Disconnect
                 </Button>
             </>
         )
