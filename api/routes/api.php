@@ -20,6 +20,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+
+//
+// USERS_QUERIED HANDLE
+//
+
+
 Route::get('/isUserLog', function (Request $request) {
     $token = Cookie::get('user_id');
 
@@ -52,6 +58,12 @@ Route::post('/updateQueryUser', function (Request $request) {
     return response('users_queried updated', 200)
         ->header('Content-Type', 'text/plain');
 });
+
+
+//
+// TIMELINE
+//
+
 
 Route::get('/homeTimeline', function (Request $request) {
     $token = Cookie::get('user_id');
@@ -95,6 +107,9 @@ Route::get('/userLogTimeline', function (Request $request) {
     foreach ($tweets as &$tweet) {
         $tweet['full_text'] = Twitter::linkify($tweet['full_text']);
         $tweet['created_at'] = Twitter::ago($tweet['created_at']);
+        if (isset($tweet['retweeted_status'])) {
+            $tweet['retweeted_status']['full_text'] = Twitter::linkify($tweet['retweeted_status']['full_text']);
+        }
     }
 
     return $tweets;
@@ -119,6 +134,9 @@ Route::post('/queryUserTimeline', function (Request $request) {
     foreach ($tweets as &$tweet) {
         $tweet['full_text'] = Twitter::linkify($tweet['full_text']);
         $tweet['created_at'] = Twitter::ago($tweet['created_at']);
+        if (isset($tweet['retweeted_status'])) {
+            $tweet['retweeted_status']['full_text'] = Twitter::linkify($tweet['retweeted_status']['full_text']);
+        }
     }
 
     return $tweets;
@@ -165,6 +183,12 @@ Route::get('/directMessage', function (Request $request) {
 
     return $dms;
 });
+
+
+//
+// UTILITARIES FUNCTION
+//
+
 
 Route::post('/postTweet', function (Request $request) {
     $body = $request->All();
