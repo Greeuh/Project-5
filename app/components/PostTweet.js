@@ -12,6 +12,7 @@ export default class PostTweet extends React.Component {
             visible: false,
         };
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleClickLogOut = this.handleClickLogOut.bind(this);
         this.handleSubmitUser = this.handleSubmitUser.bind(this);
     }
 
@@ -52,6 +53,11 @@ export default class PostTweet extends React.Component {
                 console.log(error);
                 this.setState({ visible: true })
             });
+    }
+
+    handleClickLogOut(event) {
+        event.preventDefault();
+        this.props.logOut();
     }
 
     render() {
@@ -105,7 +111,7 @@ export default class PostTweet extends React.Component {
                 <Button 
                 variant="dark" 
                 size="lg" 
-                onClick={this.props.logOut()}
+                onClick={this.handleClickLogOut}
                 block
                 >
                     Disconnect
