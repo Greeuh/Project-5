@@ -66,7 +66,7 @@ export default class PostTweet extends React.Component {
             <>
                 <Form
                     onSubmit={this.handleSubmit}
-                    width='242px'
+                    style={width="242px"}
                 >
                     <Form.Control
                         id="basic-url"
