@@ -60,7 +60,7 @@ class App extends Component {
   disconnectUser = () => {
     axios.get('https://projet5ocr.antoineparriaud.fr/api/logOut')
       .then(res => {
-        if (res.status === 304) {
+        if (res.status === 200) {
           this.setState({ userIsLog: false });
           return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
         }

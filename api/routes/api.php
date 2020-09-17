@@ -290,5 +290,7 @@ Route::post('/checkIfUserExist', function (Request $request) {
 Route::get('/logOut', function (Request $request) {
     $cookie = Cookie::forget('user_id');
 
-    return withCookie($cookie);
+    return response('user disconnected', 200)
+            ->header('Content-Type', 'text/plain')
+            ->withCookie($cookie);
 });
