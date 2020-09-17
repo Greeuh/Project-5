@@ -66,7 +66,6 @@ export default class PostTweet extends React.Component {
             <>
                 <Form
                     onSubmit={this.handleSubmit}
-                    className={mt - 3}
                 >
                     <Form.Control
                         id="basic-url"
