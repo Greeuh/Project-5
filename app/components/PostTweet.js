@@ -64,7 +64,7 @@ export default class PostTweet extends React.Component {
     render() {
         return (
             <>
-                <InputGroup
+                <Form
                     onSubmit={this.handleSubmit}
                 >
                     <Form.Control
@@ -76,12 +76,14 @@ export default class PostTweet extends React.Component {
                         value={this.state.value}
                         onChange={this.handleChange}
                     />
-                    <label htmlFor="basic-url">Characters Left: {this.state.value.length}/280</label>
-                </InputGroup>
+                    <Form.Text id="tweet-something" muted>
+                        Characters Left: {this.state.value.length}/280
+                    </Form.Text>
+                </Form>
 
                 <br></br><br></br><br></br>
 
-                <InputGroup
+                <Form
                     style={{ width: '242px' }}
                     onSubmit={this.handleSubmitUser}
                 >
@@ -96,7 +98,7 @@ export default class PostTweet extends React.Component {
                         value={this.state.valueUser}
                         onChange={this.handleChangeUser}
                     />
-                </InputGroup>
+                </Form>
 
                 <Alert variant='danger' show={this.state.visible} onClose={() => this.setState({ visible: false })} dismissible>
                     User not found.
