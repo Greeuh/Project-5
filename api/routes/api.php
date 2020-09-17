@@ -69,6 +69,9 @@ Route::get('/homeTimeline', function (Request $request) {
     foreach ($tweets as &$tweet) {
         $tweet['full_text'] = Twitter::linkify($tweet['full_text']);
         $tweet['created_at'] = Twitter::ago($tweet['created_at']);
+        if ($tweet['retweeted_status']) {
+            $tweet['retweeted_status']['full_text'] = Twitter::linkify($tweet['retweeted_status']['full_text']);
+        }
     }
 
     return $tweets;
