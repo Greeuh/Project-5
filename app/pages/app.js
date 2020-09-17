@@ -58,7 +58,13 @@ class App extends Component {
   }
 
   disconnectUser = () => {
-
+    axios.get('https://projet5ocr.antoineparriaud.fr/api/logOut')
+      .then(res => {
+        this.setState({ userIsLog: false});
+      })
+      .catch(error => {
+        console.log(error);
+      })
   }
 
   isUserLog = () => {
@@ -166,7 +172,7 @@ class App extends Component {
           </div>
 
           <div id="postTweet">
-            <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery} />
+            <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery} logOut={this.disconnectUser}/>
           </div>
 
           {this.state.queriedUser.map(result =>

@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import Alert from 'react-bootstrap/Alert';
+import Button from 'react-bootstrap/Button';
 
 export default class PostTweet extends React.Component {
     constructor(props) {
@@ -59,7 +60,7 @@ export default class PostTweet extends React.Component {
                 <form onSubmit={this.handleSubmit}>
 
                     <input
-                        style={{width:'200px'}}
+                        style={{ width: '200px' }}
                         type="text"
                         name="tweetarea"
                         rows="6"
@@ -83,7 +84,7 @@ export default class PostTweet extends React.Component {
                 <form onSubmit={this.handleSubmitUser}>
 
                     <input
-                        style={{width:'200px'}}
+                        style={{ width: '200px' }}
                         type="text"
                         name="usersearch"
                         rows="6"
@@ -98,6 +99,17 @@ export default class PostTweet extends React.Component {
                 <Alert variant='danger' show={this.state.visible} onClose={() => this.setState({ visible: false })} dismissible>
                     User not found.
                 </Alert>
+
+                <br><br></br><br></br><br></br></br>
+
+                <Button 
+                variant="dark" 
+                size="lg" 
+                onClick={this.props.logOut()}
+                block
+                >
+                    Disconnect
+                </Button>
             </>
         )
     }
