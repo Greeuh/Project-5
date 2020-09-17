@@ -100,7 +100,7 @@ export default class PostTweet extends React.Component {
                     User not found.
                 </Alert>
 
-                <br><br></br><br></br><br></br></br>
+                <br></br><br></br><br></br>
 
                 <Button 
                 variant="dark" 
