@@ -78,7 +78,10 @@ export default class TimelineColumn extends React.Component {
                                 ? <div class="timeline-TweetList-tweet">
                                     <div class="timeline-Tweet">
                                         <div class="timeline-Tweet-brand">
-                                            <div class="Icon Icon--twitter"><span class="TweetAuthor-name">{result.user.name} retweet :</span></div>
+                                            <div class="Icon Icon--twitter"></div>
+                                        </div>
+                                        <div class="rt-User-Info">
+                                            <div><span class="TweetAuthor-name">{result.user.name} retweeted :</span></div>
                                         </div>
                                         <div class="timeline-Tweet-author">
                                             <div class="TweetAuthor"><a class="TweetAuthor-link" href={"?ID=" + result.retweeted_status.user.id_str}> </a><span class="TweetAuthor-avatar">
