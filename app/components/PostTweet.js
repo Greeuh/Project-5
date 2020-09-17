@@ -56,7 +56,6 @@ export default class PostTweet extends React.Component {
     }
 
     handleClickLogOut(event) {
-        event.preventDefault();
         this.props.logOut();
     }
 
