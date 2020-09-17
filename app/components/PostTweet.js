@@ -64,23 +64,27 @@ export default class PostTweet extends React.Component {
     render() {
         return (
             <>
-                <InputGroup>
+                <InputGroup
+                    onSubmit={this.handleSubmit}
+                >
                     <Form.Control
-                        style={{ width: '200px' }}
+                        style={{ width: '242px' }}
                         id="basic-url"
                         aria-describedby="tweet-something"
                         placeholder="Tweet something here !"
                         maxLength="280"
                         value={this.state.value}
                         onChange={this.handleChange}
-                        onSubmit={this.handleSubmit}
                     />
                     <label htmlFor="basic-url">Characters Left: {this.state.value.length}/280</label>
                 </InputGroup>
 
                 <br></br><br></br><br></br>
 
-                <InputGroup>
+                <InputGroup
+                    style={{ width: '242px' }}
+                    onSubmit={this.handleSubmitUser}
+                >
                     <InputGroup.Prepend>
                         <InputGroup.Text id="searchuser">@</InputGroup.Text>
                     </InputGroup.Prepend>
@@ -91,7 +95,6 @@ export default class PostTweet extends React.Component {
                         aria-describedby="searchuser"
                         value={this.state.valueUser}
                         onChange={this.handleChangeUser}
-                        onSubmit={this.handleSubmitUser}
                     />
                 </InputGroup>
 
