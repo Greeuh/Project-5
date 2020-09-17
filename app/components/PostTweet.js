@@ -66,9 +66,9 @@ export default class PostTweet extends React.Component {
             <>
                 <Form
                     onSubmit={this.handleSubmit}
+                    className={mt - 3}
                 >
                     <Form.Control
-                        style={{ width: '242px' }}
                         id="basic-url"
                         aria-describedby="tweet-something"
                         placeholder="Tweet something here !"
@@ -76,7 +76,10 @@ export default class PostTweet extends React.Component {
                         value={this.state.value}
                         onChange={this.handleChange}
                     />
-                    <Form.Text id="tweet-something" muted>
+                    <Form.Text 
+                    id="tweet-something" 
+                    muted
+                    >
                         Characters Left: {this.state.value.length}/280
                     </Form.Text>
                 </Form>
@@ -84,20 +87,20 @@ export default class PostTweet extends React.Component {
                 <br></br><br></br><br></br>
 
                 <Form
-                    style={{ width: '242px' }}
                     onSubmit={this.handleSubmitUser}
                 >
-                    <InputGroup.Prepend>
-                        <InputGroup.Text id="searchuser">@</InputGroup.Text>
-                    </InputGroup.Prepend>
-                    <Form.Control
-                        style={{ width: '200px' }}
-                        placeholder="Search user"
-                        aria-label="usersearch"
-                        aria-describedby="searchuser"
-                        value={this.state.valueUser}
-                        onChange={this.handleChangeUser}
-                    />
+                    <InputGroup>
+                        <InputGroup.Prepend>
+                            <InputGroup.Text id="searchuser">@</InputGroup.Text>
+                        </InputGroup.Prepend>
+                        <Form.Control
+                            placeholder="Search user"
+                            aria-label="searchuser"
+                            aria-describedby="searchuser"
+                            value={this.state.valueUser}
+                            onChange={this.handleChangeUser}
+                        />
+                    </InputGroup>
                 </Form>
 
                 <Alert variant='danger' show={this.state.visible} onClose={() => this.setState({ visible: false })} dismissible>
