@@ -60,7 +60,9 @@ class App extends Component {
   disconnectUser = () => {
     axios.get('https://projet5ocr.antoineparriaud.fr/api/logOut')
       .then(res => {
-        this.setState({ userIsLog: false});
+        if (res.status === 304) {
+          this.setState({ userIsLog: false });
+        }
       })
       .catch(error => {
         console.log(error);
@@ -72,7 +74,7 @@ class App extends Component {
       .then(res => {
         if (res.status === 202) {
           return window.location.replace("https://projet5ocr.antoineparriaud.fr:3000/login");
-        }if (res.status === 201) {
+        } if (res.status === 201) {
           this.setState({ userIsLog: true })
         } else {
           this.setState({ userIsLog: true })
@@ -172,7 +174,7 @@ class App extends Component {
           </div>
 
           <div id="postTweet">
-            <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery} logOut={this.disconnectUser}/>
+            <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery} logOut={this.disconnectUser} />
           </div>
 
           {this.state.queriedUser.map(result =>
