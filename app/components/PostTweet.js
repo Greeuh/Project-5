@@ -3,6 +3,7 @@ import axios from 'axios';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
 import InputGroup from 'react-bootstrap/InputGroup';
+import Form from 'react-bootstrap/Form';
 
 export default class PostTweet extends React.Component {
     constructor(props) {
@@ -64,7 +65,7 @@ export default class PostTweet extends React.Component {
         return (
             <>
                 <InputGroup>
-                    <FormControl
+                    <Form.Control
                         style={{ width: '200px' }}
                         id="basic-url"
                         aria-describedby="tweet-something"
@@ -83,7 +84,7 @@ export default class PostTweet extends React.Component {
                     <InputGroup.Prepend>
                         <InputGroup.Text id="searchuser">@</InputGroup.Text>
                     </InputGroup.Prepend>
-                    <FormControl
+                    <Form.Control
                         style={{ width: '200px' }}
                         placeholder="Search user"
                         aria-label="usersearch"
