@@ -72,11 +72,10 @@ export default class TimelineColumn extends React.Component {
         if (this.props.data) {
             return <div class="timeline">
                 {
-                    this.props.data.map(result => {
-                        result.retweeted_status
-                            ?
-                            <div class="tw-block-parent">
-                                <div class="timeline-TweetList-tweet">
+                    this.props.data.map(result =>
+                        <div class="tw-block-parent">
+                            {result.retweeted_status
+                                ? <div class="timeline-TweetList-tweet">
                                     <div class="timeline-Tweet">
                                         <div class="timeline-Tweet-brand">
                                             <div class="Icon Icon--twitter"></div>
@@ -114,10 +113,7 @@ export default class TimelineColumn extends React.Component {
                                         </ul>
                                     </div>
                                 </div>
-                            </div >
-                            :
-                            <div class="tw-block-parent">
-                                <div class="timeline-TweetList-tweet">
+                                : <div class="timeline-TweetList-tweet">
                                     <div class="timeline-Tweet">
                                         <div class="timeline-Tweet-brand">
                                             <div class="Icon Icon--twitter"></div>
@@ -144,8 +140,8 @@ export default class TimelineColumn extends React.Component {
                                         </ul>
                                     </div>
                                 </div>
-                            </div>
-                    })
+                            }
+                        </div>)
                 }</div>;
         } else {
             return <p>to be load</p>
