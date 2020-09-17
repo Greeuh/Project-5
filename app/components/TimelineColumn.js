@@ -81,9 +81,9 @@ export default class TimelineColumn extends React.Component {
                                             <div class="Icon Icon--twitter"></div>
                                         </div>
                                         <div class="rt-User-Info">
-                                            <div><span class="TweetAuthor-name">{result.user.name} retweeted :</span></div>
+                                            <div><span class="TweetAuthor-name">{result.user.name} </span>retweeted :</div>
                                         </div>
-                                        <div class="timeline-Tweet-author">
+                                        <div class="timeline-Tweet-author pl-1">
                                             <div class="TweetAuthor"><a class="TweetAuthor-link" href={"?ID=" + result.retweeted_status.user.id_str}> </a><span class="TweetAuthor-avatar">
                                                 <div class="Avatar"><img src={result.retweeted_status.user.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name">{result.retweeted_status.user.name}</span>
                                                 {result.retweeted_status.user.verified
@@ -91,7 +91,7 @@ export default class TimelineColumn extends React.Component {
                                                     : ''}
                                                 <span class="TweetAuthor-screenName">@{result.retweeted_status.user.screen_name} </span></div>
                                         </div>
-                                        <div class="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.retweeted_status.full_text }} />
+                                        <div class="timeline-Tweet-text pl-1" dangerouslySetInnerHTML={{ __html: result.retweeted_status.full_text }} />
                                         <div class="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span class="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
                                         <ul class="timeline-Tweet-actions">
                                             <li class="timeline-Tweet-action"> {result.favorited
