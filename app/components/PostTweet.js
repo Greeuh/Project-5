@@ -2,6 +2,7 @@ import React from 'react';
 import axios from 'axios';
 import Alert from 'react-bootstrap/Alert';
 import Button from 'react-bootstrap/Button';
+import InputGroup from 'react-bootstrap/InputGroup';
 
 export default class PostTweet extends React.Component {
     constructor(props) {
@@ -62,56 +63,48 @@ export default class PostTweet extends React.Component {
     render() {
         return (
             <>
-                <form onSubmit={this.handleSubmit}>
-
-                    <input
+                <InputGroup>
+                    <FormControl
                         style={{ width: '200px' }}
-                        type="text"
-                        name="tweetarea"
-                        rows="6"
-                        cols="30"
-                        maxLength="280"
+                        id="basic-url"
+                        aria-describedby="tweet-something"
                         placeholder="Tweet something here !"
+                        maxLength="280"
                         value={this.state.value}
                         onChange={this.handleChange}
+                        onSubmit={this.handleSubmit}
                     />
-
-
-                    <br></br>
-                    <text>
-                        Characters Left: {this.state.value.length}/280
-                    </text>
-
-                </form>
+                    <label htmlFor="basic-url">Characters Left: {this.state.value.length}/280</label>
+                </InputGroup>
 
                 <br></br><br></br><br></br>
 
-                <form onSubmit={this.handleSubmitUser}>
-
-                    <input
+                <InputGroup>
+                    <InputGroup.Prepend>
+                        <InputGroup.Text id="searchuser">@</InputGroup.Text>
+                    </InputGroup.Prepend>
+                    <FormControl
                         style={{ width: '200px' }}
-                        type="text"
-                        name="usersearch"
-                        rows="6"
-                        cols="80"
-                        maxLength="140"
-                        placeholder="Search user without the @"
+                        placeholder="Search user"
+                        aria-label="usersearch"
+                        aria-describedby="searchuser"
                         value={this.state.valueUser}
                         onChange={this.handleChangeUser}
+                        onSubmit={this.handleSubmitUser}
                     />
+                </InputGroup>
 
-                </form>
                 <Alert variant='danger' show={this.state.visible} onClose={() => this.setState({ visible: false })} dismissible>
                     User not found.
                 </Alert>
 
                 <br></br><br></br><br></br>
 
-                <Button 
-                variant="dark" 
-                size="lg" 
-                onClick={this.handleClickLogOut}
-                block
+                <Button
+                    variant="dark"
+                    size="lg"
+                    onClick={this.handleClickLogOut}
+                    block
                 >
                     Disconnect
                 </Button>
