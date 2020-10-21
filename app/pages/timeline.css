@@ -31,12 +31,6 @@
 	width: 242px;
 }
 
-.center-button {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-}
-
 .tw-block-parent {
 	width: 500px;
 	font: 14px/1.4 Roboto, Helvetica, Arial, Tahoma, sans-serif;
