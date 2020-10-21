@@ -92,7 +92,7 @@ export default class TimelineColumn extends React.Component {
                                                 <span class="TweetAuthor-screenName">@{result.retweeted_status.user.screen_name} </span></div>
                                         </div>
                                         <div class="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.retweeted_status.full_text }} />
-                                        {result.retweeted_status.extended_entities.media
+                                        {result.retweeted_status.extended_entities && result.retweeted_status.extended_entities.media
                                             ? <div class="timeline-Tweet-media">
                                                 {result.retweeted_status.extended_entities.media.type === 'video' || 'animated_gif'
                                                     ? <video width="150" height="150" controls>
@@ -129,7 +129,7 @@ export default class TimelineColumn extends React.Component {
                                                 <span class="TweetAuthor-screenName">@{result.user.screen_name}</span></div>
                                         </div>
                                         <div class="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.full_text }} />
-                                        {result.extended_entities.media
+                                        {result.extended_entities && result.extended_entities.media
                                             ? <div class="timeline-Tweet-media">
                                                 {result.extended_entities.media.type === 'video' || 'animated_gif'
                                                     ? <video width="150" height="150" controls>
