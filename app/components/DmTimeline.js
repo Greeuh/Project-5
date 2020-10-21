@@ -4,12 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Fade from 'react-bootstrap/Fade';
 
 export default class DmTimeline extends React.Component {
-    constructor(props) {
-        super(props);
+    constructor(props, context) {
+        super(props, context);
 
         this.state = {
             open: false,
-        }
+        };
     }
 
     render() {
