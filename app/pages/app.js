@@ -163,15 +163,15 @@ class App extends Component {
           </div>
 
           <div id="main-Timeline">
-            <TimelineColumn data={this.state.homeT} refreshT={this.refreshTimeline} />
+            <TimelineColumn data={this.state.homeT} refreshT={this.refreshTimeline} title='Home'/>
           </div>
 
           <div id="userowntweets">
-            <TimelineColumn data={this.state.userLogT} refreshT={this.refreshTimeline} ownedT='true' />
+            <TimelineColumn data={this.state.userLogT} refreshT={this.refreshTimeline} title='Owned Tweets' ownedT='true' />
           </div>
 
           <div id="mentions-Timeline">
-            <TimelineColumn data={this.state.mentionsT} refreshT={this.refreshTimeline} />
+            <TimelineColumn data={this.state.mentionsT} refreshT={this.refreshTimeline} title='Mentions' />
           </div>
 
           <div id="dm-Timeline">
@@ -180,7 +180,7 @@ class App extends Component {
 
           {this.state.queriedUser.map(result =>
             <div id="queryuser-Timeline">
-              <QueryUser user={result} key={result} deleteCol={() => this.delUserQuery(result)} updateUserQuery={this.updateUserQuery} />
+              <QueryUser user={result} key={result} title={'@'+result} deleteCol={() => this.delUserQuery(result)} updateUserQuery={this.updateUserQuery} />
             </div>)
           }
 

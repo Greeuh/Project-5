@@ -71,6 +71,7 @@ export default class TimelineColumn extends React.Component {
     render() {
         if (this.props.data) {
             return <div class="timeline">
+                <h2>{this.props.title}</h2>
                 {
                     this.props.data.map(result =>
                         <div class="tw-block-parent">
