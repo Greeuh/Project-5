@@ -15,10 +15,11 @@ export default class DmTimeline extends React.Component {
     render() {
         const { open } = this.state;
         if (this.props.data) {
-            return <div class="timeline"><Button
+            return <div class="timeline"><h2 className="timeline-header">DM</h2><Button
                 onClick={() => this.setState({ open: !open })}
                 aria-controls="fade-dm-tl"
                 aria-expanded={open}
+                className="timeline-header"
             >
                 Show your DM for the last 30 days
           </Button>
