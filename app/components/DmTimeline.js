@@ -6,19 +6,23 @@ import Fade from 'react-bootstrap/Fade';
 export default class DmTimeline extends React.Component {
     constructor(props) {
         super(props);
+
+        this.state = {
+            open: false,
+        }
     }
 
     render() {
-        const [open, setOpen] = useState(false);
+        const { open } = this.state;
         if (this.props.data) {
             return <div class="timeline"><Button
-                onClick={() => setOpen(!open)}
+                onClick={() => this.setState({ open: !open })}
                 aria-controls="fade-dm"
                 aria-expanded={open}
             >
                 Show your DM for the last 30 days
           </Button>
-                <Fade in={open}>
+                <Fade in={this.state.open}>
                     {
                         this.props.data.map(result =>
                             <div class="tw-block-parent">
