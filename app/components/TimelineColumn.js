@@ -92,6 +92,10 @@ export default class TimelineColumn extends React.Component {
                                                 <span class="TweetAuthor-screenName">@{result.retweeted_status.user.screen_name} </span></div>
                                         </div>
                                         <div class="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.retweeted_status.full_text }} />
+                                        {result.retweeted_status.extended_entities.media.type === 'photo'
+                                            ? <div class="timeline-Tweet-media"><img src={result.retweeted_status.extended_entities.media.media_url_https} alt={dangerouslySetInnerHTML={ __html: result.retweeted_status.full_text } } width="150" height="150"></img></div>
+                                            : ''
+                                        }
                                         <div class="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span class="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
                                         <ul class="timeline-Tweet-actions">
                                             <li class="timeline-Tweet-action"> {result.favorited
@@ -119,6 +123,10 @@ export default class TimelineColumn extends React.Component {
                                                 <span class="TweetAuthor-screenName">@{result.user.screen_name}</span></div>
                                         </div>
                                         <div class="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.full_text }} />
+                                        {result.extended_entities.media.type === 'photo'
+                                            ? <div class="timeline-Tweet-media"><img src={result.extended_entities.media.media_url_https} alt={dangerouslySetInnerHTML={ __html: result.full_text } } width="150" height="150"></img></div>
+                                            : ''
+                                        }
                                         <div class="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span class="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
                                         <ul class="timeline-Tweet-actions">
                                             <li class="timeline-Tweet-action"> {result.favorited
