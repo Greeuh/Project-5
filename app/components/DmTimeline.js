@@ -17,12 +17,12 @@ export default class DmTimeline extends React.Component {
         if (this.props.data) {
             return <div class="timeline"><Button
                 onClick={() => this.setState({ open: !open })}
-                aria-controls="fade-dm"
+                aria-controls="fade-dm-tl"
                 aria-expanded={open}
             >
                 Show your DM for the last 30 days
           </Button>
-                <Fade in={this.state.open}>
+                <Fade in={this.state.open}><div id="fade-dm-tl">
                     {
                         this.props.data.map(result =>
                             <div class="tw-block-parent">
@@ -46,7 +46,7 @@ export default class DmTimeline extends React.Component {
                                     </div>
                                 </div>
                             </div>)
-                    }</Fade>
+                    }</div></Fade>
             </div>
         } else {
             return <p>to be load</p>
