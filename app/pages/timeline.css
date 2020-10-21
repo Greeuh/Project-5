@@ -50,6 +50,10 @@
 	border-radius: 100%;
 }
 
+.timeline-header{
+	text-align: center;
+}
+
 .timeline-TweetList-tweet {
 	border-top: 1px solid rgba(15, 70, 100, 0.12);
 }

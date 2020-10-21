@@ -118,11 +118,10 @@ export default class QueryUser extends React.Component {
                             drop="right"
                             size="sm"
                             variant="secondary"
-                            title="Option"
+                            title={'Option '+this.props.title}
                         >
                             <Dropdown.Item onClick={this.handleDeleteCol}>Delete</Dropdown.Item>
                         </DropdownButton>
-                        <h2>{this.props.title}</h2>
 
                         {
                             this.state.queryUserT.map(result =>
