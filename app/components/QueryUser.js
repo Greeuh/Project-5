@@ -108,7 +108,7 @@ export default class QueryUser extends React.Component {
             <React.Fragment>
 
                 {this.state.queryUserT ?
-                    <div class="timeline">
+                    <div className="timeline">
 
                         <DropdownButton
                             className="ml-2"
@@ -125,61 +125,61 @@ export default class QueryUser extends React.Component {
 
                         {
                             this.state.queryUserT.map(result =>
-                                <div class="tw-block-parent">
+                                <div key={result.id_str} className="tw-block-parent">
                                     {result.retweeted_status
-                                        ? <div class="timeline-TweetList-tweet">
-                                            <div class="timeline-Tweet">
-                                                <div class="timeline-Tweet-brand">
-                                                    <div class="Icon Icon--twitter"></div>
+                                        ? <div className="timeline-TweetList-tweet">
+                                            <div className="timeline-Tweet">
+                                                <div className="timeline-Tweet-brand">
+                                                    <div className="Icon Icon--twitter"></div>
                                                 </div>
-                                                <div class="rt-User-Info">
-                                                    <div><span class="TweetAuthor-name">{result.user.name} </span>retweeted :</div>
+                                                <div className="rt-User-Info">
+                                                    <div><span className="TweetAuthor-name">{result.user.name} </span>retweeted :</div>
                                                 </div>
-                                                <div class="timeline-Tweet-author">
-                                                    <div class="TweetAuthor"><a class="TweetAuthor-link" href={"?ID=" + result.retweeted_status.user.id_str}> </a><span class="TweetAuthor-avatar">
-                                                        <div class="Avatar"><img src={result.retweeted_status.user.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name">{result.retweeted_status.user.name}</span>
+                                                <div className="timeline-Tweet-author">
+                                                    <div className="TweetAuthor"><a className="TweetAuthor-link" href={"?ID=" + result.retweeted_status.user.id_str}> </a><span className="TweetAuthor-avatar">
+                                                        <div className="Avatar"><img src={result.retweeted_status.user.profile_image_url_https}></img> </div></span><span className="TweetAuthor-name">{result.retweeted_status.user.name}</span>
                                                         {result.retweeted_status.user.verified
-                                                            ? <span class="Icon Icon--verified"> </span>
+                                                            ? <span className="Icon Icon--verified"> </span>
                                                             : ''}
-                                                        <span class="TweetAuthor-screenName">@{result.retweeted_status.user.screen_name} </span></div>
+                                                        <span className="TweetAuthor-screenName">@{result.retweeted_status.user.screen_name} </span></div>
                                                 </div>
-                                                <div class="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.retweeted_status.full_text }} />
-                                                <div class="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span class="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
-                                                <ul class="timeline-Tweet-actions">
-                                                    <li class="timeline-Tweet-action"> {result.favorited
-                                                        ? <a class="Icon Icon--hearted" onClick={this.handleDestroyFav(result.id_str)}></a>
-                                                        : <a class="Icon Icon--heart" onClick={this.handlePostFav(result.id_str)}></a>
+                                                <div className="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.retweeted_status.full_text }} />
+                                                <div className="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span className="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
+                                                <ul className="timeline-Tweet-actions">
+                                                    <li className="timeline-Tweet-action"> {result.favorited
+                                                        ? <a className="Icon Icon--hearted" onClick={this.handleDestroyFav(result.id_str)}></a>
+                                                        : <a className="Icon Icon--heart" onClick={this.handlePostFav(result.id_str)}></a>
                                                     }</li>
-                                                    <li class="timeline-Tweet-action"> {result.retweeted
-                                                        ? <a class="Icon Icon--shared" onClick={this.handleDestroyTweet(result.id_str)}></a>
-                                                        : <a class="Icon Icon--share" onClick={this.handlePostRetweet(result.id_str)}></a>
+                                                    <li className="timeline-Tweet-action"> {result.retweeted
+                                                        ? <a className="Icon Icon--shared" onClick={this.handleDestroyTweet(result.id_str)}></a>
+                                                        : <a className="Icon Icon--share" onClick={this.handlePostRetweet(result.id_str)}></a>
                                                     }</li>
                                                 </ul>
                                             </div>
                                         </div>
-                                        : <div class="timeline-TweetList-tweet">
-                                            <div class="timeline-Tweet">
-                                                <div class="timeline-Tweet-brand">
-                                                    <div class="Icon Icon--twitter"></div>
+                                        : <div className="timeline-TweetList-tweet">
+                                            <div className="timeline-Tweet">
+                                                <div className="timeline-Tweet-brand">
+                                                    <div className="Icon Icon--twitter"></div>
                                                 </div>
-                                                <div class="timeline-Tweet-author">
-                                                    <div class="TweetAuthor"><a class="TweetAuthor-link" href={"?ID=" + result.user.id_str}> </a><span class="TweetAuthor-avatar">
-                                                        <div class="Avatar"><img src={result.user.profile_image_url_https}></img> </div></span><span class="TweetAuthor-name">{result.user.name}</span>
+                                                <div className="timeline-Tweet-author">
+                                                    <div className="TweetAuthor"><a className="TweetAuthor-link" href={"?ID=" + result.user.id_str}> </a><span className="TweetAuthor-avatar">
+                                                        <div className="Avatar"><img src={result.user.profile_image_url_https}></img> </div></span><span className="TweetAuthor-name">{result.user.name}</span>
                                                         {result.user.verified
-                                                            ? <span class="Icon Icon--verified"> </span>
+                                                            ? <span className="Icon Icon--verified"> </span>
                                                             : ''}
-                                                        <span class="TweetAuthor-screenName">@{result.user.screen_name}</span></div>
+                                                        <span className="TweetAuthor-screenName">@{result.user.screen_name}</span></div>
                                                 </div>
-                                                <div class="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.full_text }} />
-                                                <div class="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span class="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
-                                                <ul class="timeline-Tweet-actions">
-                                                    <li class="timeline-Tweet-action"> {result.favorited
-                                                        ? <a class="Icon Icon--hearted" onClick={this.handleDestroyFav(result.id_str)}></a>
-                                                        : <a class="Icon Icon--heart" onClick={this.handlePostFav(result.id_str)}></a>
+                                                <div className="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.full_text }} />
+                                                <div className="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span className="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
+                                                <ul className="timeline-Tweet-actions">
+                                                    <li className="timeline-Tweet-action"> {result.favorited
+                                                        ? <a className="Icon Icon--hearted" onClick={this.handleDestroyFav(result.id_str)}></a>
+                                                        : <a className="Icon Icon--heart" onClick={this.handlePostFav(result.id_str)}></a>
                                                     }</li>
-                                                    <li class="timeline-Tweet-action"> {result.retweeted
-                                                        ? <a class="Icon Icon--shared" onClick={this.handleDestroyTweet(result.id_str)}></a>
-                                                        : <a class="Icon Icon--share" onClick={this.handlePostRetweet(result.id_str)}></a>
+                                                    <li className="timeline-Tweet-action"> {result.retweeted
+                                                        ? <a className="Icon Icon--shared" onClick={this.handleDestroyTweet(result.id_str)}></a>
+                                                        : <a className="Icon Icon--share" onClick={this.handlePostRetweet(result.id_str)}></a>
                                                     }</li>
                                                 </ul>
                                             </div>
