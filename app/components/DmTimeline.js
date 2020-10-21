@@ -1,7 +1,8 @@
 import React from 'react';
 import axios from 'axios';
-import Accordion from 'react-bootstrap/Accordion'
+import Accordion from 'react-bootstrap/Accordion';
 import Button from 'react-bootstrap/Button';
+import Card from 'react-bootstrap/Card';
 
 export default class DmTimeline extends React.Component {
     constructor(props) {
