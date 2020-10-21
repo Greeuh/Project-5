@@ -19,7 +19,7 @@ export default class DmTimeline extends React.Component {
                 onClick={() => this.setState({ open: !open })}
                 aria-controls="fade-dm-tl"
                 aria-expanded={open}
-                style='display:flex; justify-content:center; align-item:center'
+                className='center-button'
             >
                 Show your DM for the last 30 days
           </Button>

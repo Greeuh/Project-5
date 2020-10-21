@@ -14,21 +14,27 @@
 
 #main {
 	display: flex;
-    flex-direction: row;
+	flex-direction: row;
 }
 
 #main-Timeline {
 	display: flex;
-    flex-direction: column;
+	flex-direction: column;
 }
 
 #userowntweets {
 	display: flex;
-    flex-direction: column;
+	flex-direction: column;
 }
 
 #postTweet {
 	width: 242px;
+}
+
+.center-button {
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .tw-block-parent {
@@ -50,7 +56,7 @@
 	border-radius: 100%;
 }
 
-.timeline-header{
+.timeline-header {
 	text-align: center;
 }
 
