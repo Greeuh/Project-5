@@ -26,6 +26,7 @@ body {
 }
 
 #main + div {
+	border: 2px #667580;
 	overflow-y: scroll;
 	overflow-x: hidden;
 	max-height: 800px;
