@@ -12,6 +12,14 @@
 	src: local('Roboto Bold'), local('Roboto-Bold'), url(https://fonts.gstatic.com/s/roboto/v20/KFOlCnqEu92Fr1MmWUlfABc9.ttf) format('truetype');
 }
 
+html {
+	height: 100%;
+}
+
+body {
+	height: 100%;
+}
+
 #main {
 	display: flex;
 	flex-direction: row;
@@ -20,6 +28,7 @@
 #main + div + div {
 	overflow-y: auto;
 	overflow-x: hidden;
+	height: 100%;
 }
 
 #main-Timeline {
