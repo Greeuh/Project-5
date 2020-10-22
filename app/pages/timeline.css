@@ -17,11 +17,13 @@
 	flex-direction: row;
 }
 
+#main div {
+	overflow: auto;
+}
+
 #main-Timeline {
 	display: flex;
 	flex-direction: column;
-	overflow: auto;
-	width: 500px;
 }
 
 #userowntweets {
