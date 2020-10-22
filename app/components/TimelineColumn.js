@@ -130,10 +130,10 @@ export default class TimelineColumn extends React.Component {
                                                 <span className="TweetAuthor-screenName">@{result.user.screen_name}</span></div>
                                         </div>
                                         <div className="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.full_text }} />
-                                        {result.extended_entities && result.extended_entities.media
+                                        {result.extended_entities?.media
                                             ? <div className="timeline-Tweet-media">
                                                 {result.extended_entities.media[0].type === 'photo'
-                                                    ? <img src={result.extended_entities.media.media_url_https} alt="" width="150" height="150"></img>
+                                                    ? <img src={result.extended_entities.media[0].media_url_https} alt="" width="150" height="150"></img>
                                                     // : <video width="150" height="150" controls>
                                                     //     <source src={result.extended_entities.media[0].video_info.variants[0].url} type="video/mp4"></source>
                                                     // </video>}
