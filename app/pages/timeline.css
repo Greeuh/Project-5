@@ -27,10 +27,9 @@ body {
 }
 
 .timeline {
-	position: absolute;
+	position: relative;
 	border: 2px #667580;
 	height: 100%;
-	width: 500px;
 	overflow-y: auto;
 	overflow-x: hidden;
 }
