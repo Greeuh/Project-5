@@ -19,6 +19,7 @@
 
 #main + div + div {
 	overflow-y: auto;
+	height: 100%;
 }
 
 #main-Timeline {

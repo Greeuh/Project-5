@@ -165,7 +165,7 @@ class App extends Component {
           </div>
 
           <div id="userowntweets">
-            <TimelineColumn data={this.state.userLogT} refreshT={this.refreshTimeline} title='Owned Tweets' ownedT='true' />
+            <TimelineColumn data={this.state.userLogT} refreshT={this.refreshTimeline} title='Own Tweets' ownedT='true' />
           </div>
 
           <div id="mentions-Timeline">
