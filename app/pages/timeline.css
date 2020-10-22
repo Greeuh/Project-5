@@ -26,9 +26,9 @@ body {
 }
 
 #main + div + div {
-	overflow-y: auto;
+	overflow-y: scroll;
 	overflow-x: hidden;
-	height: 800px;
+	max-height: 800px;
 }
 
 #main-Timeline {
