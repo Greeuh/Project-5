@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, useState } from 'react';
 import axios from 'axios';
 import PostTweet from '../components/PostTweet';
 import TimelineColumn from '../components/TimelineColumn';
