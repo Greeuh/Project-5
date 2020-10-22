@@ -134,14 +134,9 @@ export default class TimelineColumn extends React.Component {
                                             ? <div className="timeline-Tweet-media">
                                                 {result.extended_entities.media[0].type === 'photo'
                                                     ? <img src={result.extended_entities.media[0].media_url_https} alt="" width="150" height="150"></img>
-                                                    // : <video width="150" height="150" controls>
-                                                    //     <source src={result.extended_entities.media[0].video_info.variants[0].url} type="video/mp4"></source>
-                                                    // </video>}
-                                                    : console.log(result.extended_entities.media), 
-                                                    console.log(result.extended_entities.media[0]),
-                                                    console.log(result.extended_entities.media[0]?.video_info),
-                                                    console.log(result.extended_entities.media[0]?.video_info?.variants),
-                                                    console.log(result.extended_entities.media[0]?.video_info?.variants[0])}
+                                                    : <video width="150" height="150" controls>
+                                                        <source src={result.extended_entities.media[0]?.video_info?.variants[0]?.url} type="video/mp4"></source>
+                                                    </video>}
                                             </div>
                                             : ''
                                         }
