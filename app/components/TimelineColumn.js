@@ -139,9 +139,9 @@ export default class TimelineColumn extends React.Component {
                                                     // </video>}
                                                     : console.log(result.extended_entities.media), 
                                                     console.log(result.extended_entities.media[0]),
-                                                    console.log(result.extended_entities.media[0].video_info),
-                                                    console.log(result.extended_entities.media[0].video_info.variants),
-                                                    console.log(result.extended_entities.media[0].video_info.variants[0])}
+                                                    console.log(result.extended_entities.media[0]?.video_info),
+                                                    console.log(result.extended_entities.media[0]?.video_info?.variants),
+                                                    console.log(result.extended_entities.media[0]?.video_info?.variants[0])}
                                             </div>
                                             : ''
                                         }
