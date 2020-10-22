@@ -1,12 +1,9 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
 import PostTweet from '../components/PostTweet';
 import TimelineColumn from '../components/TimelineColumn';
 import DmTimeline from '../components/DmTimeline';
 import QueryUser from '../components/QueryUser';
-import { ThemeProvider } from 'styled-components';
-import { lightTheme, darkTheme } from '../theme.js';
-import { GlobalStyles } from '../global.js';
 
 class App extends Component {
   constructor(props) {
@@ -152,57 +149,41 @@ class App extends Component {
     this.setState({ queriedUser: queriedUserUpdated });
   }
 
-  toggleTheme = () => {
-    if (theme === 'light') {
-      setTheme('dark');
-    } else {
-      setTheme('light');
-    }
-  }
-
 
   render() {
-    const [theme, setTheme] = useState('light');
 
     if (this.state.userIsLog) {
       return (
-        <ThemeProvider theme={theme === 'light' ? lightTheme : darkTheme}>
-          <div className="App" id="main">
-            <>
-              <GlobalStyles />
-              <button onClick={this.toggleTheme}>Toggle theme</button>
-              <h1>It's a light theme!</h1>
-            </>
-
-            <div id="postTweet">
-              <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery} logOut={this.disconnectUser} />
-            </div>
-
-            <div id="main-Timeline">
-              <TimelineColumn data={this.state.homeT} refreshT={this.refreshTimeline} title='Home' />
-            </div>
-
-            <div id="userowntweets">
-              <TimelineColumn data={this.state.userLogT} refreshT={this.refreshTimeline} title='Owned Tweets' ownedT='true' />
-            </div>
-
-            <div id="mentions-Timeline">
-              <TimelineColumn data={this.state.mentionsT} refreshT={this.refreshTimeline} title='Mentions' />
-            </div>
-
-            <div id="dm-Timeline">
-              <DmTimeline data={this.state.directMessage} />
-            </div>
-
-            {this.state.queriedUser.map(result =>
-              <div key={result} id="queryuser-Timeline">
-                <QueryUser user={result} key={result} title={'@' + result} deleteCol={() => this.delUserQuery(result)} updateUserQuery={this.updateUserQuery} />
-              </div>)
-            }
-
-
+        <div className="App" id="main">
+          
+          <div id="postTweet">
+            <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery} logOut={this.disconnectUser} />
           </div>
-        </ThemeProvider>
+
+          <div id="main-Timeline">
+            <TimelineColumn data={this.state.homeT} refreshT={this.refreshTimeline} title='Home'/>
+          </div>
+
+          <div id="userowntweets">
+            <TimelineColumn data={this.state.userLogT} refreshT={this.refreshTimeline} title='Owned Tweets' ownedT='true' />
+          </div>
+
+          <div id="mentions-Timeline">
+            <TimelineColumn data={this.state.mentionsT} refreshT={this.refreshTimeline} title='Mentions' />
+          </div>
+
+          <div id="dm-Timeline">
+            <DmTimeline data={this.state.directMessage} />
+          </div>
+
+          {this.state.queriedUser.map(result =>
+            <div key={result} id="queryuser-Timeline">
+              <QueryUser user={result} key={result} title={'@'+result} deleteCol={() => this.delUserQuery(result)} updateUserQuery={this.updateUserQuery} />
+            </div>)
+          }
+
+
+        </div>
       );
     } else {
       return <p>Vérification si l'utilisateur est authentifié...</p>
