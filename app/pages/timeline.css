@@ -25,7 +25,7 @@ body {
 	flex-direction: row;
 }
 
-#main + div + div {
+#main + div {
 	overflow-y: scroll;
 	overflow-x: hidden;
 	max-height: 800px;
