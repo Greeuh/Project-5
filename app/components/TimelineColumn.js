@@ -130,16 +130,16 @@ export default class TimelineColumn extends React.Component {
                                                 <span className="TweetAuthor-screenName">@{result.user.screen_name}</span></div>
                                         </div>
                                         <div className="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.full_text }} />
-                                        {/* {result.extended_entities && result.extended_entities.media
+                                        {result.extended_entities && result.extended_entities.media
                                             ? <div className="timeline-Tweet-media">
-                                                {result.extended_entities.media.type === 'video' || 'animated_gif'
-                                                    ? <video width="150" height="150" controls>
+                                                {result.extended_entities.media.type === 'photo'
+                                                    ? <img src={result.extended_entities.media.media_url_https} alt={dangerouslySetInnerHTML = { __html: result.full_text }} width="150" height="150"></img>
+                                                    : <video width="150" height="150" controls>
                                                         <source src={result.extended_entities.media[0].video_info.variants[0].url} type="video/mp4"></source>
-                                                    </video>
-                                                    : <img src={result.extended_entities.media.media_url_https} alt={dangerouslySetInnerHTML = { __html: result.full_text }} width="150" height="150"></img>}
+                                                    </video>}
                                             </div>
                                             : ''
-                                        } */}
+                                        }
                                         <div className="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span className="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
                                         <ul className="timeline-Tweet-actions">
                                             <li className="timeline-Tweet-action"> {result.favorited
