@@ -18,8 +18,7 @@
 }
 
 #main div {
-	overflow: auto;
-	width: 500px;
+	overflow-y: auto;
 }
 
 #main-Timeline {
