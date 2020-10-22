@@ -17,8 +17,8 @@
 	flex-direction: row;
 }
 
-#main div {
-	overflow-x: auto;
+#main + div {
+	overflow-y: auto;
 }
 
 #main-Timeline {
