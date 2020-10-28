@@ -56,6 +56,16 @@ body {
 	justify-content: space-between;
 }
 
+.timeline-Tweet-media img {
+	max-width: 490px;
+	max-height: 200px;
+}
+
+.timeline-Tweet-media video {
+	max-width: 490px;
+	max-height: 200px;
+}
+
 .timeline {
 	height: 100%;
 	display: inline-block;
