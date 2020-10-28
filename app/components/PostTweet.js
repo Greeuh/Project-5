@@ -64,11 +64,10 @@ export default class PostTweet extends React.Component {
     render() {
         return (
             <>
-                <div id="timeline-posttweet">
+                <div id="timeline-posttweet" className="border-right border-light">
                     <div>
                         <Form
                             onSubmit={this.handleSubmit}
-                            style={{ width: 242 }}
                         >
                             <Form.Control
                                 id="basic-url"
@@ -84,12 +83,19 @@ export default class PostTweet extends React.Component {
                             >
                                 Characters Left: {this.state.value.length}/280
                     </Form.Text>
+                            <Button
+                                variant="primary"
+                                size="sm"
+                                onClick={this.handleSubmitUser}
+                                block
+                            >
+                                Send your tweet
+                            </Button>
                         </Form>
                     </div>
                     <div>
                         <Form
                             onSubmit={this.handleSubmitUser}
-                            style={{ width: 242 }}
                         >
                             <InputGroup>
                                 <InputGroup.Prepend>
@@ -102,6 +108,14 @@ export default class PostTweet extends React.Component {
                                     value={this.state.valueUser}
                                     onChange={this.handleChangeUser}
                                 />
+                                <Button
+                                    variant="primary"
+                                    size="sm"
+                                    onClick={this.handleSubmitUser}
+                                    block
+                                >
+                                    Add column
+                                 </Button>
                             </InputGroup>
                         </Form>
 
