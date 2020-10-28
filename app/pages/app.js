@@ -155,7 +155,7 @@ class App extends Component {
     if (this.state.userIsLog) {
       return (
         <div id="main">
-          <div id="content" className="scrollbar-style">
+          <div id="content" className="scrollbar-style-x">
             <div id="board-container">
               <section id="board">
 

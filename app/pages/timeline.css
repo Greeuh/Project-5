@@ -109,6 +109,23 @@ body {
 	background-color: #555;
 }
 
+.scrollbar-style-x::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+.scrollbar-style-x::-webkit-scrollbar
+{
+	height: 12px;
+	background-color: #F5F5F5;
+}
+
+.scrollbar-style-x::-webkit-scrollbar-thumb
+{
+	background-color: rgb(130, 130, 130);
+}
+
 .Avatar {
 	width: 32px;
 	height: 32px;
