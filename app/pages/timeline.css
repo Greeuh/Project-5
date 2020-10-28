@@ -46,13 +46,13 @@ body {
 }
 
 #board {
-	display:flex;
+	display: flex;
 }
 
 #timeline-posttweet {
 	width: 300px;
-    display: flex;
-    flex-direction: column;
+	display: flex;
+	flex-direction: column;
 	justify-content: space-between;
 }
 
@@ -80,6 +80,12 @@ body {
 	font: 14px/1.4 Roboto, Helvetica, Arial, Tahoma, sans-serif;
 	font-weight: 300;
 	color: #292F33;
+	border-bottom-color: #667580;
+	border-bottom-style: solid;
+	border-bottom-width: 1px;
+	border-top-color: #667580;
+	border-top-style: solid;
+	border-top-width: 1px;
 }
 
 .Avatar {

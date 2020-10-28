@@ -86,7 +86,7 @@ export default class PostTweet extends React.Component {
                             <Button
                                 variant="primary"
                                 size="sm"
-                                onClick={this.handleSubmitUser}
+                                onClick={this.handleSubmit}
                                 block
                             >
                                 Send your tweet
