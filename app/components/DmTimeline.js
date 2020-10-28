@@ -15,7 +15,7 @@ export default class DmTimeline extends React.Component {
     render() {
         const { open } = this.state;
         if (this.props.data) {
-            return <div className="timeline"><h2 className="timeline-header">DM</h2><div className="text-center"><Button
+            return <div className="timeline scrollbar-style"><h2 className="timeline-header">DM</h2><div className="text-center"><Button
                 onClick={() => this.setState({ open: !open })}
                 aria-controls="fade-dm-tl"
                 aria-expanded={open}

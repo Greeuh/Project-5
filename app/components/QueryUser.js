@@ -108,7 +108,7 @@ export default class QueryUser extends React.Component {
             <React.Fragment>
 
                 {this.state.queryUserT ?
-                    <div className="timeline">
+                    <div className="timeline scrollbar-style">
 
                         <DropdownButton
                             className="ml-2"
