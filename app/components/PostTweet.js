@@ -64,61 +64,63 @@ export default class PostTweet extends React.Component {
     render() {
         return (
             <>
-                <div className="timeline">
-                    <Form
-                        onSubmit={this.handleSubmit}
-                        style={{ width: 242 }}
-                    >
-                        <Form.Control
-                            id="basic-url"
-                            aria-describedby="tweet-something"
-                            placeholder="Tweet something here !"
-                            maxLength="280"
-                            value={this.state.value}
-                            onChange={this.handleChange}
-                        />
-                        <Form.Text
-                            id="tweet-something"
-                            muted
+                <div className="timeline-posttweet">
+                    <div>
+                        <Form
+                            onSubmit={this.handleSubmit}
+                            style={{ width: 242 }}
                         >
-                            Characters Left: {this.state.value.length}/280
-                    </Form.Text>
-                    </Form>
-
-                    <br></br><br></br><br></br>
-
-                    <Form
-                        onSubmit={this.handleSubmitUser}
-                        style={{ width: 242 }}
-                    >
-                        <InputGroup>
-                            <InputGroup.Prepend>
-                                <InputGroup.Text id="searchuser">@</InputGroup.Text>
-                            </InputGroup.Prepend>
                             <Form.Control
-                                placeholder="Search user"
-                                aria-label="searchuser"
-                                aria-describedby="searchuser"
-                                value={this.state.valueUser}
-                                onChange={this.handleChangeUser}
+                                id="basic-url"
+                                aria-describedby="tweet-something"
+                                placeholder="Tweet something here !"
+                                maxLength="280"
+                                value={this.state.value}
+                                onChange={this.handleChange}
                             />
-                        </InputGroup>
-                    </Form>
+                            <Form.Text
+                                id="tweet-something"
+                                muted
+                            >
+                                Characters Left: {this.state.value.length}/280
+                    </Form.Text>
+                        </Form>
+                    </div>
+                    <div>
+                        <Form
+                            onSubmit={this.handleSubmitUser}
+                            style={{ width: 242 }}
+                        >
+                            <InputGroup>
+                                <InputGroup.Prepend>
+                                    <InputGroup.Text id="searchuser">@</InputGroup.Text>
+                                </InputGroup.Prepend>
+                                <Form.Control
+                                    placeholder="Search user"
+                                    aria-label="searchuser"
+                                    aria-describedby="searchuser"
+                                    value={this.state.valueUser}
+                                    onChange={this.handleChangeUser}
+                                />
+                            </InputGroup>
+                        </Form>
 
-                    <Alert variant='danger' show={this.state.visible} onClose={() => this.setState({ visible: false })} dismissible>
-                        User not found.
-                </Alert>
+                        <Alert variant='danger' show={this.state.visible} onClose={() => this.setState({ visible: false })} dismissible>
+                            User not found.
+                        </Alert>
 
-                    <br></br><br></br><br></br>
+                    </div>
+                    <div>
 
-                    <Button
-                        variant="dark"
-                        size="lg"
-                        onClick={this.handleClickLogOut}
-                        block
-                    >
-                        Disconnect
+                        <Button
+                            variant="dark"
+                            size="lg"
+                            onClick={this.handleClickLogOut}
+                            block
+                        >
+                            Disconnect
                 </Button>
+                    </div>
                 </div>
             </>
         )

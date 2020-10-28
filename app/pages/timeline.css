@@ -49,12 +49,21 @@ body {
 	display:flex;
 }
 
+#timeline-posttweet {
+	width: 300px;
+    display: flex;
+    flex-direction: column;
+	justify-content: space-between;
+	border-right: indigo;
+}
+
 .timeline {
 	height: 100%;
 	display: inline-block;
 	vertical-align: top;
-	width: 500px;
+	width: 515px;
 	overflow-y: scroll;
+	overflow-x: hidden;
 	float: left;
 	-webkit-transition: background 0.3s linear;
 	-moz-transition: background 0.3s linear;
