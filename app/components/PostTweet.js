@@ -64,7 +64,7 @@ export default class PostTweet extends React.Component {
     render() {
         return (
             <>
-                <div className="timeline-posttweet">
+                <div id="timeline-posttweet">
                     <div>
                         <Form
                             onSubmit={this.handleSubmit}
