@@ -154,35 +154,29 @@ class App extends Component {
 
     if (this.state.userIsLog) {
       return (
-        <div className="App" id="main">
-          
-          <div id="postTweet">
-            <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery} logOut={this.disconnectUser} />
+        <div id="main">
+          <div id="content">
+            <div id="board-container">
+              <section id="board">
+
+                <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery} logOut={this.disconnectUser} />
+
+                <TimelineColumn data={this.state.homeT} refreshT={this.refreshTimeline} title='Home' />
+
+                <TimelineColumn data={this.state.userLogT} refreshT={this.refreshTimeline} title='Own Tweets' ownedT='true' />
+
+                <TimelineColumn data={this.state.mentionsT} refreshT={this.refreshTimeline} title='Mentions' />
+
+                <DmTimeline data={this.state.directMessage} />
+
+                {this.state.queriedUser.map(result =>
+                  <QueryUser user={result} key={result} title={'@' + result} deleteCol={() => this.delUserQuery(result)} updateUserQuery={this.updateUserQuery} />
+                )
+                }
+
+              </section>
+            </div>
           </div>
-
-          <div id="main-Timeline">
-            <TimelineColumn data={this.state.homeT} refreshT={this.refreshTimeline} title='Home'/>
-          </div>
-
-          <div id="userowntweets">
-            <TimelineColumn data={this.state.userLogT} refreshT={this.refreshTimeline} title='Own Tweets' ownedT='true' />
-          </div>
-
-          <div id="mentions-Timeline">
-            <TimelineColumn data={this.state.mentionsT} refreshT={this.refreshTimeline} title='Mentions' />
-          </div>
-
-          <div id="dm-Timeline">
-            <DmTimeline data={this.state.directMessage} />
-          </div>
-
-          {this.state.queriedUser.map(result =>
-            <div key={result} id="queryuser-Timeline">
-              <QueryUser user={result} key={result} title={'@'+result} deleteCol={() => this.delUserQuery(result)} updateUserQuery={this.updateUserQuery} />
-            </div>)
-          }
-
-
         </div>
       );
     } else {
