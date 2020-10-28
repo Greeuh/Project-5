@@ -70,7 +70,7 @@ export default class TimelineColumn extends React.Component {
 
     render() {
         if (this.props.data) {
-            return <div className="timeline">
+            return <div className="timeline scrollbar-style">
                 <h2 className="timeline-header">{this.props.title}</h2>
                 {
                     this.props.data.map(result =>
