@@ -118,7 +118,7 @@ export default class QueryUser extends React.Component {
                             drop="right"
                             size="sm"
                             variant="secondary"
-                            title={'Option '+this.props.title}
+                            title={'Option ' + this.props.title}
                         >
                             <Dropdown.Item onClick={this.handleDeleteCol}>Delete</Dropdown.Item>
                         </DropdownButton>
@@ -144,6 +144,16 @@ export default class QueryUser extends React.Component {
                                                         <span className="TweetAuthor-screenName">@{result.retweeted_status.user.screen_name} </span></div>
                                                 </div>
                                                 <div className="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.retweeted_status.full_text }} />
+                                                {result.retweeted_status.extended_entities?.media
+                                                    ? <div className="timeline-Tweet-media timeline-header">
+                                                        {result.retweeted_status.extended_entities.media[0].type != 'video'
+                                                            ? <img src={result.retweeted_status.extended_entities.media[0].media_url_https} alt=""></img>
+                                                            : <video controls>
+                                                                <source src={result.retweeted_status.extended_entities.media[0]?.video_info?.variants[0]?.url} type="video/mp4"></source>
+                                                            </video>}
+                                                    </div>
+                                                    : ''
+                                                }
                                                 <div className="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span className="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
                                                 <ul className="timeline-Tweet-actions">
                                                     <li className="timeline-Tweet-action"> {result.favorited
@@ -171,6 +181,16 @@ export default class QueryUser extends React.Component {
                                                         <span className="TweetAuthor-screenName">@{result.user.screen_name}</span></div>
                                                 </div>
                                                 <div className="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.full_text }} />
+                                                {result.extended_entities?.media
+                                                    ? <div className="timeline-Tweet-media timeline-header">
+                                                        {result.extended_entities.media[0].type != 'video'
+                                                            ? <img src={result.extended_entities.media[0].media_url_https} alt=""></img>
+                                                            : <video controls>
+                                                                <source src={result.extended_entities.media[0]?.video_info?.variants[0]?.url} type="video/mp4"></source>
+                                                            </video>}
+                                                    </div>
+                                                    : ''
+                                                }
                                                 <div className="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span className="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
                                                 <ul className="timeline-Tweet-actions">
                                                     <li className="timeline-Tweet-action"> {result.favorited
