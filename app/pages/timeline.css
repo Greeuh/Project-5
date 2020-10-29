@@ -57,12 +57,12 @@ body {
 }
 
 .timeline-Tweet-media img {
-	max-width: 490px;
+	max-width: 480px;
 	max-height: 200px;
 }
 
 .timeline-Tweet-media video {
-	max-width: 490px;
+	max-width: 480px;
 	max-height: 200px;
 }
 
