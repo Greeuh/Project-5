@@ -93,16 +93,16 @@ export default class TimelineColumn extends React.Component {
                                                 <span className="TweetAuthor-screenName">@{result.retweeted_status.user.screen_name} </span></div>
                                         </div>
                                         <div className="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.retweeted_status.full_text }} />
-                                        {/* {result.retweeted_status.extended_entities && result.retweeted_status.extended_entities.media
-                                            ? <div className="timeline-Tweet-media">
-                                                {result.retweeted_status.extended_entities.media.type === 'photo'
-                                                    ? <img src={result.retweeted_status.extended_entities.media.media_url_https} alt={dangerouslySetInnerHTML = { __html: result.retweeted_status.full_text }} width="150" height="150"></img>
-                                                    : <video width="150" height="150" controls>
-                                                        <source src={result.retweeted_status.extended_entities.media[0].video_info.variants[0].url} type="video/mp4"></source>
+                                        {result.retweeted_status.extended_entities?.media
+                                            ? <div className="timeline-Tweet-media timeline-header">
+                                                {result.retweeted_status.extended_entities.media[0].type != 'video'
+                                                    ? <img src={result.retweeted_status.extended_entities.media[0].media_url_https} alt=""></img>
+                                                    : <video controls>
+                                                        <source src={result.retweeted_status.extended_entities.media[0]?.video_info?.variants[0]?.url} type="video/mp4"></source>
                                                     </video>}
                                             </div>
                                             : ''
-                                        } */}
+                                        }
                                         <div className="timeline-Tweet-metadata"><a href={'https://twitter.com/' + result.user.screen_name + '/status/' + result.id_str}><span className="timeline-Tweet-timestamp">{result.created_at}</span></a></div>
                                         <ul className="timeline-Tweet-actions">
                                             <li className="timeline-Tweet-action"> {result.favorited
