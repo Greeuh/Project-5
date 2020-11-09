@@ -3,9 +3,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Login() {
     return (
-        <div class="container">
-            <div class="center">
-                <a id="twitter-button" class="btn btn-block btn-social btn-twitter" href="https://projet5ocr.antoineparriaud.fr/twitter/login">
+        <div className="container">
+            <div className="center">
+                <a id="twitter-button" className="btn btn-block btn-social btn-twitter" href="https://projet5ocr.antoineparriaud.fr/twitter/login">
                 <FontAwesomeIcon icon={faTwitter} /> Sign in with Twitter
                 </a>
             </div>

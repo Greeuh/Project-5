@@ -15,7 +15,7 @@ use App\User;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return Redirect::to('https://projet5ocr.antoineparriaud.fr:3000/login');
 });
 
 Route::get('twitter/login', ['as' => 'twitter.login', function(){
