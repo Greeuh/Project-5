@@ -8,62 +8,50 @@ export default class TimelineColumn extends React.Component {
 
     handlePostFav = param => event => {
         event.preventDefault();
-        console.log(param);
         axios.post('https://projet5ocr.antoineparriaud.fr/api/postFavorite', {
             id: param,
         })
             .then(response => {
-                console.log(response);
                 this.props.refreshT();
             })
             .catch(error => {
-                console.log(error);
             });
     }
 
     handleDestroyFav = param => event => {
         event.preventDefault();
-        console.log(param);
         axios.post('https://projet5ocr.antoineparriaud.fr/api/destroyFavorite', {
             id: param,
         })
             .then(response => {
-                console.log(response);
                 this.props.refreshT();
             })
             .catch(error => {
-                console.log(error);
             });
     }
 
     handlePostRetweet = param => event => {
         event.preventDefault();
-        console.log(param);
         axios.post('https://projet5ocr.antoineparriaud.fr/api/postRetweet', {
             id: param,
         })
             .then(response => {
-                console.log(response);
                 this.props.refreshT();
             })
             .catch(error => {
-                console.log(error);
                 this.props.refreshT();
             });
     }
 
     handleDestroyTweet = param => event => {
         event.preventDefault();
-        console.log(param);
         axios.post('https://projet5ocr.antoineparriaud.fr/api/destroyTweet', {
             id: param,
         })
             .then(response => {
-                console.log(response);
                 this.props.refreshT();
             })
             .catch(error => {
-                console.log(error);
                 this.props.refreshT();
             });
     }

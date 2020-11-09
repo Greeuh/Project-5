@@ -28,11 +28,9 @@ export default class PostTweet extends React.Component {
             status: this.state.value
         })
             .then(response => {
-                console.log(response);
                 this.props.refreshT();
             })
             .catch(error => {
-                console.log(error);
             });
     }
 
@@ -42,17 +40,14 @@ export default class PostTweet extends React.Component {
 
     handleSubmitUser(event) {
         event.preventDefault();
-
         axios.post('https://projet5ocr.antoineparriaud.fr/api/checkIfUserExist', {
             screen_name: this.state.valueUser
         })
             .then(response => {
-                console.log(response);
                 this.props.addUser(this.state.valueUser);
                 this.setState({ valueUser: '' });
             })
             .catch(error => {
-                console.log(error);
                 this.setState({ visible: true })
             });
     }
