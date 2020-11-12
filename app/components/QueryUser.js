@@ -136,7 +136,9 @@ export default class QueryUser extends React.Component {
                                                         {result.retweeted_status.extended_entities.media[0].type != 'video'
                                                             ? <a href={result.retweeted_status.extended_entities.media[0].media_url_https} target="_blank"><img src={result.retweeted_status.extended_entities.media[0].media_url_https} alt=""></img></a>
                                                             : <video controls>
-                                                                <source src={result.retweeted_status.extended_entities.media[0]?.video_info?.variants[0]?.url} type="video/mp4"></source>
+                                                                <source src={result.retweeted_status.extended_entities.media[0]?.video_info?.variants[0]?.bitrate
+                                                                ? result.retweeted_status.extended_entities.media[0]?.video_info?.variants[0]?.url
+                                                                : result.retweeted_status.extended_entities.media[0]?.video_info?.variants[0]?.url} type="video/mp4"></source>
                                                             </video>}
                                                     </div>
                                                     : ''
@@ -173,7 +175,9 @@ export default class QueryUser extends React.Component {
                                                         {result.extended_entities.media[0].type != 'video'
                                                             ? <a href={result.extended_entities.media[0].media_url_https} target="_blank"><img src={result.extended_entities.media[0].media_url_https} alt=""></img></a>
                                                             : <video controls>
-                                                                <source src={result.extended_entities.media[0]?.video_info?.variants[0]?.url} type="video/mp4"></source>
+                                                                <source src={result.extended_entities.media[0]?.video_info?.variants[0]?.bitrate
+                                                                ? result.extended_entities.media[0]?.video_info?.variants[0]?.url
+                                                                : result.extended_entities.media[0]?.video_info?.variants[0]?.url} type="video/mp4"></source>
                                                             </video>}
                                                     </div>
                                                     : ''
