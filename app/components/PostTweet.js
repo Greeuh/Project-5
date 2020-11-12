@@ -29,6 +29,7 @@ export default class PostTweet extends React.Component {
         })
             .then(response => {
                 this.props.refreshT();
+                this.setState({ value: '' });
             })
             .catch(error => {
             });
