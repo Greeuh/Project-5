@@ -84,7 +84,7 @@ export default class TimelineColumn extends React.Component {
                                         {result.retweeted_status.extended_entities?.media
                                             ? <div className="timeline-Tweet-media timeline-header">
                                                 {result.retweeted_status.extended_entities.media[0].type != 'video'
-                                                    ? <img src={result.retweeted_status.extended_entities.media[0].media_url_https} alt=""></img>
+                                                    ? <a href={result.retweeted_status.extended_entities.media[0].media_url_https}><img src={result.retweeted_status.extended_entities.media[0].media_url_https} alt=""></img></a>
                                                     : <video controls>
                                                         <source src={result.retweeted_status.extended_entities.media[0]?.video_info?.variants[0]?.url} type="video/mp4"></source>
                                                     </video>}
@@ -121,7 +121,7 @@ export default class TimelineColumn extends React.Component {
                                         {result.extended_entities?.media
                                             ? <div className="timeline-Tweet-media timeline-header">
                                                 {result.extended_entities.media[0].type != 'video'
-                                                    ? <img src={result.extended_entities.media[0].media_url_https} alt=""></img>
+                                                    ? <a href={result.extended_entities.media[0].media_url_https}><img src={result.extended_entities.media[0].media_url_https} alt=""></img></a>
                                                     : <video controls>
                                                         <source src={result.extended_entities.media[0]?.video_info?.variants[0]?.url} type="video/mp4"></source>
                                                     </video>}
