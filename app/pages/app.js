@@ -171,7 +171,7 @@ class App extends Component {
         </div>
       );
     } else {
-      return <p>Vérification si l'utilisateur est authentifié...</p>
+      return <p className="center">Checking if the user is authenticated...</p>
     }
   }
 }
