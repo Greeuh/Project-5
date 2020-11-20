@@ -69,7 +69,6 @@ export default class QueryUser extends React.Component {
                 this.props.refreshT();
             })
             .catch(error => {
-                this.props.refreshT();
             });
     }
 
@@ -82,7 +81,6 @@ export default class QueryUser extends React.Component {
                 this.props.refreshT();
             })
             .catch(error => {
-                this.props.refreshT();
             });
     }
 
