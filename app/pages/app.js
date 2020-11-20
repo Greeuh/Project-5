@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Head from 'next';
 import axios from 'axios';
 import PostTweet from '../components/PostTweet';
 import TimelineColumn from '../components/TimelineColumn';
@@ -146,6 +147,10 @@ class App extends Component {
     if (this.state.userIsLog) {
       return (
         <div id="main">
+          <Head>
+            <title>Project 5 : Tweetdeck</title>
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+          </Head>
           <div id="content" className="scrollbar-style-x">
             <div id="board-container">
               <section id="board">
