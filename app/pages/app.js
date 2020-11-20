@@ -143,16 +143,16 @@ class App extends Component {
 
 
   render() {
-    <Head>
-      <title>Project 5 : Tweetdeck</title>
-      <meta name="viewport" content="initial-scale=1.0, width=device-width" />
-    </Head>
     if (this.state.userIsLog) {
       return (
         <div id="main">
           <div id="content" className="scrollbar-style-x">
             <div id="board-container">
               <section id="board">
+                <Head>
+                  <title>Project 5 : Tweetdeck</title>
+                  <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+                </Head>
 
                 <PostTweet refreshT={this.refreshTimeline} addUser={this.newUserQuery} logOut={this.disconnectUser} />
 
