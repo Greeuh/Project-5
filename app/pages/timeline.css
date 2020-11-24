@@ -47,10 +47,12 @@ body {
 
 #board {
 	display: flex;
+	margin-left: 300px;
 }
 
 #timeline-posttweet {
 	width: 300px;
+	position: sticky;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -136,6 +138,7 @@ body {
 
 .timeline-header {
 	text-align: center;
+	position: sticky;
 }
 
 .timeline-TweetList-tweet {
