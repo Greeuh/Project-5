@@ -4,7 +4,6 @@ export default function Login() {
     return (
         <div>
             <Head>
-                <meta charset="UTF-8" />
                 <title>Login : Application Twitter</title>
                 <meta property="og:title" content="Application Twitter" key="title" />
                 <meta name="viewport" content="initial-scale=1.0, width=device-width" />
