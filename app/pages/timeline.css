@@ -314,20 +314,20 @@ a {
 	top: calc(50% - 15px);
 	left: calc(50% - 15px);
 	transform: rotate(-45deg);
-	fill: #2ecc71;
+	fill: #2e46cc;
 	transition: all .35s;
 }
 
 a:hover {
 	width: 200px;
-	border: 3px solid #2ecc71;
+	border: 3px solid #2e46cc;
 	background: transparent;
-	color: #2ecc71;
+	color: #2e46cc;
 }
 
 a:hover+.icon {
-	border: 3px solid #2ecc71;
-	right: -25%;
+	border: 3px solid #2e46cc;
+	right: 25%;
 }
 
 .Icon {
