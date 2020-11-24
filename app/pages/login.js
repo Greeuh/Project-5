@@ -14,7 +14,7 @@ export default function Login() {
             </Head>
 
             <div className="wrap">
-                <form method="get" action="https://projet5ocr.antoineparriaud.fr/twitter/login">
+                <form method="get" action="https://projet5ocr.antoineparriaud.fr/twitter/login" className="wrap">
                     <button type="submit" className="button">Sign in with Twitter</button>
                 </form>
             </div>
