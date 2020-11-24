@@ -1,5 +1,3 @@
-import { faTwitter } from "@fortawesome/free-brands-svg-icons";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Head from 'next/head';
 
 export default function Login() {
@@ -15,7 +13,7 @@ export default function Login() {
                 <meta name="author" content="Antoine Parriaud" />
             </Head>
             <div class="wrap">
-                <button class="button">
+                <button class="button" href="https://projet5ocr.antoineparriaud.fr/twitter/login">
                     Sign in with Twitter
                 </button>
             </div>
