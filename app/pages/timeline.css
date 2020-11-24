@@ -419,6 +419,45 @@ body {
 			opacity: 0;
 		}
 	}
+
+	.tw-block-parent {
+		width: 300px;
+		font: 14px/1.4 Roboto, Helvetica, Arial, Tahoma, sans-serif;
+		font-weight: 300;
+		color: #292F33;
+		border-bottom-color: #f8f9fa;
+		border-bottom-style: solid;
+		border-bottom-width: 1px;
+		border-top-color: #f8f9fa;
+		border-top-style: solid;
+		border-top-width: 1px;
+	}
+
+	.timeline {
+		height: 100%;
+		display: inline-block;
+		vertical-align: top;
+		width: 306px;
+		overflow-y: scroll;
+		overflow-x: hidden;
+	}
+
+	.timeline-Tweet-media img {
+		max-width: 280px;
+		max-height: 130px;
+	}
+	
+	.timeline-Tweet-media video {
+		max-width: 280px;
+		max-height: 130px;
+	}
+
+	#timeline-posttweet {
+		width: 200px;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+	}
 }
 
 .Icon {
