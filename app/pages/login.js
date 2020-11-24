@@ -22,7 +22,7 @@ export default function Login() {
             <div class="wrap">
                 <button class="button">
                     <FontAwesomeIcon icon={faTwitter} /> Sign in with Twitter
-                    </button>
+                </button>
             </div>
         </div>
     );
