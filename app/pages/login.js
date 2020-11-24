@@ -13,9 +13,11 @@ export default function Login() {
                 <meta name="author" content="Antoine Parriaud" />
             </Head>
             <div className="wrap">
-                <a href="https://projet5ocr.antoineparriaud.fr/twitter/login" className="button">
-                    Sign in with Twitter
-                </a>
+                <button>
+                    <a href="https://projet5ocr.antoineparriaud.fr/twitter/login" className="button">
+                        Sign in with Twitter
+                    </a>
+                </button>
             </div>
         </div>
     );
