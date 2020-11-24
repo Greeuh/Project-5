@@ -82,7 +82,7 @@ export default class TimelineColumn extends React.Component {
                                         </div>
                                         <div className="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.retweeted_status.full_text }} />
                                         {result.retweeted_status.extended_entities?.media
-                                            ? <div className="timeline-Tweet-media timeline-header">
+                                            ? <div className="timeline-Tweet-media timeline-media">
                                                 {result.retweeted_status.extended_entities.media[0].type != 'video'
                                                     ? <a href={result.retweeted_status.extended_entities.media[0].media_url_https} target="_blank"><img src={result.retweeted_status.extended_entities.media[0].media_url_https} alt=""></img></a>
                                                     : <video controls>                                                        
@@ -121,7 +121,7 @@ export default class TimelineColumn extends React.Component {
                                         </div>
                                         <div className="timeline-Tweet-text" dangerouslySetInnerHTML={{ __html: result.full_text }} />
                                         {result.extended_entities?.media
-                                            ? <div className="timeline-Tweet-media timeline-header">
+                                            ? <div className="timeline-Tweet-media timeline-media">
                                                 {result.extended_entities.media[0].type != 'video'
                                                     ? <a href={result.extended_entities.media[0].media_url_https} target="_blank"><img src={result.extended_entities.media[0].media_url_https} alt=""></img></a>
                                                     : <video controls>

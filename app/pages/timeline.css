@@ -148,6 +148,10 @@ body {
 	z-index: 2;
 }
 
+.timeline-media {
+	text-align: center;
+}
+
 .timeline-TweetList-tweet {
 	border-top: 1px solid rgba(15, 70, 100, 0.12);
 }
