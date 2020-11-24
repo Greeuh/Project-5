@@ -12,8 +12,8 @@ export default function Login() {
                 <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
                 <meta name="author" content="Antoine Parriaud" />
             </Head>
-            <div class="wrap">
-                <button class="button" href="https://projet5ocr.antoineparriaud.fr/twitter/login">
+            <div className="wrap" href="https://projet5ocr.antoineparriaud.fr/twitter/login">
+                <button className="button" href="https://projet5ocr.antoineparriaud.fr/twitter/login">
                     Sign in with Twitter
                 </button>
             </div>
