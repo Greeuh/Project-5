@@ -16,6 +16,11 @@ export default function Login() {
                 <button className="button" onclick="location.href='https://projet5ocr.antoineparriaud.fr/twitter/login'" type="button">
                     Sign in with Twitter
                 </button>
+                <form>
+                    <button className="button" formaction="https://projet5ocr.antoineparriaud.fr/twitter/login" type="button">
+                        Sign in with Twitter
+                    </button>
+                </form>
             </div>
         </div>
     );
