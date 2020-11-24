@@ -277,6 +277,8 @@ body {
 }
 
 .button {
+	top: 50%;
+    position: absolute;
 	min-width: 300px;
 	min-height: 60px;
 	font-family: 'Nunito', sans-serif;
