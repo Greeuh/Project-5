@@ -319,7 +319,7 @@ a {
 }
 
 a:hover {
-	width: 200px;
+	width: 250px;
 	border: 3px solid #2e46cc;
 	background: transparent;
 	color: #2e46cc;
@@ -337,7 +337,7 @@ a:hover+.icon {
 	background-repeat: no-repeat;
 	background-size: contain;
 	vertical-align: text-bottom;
-	opacity: 0.6;
+	opacity: 0;
 	-webkit-transition: opacity 0.2s, background-image 0.2s;
 	transition: opacity 0.2s, background-image 0.2s;
 }
