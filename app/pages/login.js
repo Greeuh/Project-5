@@ -19,6 +19,17 @@ export default function Login() {
                     <FontAwesomeIcon icon={faTwitter} /> Sign in with Twitter
                 </a>
             </div>
+            <div class="wrapper">
+                <div class="link_wrapper">
+                    <a href="#">Hover Me!</a>
+                    <div class="icon">
+                        <a id="twitter-button" className="btn btn-block btn-social btn-twitter glow-on-hover" href="https://projet5ocr.antoineparriaud.fr/twitter/login">
+                            <FontAwesomeIcon icon={faTwitter} /> Sign in with Twitter
+                        </a>
+                    </div>
+                </div>
+
+            </div>
         </div>
     );
 }
