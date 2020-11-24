@@ -288,7 +288,7 @@ body {
 
 .wrap .button {
 	top: 50%;
-    position: absolute;
+	position: absolute;
 	min-width: 300px;
 	min-height: 60px;
 	font-family: 'Nunito', sans-serif;
@@ -405,19 +405,36 @@ body {
 		opacity: 0;
 		transition: all .3s ease-in-out 0s;
 	}
+
 	@keyframes ring {
 		0% {
 			width: 30px;
 			height: 30px;
 			opacity: 1;
 		}
-	
+
 		100% {
 			width: 250px;
 			height: 250px;
 			opacity: 0;
 		}
 	}
+}
+
+.Icon {
+	display: inline-block;
+	width: 1em;
+	height: 1.25em;
+	background-repeat: no-repeat;
+	background-size: contain;
+	vertical-align: text-bottom;
+	opacity: 0.6;
+	-webkit-transition: opacity 0.2s, background-image 0.2s;
+	transition: opacity 0.2s, background-image 0.2s;
+}
+
+.Icon:hover {
+	opacity: 1;
 }
 
 .Icon--twitter {
