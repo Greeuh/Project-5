@@ -13,14 +13,9 @@ export default function Login() {
                 <meta name="author" content="Antoine Parriaud" />
             </Head>
             <div className="wrap">
-                <button className="button" onclick="location.href='https://projet5ocr.antoineparriaud.fr/twitter/login'" type="button">
+                <a href="https://projet5ocr.antoineparriaud.fr/twitter/login" className="button">
                     Sign in with Twitter
-                </button>
-                <form>
-                    <button className="button" formaction="https://projet5ocr.antoineparriaud.fr/twitter/login" type="button">
-                        Sign in with Twitter
-                    </button>
-                </form>
+                </a>
             </div>
         </div>
     );
