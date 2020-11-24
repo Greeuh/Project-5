@@ -58,6 +58,8 @@ body {
 
 #timeline-posttweet div {
 	position: sticky;
+	left: 0;
+	top: 1;
 }
 
 .timeline-Tweet-media img {
@@ -81,8 +83,6 @@ body {
 
 #postTweet {
 	width: 242px;
-	position: sticky;
-	left: 0;
 }
 
 .tw-block-parent {
@@ -144,6 +144,8 @@ body {
 	text-align: center;
 	position: sticky;
 	top: 0;
+	background-color: #FFF;
+	z-index: 2;
 }
 
 .timeline-TweetList-tweet {
