@@ -4,6 +4,7 @@ import PostTweet from '../components/PostTweet';
 import TimelineColumn from '../components/TimelineColumn';
 import DmTimeline from '../components/DmTimeline';
 import QueryUser from '../components/QueryUser';
+import Head from 'next/head';
 
 class App extends Component {
   constructor(props) {
@@ -145,6 +146,15 @@ class App extends Component {
     if (this.state.userIsLog) {
       return (
         <div id="main">
+          <Head>
+            <meta charset="UTF-8" />
+            <title>Application Twitter</title>
+            <meta property="og:title" content="Application Twitter" key="title" />
+            <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+            <meta name="description" content="Application for Twitter" />
+            <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
+            <meta name="author" content="Antoine Parriaud" />
+          </Head>
           <div id="content" className="scrollbar-style-x">
             <div id="board-container">
               <section id="board">
@@ -167,7 +177,7 @@ class App extends Component {
               </section>
             </div>
           </div>
-        </div>
+        </div >
       );
     } else {
       return <p className="center">Checking if the user is authenticated...</p>
