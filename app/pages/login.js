@@ -2,7 +2,7 @@ import Head from 'next/head';
 
 export default function Login() {
     return (
-        <div className="container">
+        <div>
             <Head>
                 <meta charset="UTF-8" />
                 <title>Login : Application Twitter</title>
@@ -12,6 +12,7 @@ export default function Login() {
                 <meta name="keywords" content="HTML, CSS, JavaScript, PHP" />
                 <meta name="author" content="Antoine Parriaud" />
             </Head>
+
             <div className="wrap">
                 <form method="get" action="https://projet5ocr.antoineparriaud.fr/twitter/login">
                     <button type="submit" className="button">Sign in with Twitter</button>
