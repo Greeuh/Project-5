@@ -286,7 +286,7 @@ body {
 	justify-content: center;
 }
 
-.button {
+form .button {
 	top: 50%;
     position: absolute;
 	min-width: 300px;
@@ -308,7 +308,7 @@ body {
 	padding: 10px;
 }
 
-button::before {
+form button::before {
 	content: '';
 	border-radius: 1000px;
 	min-width: calc(300px + 12px);
@@ -323,18 +323,18 @@ button::before {
 	transition: all .3s ease-in-out 0s;
 }
 
-.button:hover,
-.button:focus {
+form .button:hover,
+form .button:focus {
 	color: #313133;
 	transform: translateY(-6px);
 }
 
-button:hover::before,
-button:focus::before {
+form button:hover::before,
+form button:focus::before {
 	opacity: 1;
 }
 
-button::after {
+form button::after {
 	content: '';
 	width: 30px;
 	height: 30px;
@@ -348,8 +348,8 @@ button::after {
 	animation: ring 1.5s infinite;
 }
 
-button:hover::after,
-button:focus::after {
+form button:hover::after,
+form button:focus::after {
 	animation: none;
 	display: none;
 }
@@ -369,7 +369,7 @@ button:focus::after {
 }
 
 @media only screen and (max-width: 600px) {
-	.button {
+	form .button {
 		top: 50%;
 		position: absolute;
 		min-width: 250px;
@@ -391,7 +391,7 @@ button:focus::after {
 		padding: 10px;
 	}
 
-	button::before {
+	form button::before {
 		content: '';
 		border-radius: 1000px;
 		min-width: calc(250px + 12px);
