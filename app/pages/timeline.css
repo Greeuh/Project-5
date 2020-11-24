@@ -47,15 +47,17 @@ body {
 
 #board {
 	display: flex;
-	margin-left: 300px;
 }
 
 #timeline-posttweet {
 	width: 300px;
-	position: sticky;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+}
+
+#timeline-posttweet div {
+	position: sticky;
 }
 
 .timeline-Tweet-media img {
@@ -79,6 +81,8 @@ body {
 
 #postTweet {
 	width: 242px;
+	position: sticky;
+	left: 0;
 }
 
 .tw-block-parent {
@@ -139,6 +143,7 @@ body {
 .timeline-header {
 	text-align: center;
 	position: sticky;
+	top: 0;
 }
 
 .timeline-TweetList-tweet {
