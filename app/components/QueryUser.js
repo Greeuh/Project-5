@@ -66,7 +66,7 @@ export default class QueryUser extends React.Component {
             id: param,
         })
             .then(response => {
-                this.props.refreshT();
+                this.refreshThisTimeline();
             })
             .catch(error => {
             });
@@ -78,7 +78,7 @@ export default class QueryUser extends React.Component {
             id: param,
         })
             .then(response => {
-                this.props.refreshT();
+                this.refreshThisTimeline();
             })
             .catch(error => {
             });
