@@ -15,7 +15,7 @@ export default function Login() {
                 <meta name="author" content="Antoine Parriaud" />
             </Head>
             <div className="center">
-                <a id="twitter-button" className="btn btn-block btn-social btn-twitter" href="https://projet5ocr.antoineparriaud.fr/twitter/login">
+                <a id="twitter-button" className="btn btn-block btn-social btn-twitter glow-on-hover" href="https://projet5ocr.antoineparriaud.fr/twitter/login">
                     <FontAwesomeIcon icon={faTwitter} /> Sign in with Twitter
                 </a>
             </div>
