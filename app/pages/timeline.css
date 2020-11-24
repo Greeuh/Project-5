@@ -298,7 +298,7 @@ body {
 	padding: 10px;
 }
 
-.button::before {
+button::before {
 	content: '';
 	border-radius: 1000px;
 	min-width: calc(300px + 12px);
@@ -307,6 +307,7 @@ body {
 	box-shadow: 0 0 60px rgba(0, 255, 203, .64);
 	position: absolute;
 	top: 50%;
+	left: 50%;
 	transform: translate(-50%, -50%);
 	opacity: 0;
 	transition: all .3s ease-in-out 0s;
@@ -318,12 +319,12 @@ body {
 	transform: translateY(-6px);
 }
 
-.button:hover::before,
-.button:focus::before {
+button:hover::before,
+button:focus::before {
 	opacity: 1;
 }
 
-.button::after {
+button::after {
 	content: '';
 	width: 30px;
 	height: 30px;
@@ -337,8 +338,8 @@ body {
 	animation: ring 1.5s infinite;
 }
 
-.button:hover::after,
-.button:focus::after {
+button:hover::after,
+button:focus::after {
 	animation: none;
 	display: none;
 }
