@@ -10,7 +10,7 @@
   "dependencies": {
     "@loadable/babel-plugin": "^5.12.0",
     "@loadable/component": "^5.12.0",
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
     "next": "9.3.5",
     "nookies": "^2.3.1",
